@@ -30,7 +30,6 @@ body{
   line-height:1.55;
 }
 
-/* Layout */
 .wrap{
   width:min(var(--max),calc(100% - 40px));
   margin:auto;
@@ -50,6 +49,8 @@ nav{
   letter-spacing:.20em;
   text-transform:uppercase;
 }
+a{text-decoration:none;color:inherit;}
+
 .btn{
   padding:12px 26px;
   border-radius:999px;
@@ -63,11 +64,10 @@ nav{
   border-color:var(--accent);
   color:white;
 }
-section{
-  padding:60px 0;
-}
 
-/* Hero */
+section{padding:60px 0;}
+
+/* Typography */
 .hero-headline{
   font-family:Fraunces, serif;
   font-size:44px;
@@ -82,10 +82,9 @@ section{
   margin-bottom:26px;
 }
 
-/* Feature grid */
 .features{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:18px;
   margin-top:40px;
 }
@@ -101,7 +100,6 @@ section{
   font-size:15px;
 }
 
-/* Product card */
 .product-card{
   margin-top:40px;
   background:var(--paper);
@@ -120,7 +118,22 @@ section{
   margin-bottom:14px;
 }
 
-/* Footer */
+.story{
+  max-width:700px;
+  font-size:17px;
+  color:var(--muted);
+  margin-top:20px;
+  line-height:1.7;
+}
+
+.support-box{
+  background:var(--paper);
+  padding:24px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  max-width:600px;
+}
+
 footer{
   margin-top:80px;
   padding:40px 0;
@@ -128,6 +141,7 @@ footer{
   color:var(--muted);
   font-size:14px;
 }
+footer a{color:var(--muted);}
 </style>
 </head>
 
@@ -148,30 +162,45 @@ footer{
 <section>
   <h1 class="hero-headline">The perfect fit for European beds.</h1>
   <p class="hero-text">
-    One essential, done properly — a crisp 300TC organic percale fitted sheet
-    designed to stay put, breathe through the night, and bring hotel-like
-    freshness to your home.
+    A crisp 300TC organic percale fitted sheet designed to stay put, breathe
+    through the night, and bring hotel-like comfort into real homes.
   </p>
   <a href="#shop" class="btn btn-solid">Shop Queen Size</a>
 
   <div class="features">
     <div class="feature-box">
       <div class="feature-title">100% Organic Cotton</div>
-      Breathable long-staple cotton sourced responsibly. Naturally cool.
+      Breathable long-staple cotton sourced responsibly in South India.
     </div>
     <div class="feature-box">
       <div class="feature-title">300TC Percale</div>
-      Crisp, matte, and airy — the signature European percale feel.
+      Cool, crisp, matte. The classic European percale character.
     </div>
     <div class="feature-box">
       <div class="feature-title">Deep 35cm Pocket</div>
-      Secure fit for EU queen mattresses (160×200×35 cm).
+      Secure hold for EU queen mattresses (160×200×35 cm).
     </div>
     <div class="feature-box">
       <div class="feature-title">OEKO-TEX® Certified</div>
-      Fabric tested and certified safe for direct skin contact.
+      Materials tested safe for your home and skin.
     </div>
   </div>
+</section>
+
+<!-- STORY SECTION -->
+<section id="story">
+  <h2 class="product-title">Our Story</h2>
+  <p class="story">
+    ZELYN began with a simple idea — essential bedding, done properly.
+    Growing up around the mills of South India, we knew the craftsmanship,
+    heritage, and care woven into every metre of cotton. Yet, most bedding
+    in Europe felt over-priced or over-designed.
+    <br><br>
+    So we focused on one essential: the fitted sheet. A sheet that sits
+    neatly, feels naturally cool, holds its shape, and lasts beyond seasons.
+    No unnecessary extras. No inflated markups. Just honest quality from
+    mills that have perfected cotton for generations.
+  </p>
 </section>
 
 <!-- SHOP SECTION -->
@@ -182,10 +211,30 @@ footer{
   <div class="product-card">
     <div class="price">€29.00</div>
     <p style="color:var(--muted); margin-bottom:20px;">
-      Designed for modern European homes — durable stitching, structured
-      percale weave, and a long-lasting hold.
+      A hotel-crisp percale sheet tailored for modern European homes.
+      Breathable, structured, and exceptionally comfortable.
     </p>
     <button class="btn btn-solid">Add to Cart</button>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+  <h2 class="product-title">Customer Support</h2>
+  <div class="support-box">
+    <p style="margin-bottom:10px;">
+      Need help with sizing, shipping, or wholesale?
+    </p>
+    <p>
+      Email us anytime:
+      <br>
+      <strong>support@zelynhome.com</strong>
+    </p>
+    <p style="margin-top:14px;">
+      Instagram:
+      <br>
+      <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a>
+    </p>
   </div>
 </section>
 
@@ -193,6 +242,7 @@ footer{
 
 <footer class="wrap">
   © ZELYN — Thoughtfully made bedding for modern European homes.
+  <br> Crafted in South India. Designed for Europe.
 </footer>
 
 </body>
