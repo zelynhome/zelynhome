@@ -1,93 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZELYN</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ZELYN — Organic Percale Bedding</title>
+  <meta name="description" content="Premium organic cotton percale fitted sheets designed for European beds. Join the waitlist for launch access and pricing."/>
+  <meta property="og:title" content="ZELYN Organic Percale Fitted Sheets"/>
+  <meta property="og:description" content="Quiet, breathable percale bedding designed for modern European homes. Join our launch waitlist."/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80"/>
+  <meta property="og:url" content="https://zelynhome.com"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #6b6b6b;
+    :root{
+      --bg:#fbfbfa;
+      --ink:#0f0f10;
+      --muted:#6b7077;
+      --line:rgba(15,15,16,.12);
+      --card:rgba(255,255,255,.72);
+      --shadow:0 18px 55px rgba(0,0,0,.08);
+      --r:22px;
+      --r2:28px;
+      --max:1120px;
     }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 700px at 20% 5%, #ffffff 0%, var(--bg) 55%, #f6f6f4 100%);
+      letter-spacing:-0.01em;
     }
-
-    /* Background hero image */
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 90px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; font-size:14px}
+    .dot{width:10px;height:10px;border-radius:99px;background:var(--ink);opacity:.85}
+    nav{display:flex; gap:14px; align-items:center}
+    .navlink{font-size:13px;color:var(--muted)}
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.6);
+      color:var(--ink);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      display:inline-flex; align-items:center; gap:10px;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.9)}
+    .btn.primary{background:var(--ink); color:#fff; border-color:transparent}
+    .btn.primary:hover{background:#1a1a1c}
+    .panel{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:var(--r2);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:stretch;
+      margin-top:14px;
+    }
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr; gap:18px} header{position:relative; backdrop-filter:none} }
+    .hero-left{padding:34px 28px}
+    .kicker{color:var(--muted); font-size:13px; letter-spacing:.12em; text-transform:uppercase}
+    h1{margin:14px 0 12px; font-size:46px; line-height:1.05; letter-spacing:-0.04em; font-weight:600}
+    .sub{margin:0 0 22px; color:var(--muted); font-size:15px; line-height:1.7; max-width:56ch}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .badge{padding:9px 12px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.55); font-size:12px; color:var(--muted)}
+    .hero-right{
+      position:relative; min-height:360px;
       background:
-        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
-        url("./hero.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+        linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.12)),
+        url("https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover; background-position:center;
     }
-
-    .content-box {
-      text-align: center;
-      max-width: 650px;
-      padding: 40px 30px;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(8px);
-      border-radius: 18px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    .hero-right::after{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(900px 500px at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+                  linear-gradient(0deg, rgba(0,0,0,.08), rgba(0,0,0,0));
+      pointer-events:none;
     }
-
-    h1 {
-      margin: 0 0 20px 0;
-      font-size: 42px;
-      font-weight: 500;
-      letter-spacing: 6px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin: 0 0 30px 0;
-      color: var(--muted);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 40px;
-      text-decoration: none;
-      color: var(--text);
-      border: 1px solid var(--text);
-      font-size: 14px;
-      letter-spacing: 2px;
-      background: transparent;
-      border-radius: 4px;
-    }
-
+    section{margin-top:28px}
+    .grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px}
+    @media (max-width: 880px){ .grid{grid-template-columns:1fr} }
+    .card{padding:18px; border:1px solid var(--line); background:rgba(255,255,255,.65); border-radius:var(--r); box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    .card h3{margin:0 0 6px; font-size:15px}
+    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
+    .prod{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start}
+    @media (max-width:880px){.prod{grid-template-columns:1fr}}
   </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span> ZELYN</div>
+      <nav>
+        <a class="navlink" href="#product">Product</a>
+        <a class="navlink" href="#waitlist">Waitlist</a>
+        <a class="btn" href="mailto:hello@zelynhome.com">Contact</a>
+      </nav>
+    </header>
 
-  <section class="hero-section">
-    <div class="content-box">
-      <h1>ZELYN</h1>
-      <p>
-        Thoughtfully made organic percale bedding.<br>
-        Calm, breathable, designed for modern European homes.
-      </p>
-
-      <a href="#" class="btn">COMING SOON</a>
+    <div class="hero">
+      <div class="panel hero-left">
+        <div class="kicker">Quiet bedding. Designed for Europe.</div>
+        <h1>Organic Percale Fitted Sheets</h1>
+        <p class="sub">
+          Crisp, breathable and designed for modern European beds.  
+          Join our waitlist for launch access and pricing.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#waitlist">Join the waitlist</a>
+        </div>
+        <div class="badges">
+          <div class="badge">300 TC</div>
+          <div class="badge">100% Organic Cotton</div>
+          <div class="badge">EU mattress fit</div>
+        </div>
+      </div>
+      <div class="panel hero-right"></div>
     </div>
-  </section>
 
+    <section id="product">
+      <div class="prod">
+        <div style="background:
+        url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80')
+        center/cover no-repeat; border-radius:var(--r2); height:380px;"></div>
+        <div>
+          <h3 style="margin-bottom:10px; font-size:22px;">The Fitted Sheet</h3>
+          <ul style="list-style:none; padding:0; color:var(--muted)">
+            <li>• 300 thread count percale</li>
+            <li>• Deep 35 cm pocket for modern mattresses</li>
+            <li>• Crisp, breathable, long-lasting</li>
+            <li>• Tailored for 160×200 cm beds</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <div class="panel" style="padding:24px;">
+        <h3 style="margin-bottom:12px;">Join the Waitlist</h3>
+        <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:grid; gap:12px; max-width:560px;">
+          <input type="hidden" name="form-name" value="waitlist"/>
+          <p style="display:none;"><label>Don’t fill this out: <input name="bot-field"/></label></p>
+
+          <input name="email" type="email" placeholder="Email address" required style="padding:10px; border:1px solid var(--line); border-radius:999px;"/>
+          <input name="country" type="text" placeholder="Country (optional)" style="padding:10px;border:1px solid var(--line);border-radius:999px;"/>
+          <select name="preferred_size" style="padding:10px;border:1px solid var(--line);border-radius:999px;">
+            <option value="">Preferred size (optional)</option>
+            <option value="160x200">160 × 200 cm</option>
+            <option value="180x200">180 × 200 cm</option>
+            <option value="200x200">200 × 200 cm</option>
+          </select>
+
+          <button class="btn primary" type="submit" style="padding:12px;">Join waitlist</button>
+        </form>
+        <p style="font-size:13px;color:var(--muted); margin-top:8px;">
+          You’ll get one email when we launch — no spam.
+        </p>
+      </div>
+    </section>
+
+    <footer style="margin-top:28px; color:var(--muted); font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap;">
+      <div>© <span id="year"></span> ZELYN</div>
+      <div>
+        <a class="navlink" href="mailto:hello@zelynhome.com">hello@zelynhome.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
