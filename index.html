@@ -1,242 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZELYN – Premium Organic Percale Bedding</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ZELYN — Premium Organic Cotton Fitted Sheets</title>
+<meta name="description" content="Premium organic cotton fitted sheets crafted in South India, tailored for European beds. Simple, honest, and premium bedding." />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght:300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <style>
-    :root {
-      --cream: #FAF7F2;
-      --beige: #E8DCC8;
-      --beige-dark: #D5C2A8;
-      --clay: #B89B7A;
-      --text-dark: #2A2A2A;
-      --text-soft: #5A5A5A;
-      --white: #FFFFFF;
-    }
+<style>
+/* ---------- COLORS ---------- */
+:root {
+  --cream: #FAF7F2;
+  --beige-soft: #E8DCC8;
+  --clay-warm: #C3A68C;
+  --olive-accent: #A6B69F;
+  --text-dark: #2A2A2A;
+  --text-soft: #555;
+  --white: #FFFFFF;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { width: 100%; display: block; border-radius: 18px; }
-    a { text-decoration: none; color: inherit; }
+/* ---------- GLOBAL ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height:1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { width:100%; display:block; border-radius:16px; }
+a { text-decoration:none; color:inherit; }
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #e5e5e5;
-      z-index: 999;
-    }
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-img {
-      height: 38px;
-      opacity: 0.92;
-    }
-    .logo-text {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.17em;
-    }
-    nav a {
-      margin-left: 26px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-soft);
-      transition: 0.2s ease;
-    }
-    nav a:hover {
-      color: var(--text-dark);
-    }
+/* ---------- HEADER ---------- */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid #e5e5e5;
+  z-index:999;
+}
+.nav-container {
+  max-width:1200px;
+  margin:auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-left { display:flex; align-items:center; gap:10px; }
+.logo-img { height:40px; }
+.logo-text {
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:.18em;
+}
+nav a {
+  margin-left:22px;
+  font-size:15px;
+  font-weight:500;
+  color:var(--text-soft);
+  transition:0.25s;
+}
+nav a:hover { color:var(--text-dark); font-weight:600; }
 
-    /* HERO */
-    .hero-wrapper {
-      background: linear-gradient(135deg, var(--beige) 0%, var(--cream) 100%);
-      padding: 60px 20px 80px;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-    }
-    .hero {
-      max-width: 1150px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 40px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .hero p {
-      font-size: 17px;
-      max-width: 700px;
-      color: var(--text-soft);
-      margin-bottom: 26px;
-    }
+@media(max-width:810px) {
+  .nav-container {
+    flex-direction:column;
+    gap:8px;
+  }
+  nav a { margin-left:0; font-size:14px; }
+  .logo-text { font-size:18px; }
+}
 
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      padding: 13px 28px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-    .btn-main {
-      background: var(--text-dark);
-      color: var(--white);
-    }
-    .btn-main:hover { background: black; }
-    .btn-light {
-      background: var(--white);
-      border: 1px solid #ddd;
-      color: var(--text-dark);
-    }
-    .btn-light:hover { background: var(--beige-dark); color: white; }
+/* ---------- HERO ---------- */
+.hero-wrap {
+  padding:62px 20px 98px;
+  background: linear-gradient(135deg,var(--beige-soft),var(--cream));
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+  text-align:center;
+}
+.hero-wrap h1 {
+  font-size:38px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.hero-wrap p {
+  max-width:700px;
+  margin:auto;
+  font-size:16px;
+  color:var(--text-soft);
+  margin-bottom:24px;
+}
+.btn {
+  padding:12px 26px;
+  font-size:15px;
+  font-weight:600;
+  border-radius:999px;
+  cursor:pointer;
+  transition:0.25s;
+}
+.btn-main {
+  background: var(--text-dark);
+  color: var(--white);
+}
+.btn-main:hover { background: #000; }
+.btn-light {
+  background: var(--white);
+  border:1px solid #ddd;
+  color: var(--text-dark);
+}
+.btn-light:hover { background: var(--clay-warm); color: #fff; }
+.hero-img {
+  margin-top:36px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.12);
+}
 
-    .hero-image-box {
-      max-width: 1100px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
+/* ---------- SECTIONS ---------- */
+section { padding:70px 20px; }
+.section-inner { max-width:1100px; margin:auto; }
+h2 {
+  text-align:center;
+  font-size:26px;
+  font-weight:600;
+  color:var(--text-dark);
+  margin-bottom:18px;
+}
 
-    /* SECTION GENERAL */
-    section { padding: 70px 20px; }
-    .section-inner { max-width: 1100px; margin: auto; }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 27px;
-      font-weight: 600;
-    }
+/* STORY */
+.story p {
+  max-width:760px;
+  margin:14px auto;
+  font-size:16px;
+  color:var(--text-soft);
+}
 
-    p.center {
-      text-align: center;
-      max-width: 740px;
-      margin: 0 auto 14px;
-      color: var(--text-soft);
-    }
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:28px;
+}
+@media(max-width:780px) {
+  .gallery { grid-template-columns:1fr; }
+}
 
-    /* STORY */
-    .story p {
-      max-width: 780px;
-      margin: 14px auto;
-      font-size: 16px;
-      color: var(--text-soft);
-    }
+/* SOUTH INDIA ROOT */
+.origin {
+  background:var(--beige-soft);
+  border-radius:20px;
+  padding:36px 22px;
+  margin-top:20px;
+  text-align:center;
+}
+.origin p {
+  font-size:16px;
+  color:var(--text-dark);
+  max-width:700px;
+  margin:auto;
+}
 
-    /* GALLERY */
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-top: 32px;
-    }
-    @media(max-width: 780px){
-      .gallery { grid-template-columns: 1fr; }
-    }
+/* BENEFITS */
+.benefits-list {
+  max-width:760px;
+  margin:auto;
+  margin-top:16px;
+}
+.benefits-list li {
+  border-bottom:1px solid #ddd;
+  padding:10px 0;
+  font-size:16px;
+  color:var(--text-soft);
+}
 
-    /* PRICING */
-    .pricing-box {
-      background: linear-gradient(135deg, var(--beige) 0%, var(--cream) 100%);
-      padding: 50px;
-      border-radius: 22px;
-      max-width: 520px;
-      margin: auto;
-      text-align: center;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.08);
-    }
-    .price {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+/* TESTIMONIAL */
+.testimonial {
+  background:var(--cream);
+  padding:32px 18px;
+  border-radius:18px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.08);
+  margin:20px auto;
+  max-width:850px;
+  font-size:16px;
+  color:var(--text-soft);
+}
 
-    /* BENEFITS */
-    .benefits-list {
-      max-width: 740px;
-      margin: auto;
-      margin-top: 18px;
-    }
-    .benefits-list li {
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-      color: var(--text-soft);
-      font-size: 16px;
-    }
+/* PRICING */
+.pricing-box {
+  background: linear-gradient(135deg,var(--beige-soft),var(--cream));
+  padding:48px;
+  border-radius:22px;
+  text-align:center;
+  max-width:540px;
+  margin:auto;
+  box-shadow:0 18px 36px rgba(0,0,0,0.08);
+}
+.pricing-box .price {
+  font-size:38px;
+  font-weight:700;
+  margin-bottom:8px;
+}
 
-    /* SUPPORT */
-    .support p {
-      text-align: center;
-      font-size: 16px;
-      color: var(--text-soft);
-    }
+/* SUPPORT */
+.support p {
+  font-size:16px;
+  text-align:center;
+  color:var(--text-soft);
+}
+.support a {
+  font-size:16px;
+  font-weight:600;
+  text-decoration:underline;
+}
 
-    /* INSTAGRAM */
-    .instagram {
-      background: var(--beige);
-      padding: 45px 20px;
-      text-align: center;
-      border-radius: 18px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .instagram a {
-      font-size: 20px;
-      font-weight: 700;
-      text-decoration: underline;
-    }
+/* INSTAGRAM */
+.instagram {
+  text-align:center;
+  background:var(--beige-soft);
+  padding:38px 20px;
+  border-radius:18px;
+  max-width:1100px;
+  margin:auto;
+}
+.instagram a {
+  font-size:19px;
+  font-weight:700;
+  text-decoration:underline;
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-  </style>
+/* FOOTER */
+footer {
+  text-align:center;
+  font-size:12px;
+  padding:18px 0;
+  color:var(--text-soft);
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="nav">
+  <div class="nav-container">
     <div class="nav-left">
-      <img class="logo-img" src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png">
+      <img class="logo-img" src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" alt="ZELYN Logo">
       <span class="logo-text">ZELYN</span>
     </div>
     <nav>
@@ -250,88 +262,15 @@
 </header>
 
 <!-- HERO -->
-<div class="hero-wrapper">
-  <div class="hero">
-    <h1>Sleep, Refined.</h1>
-    <p>Premium organic percale fitted sheets crafted responsibly in South India — designed for modern European homes.</p>
-
-    <div class="cta-row">
-      <button class="btn btn-main">Buy Now</button>
-      <button class="btn btn-light">Add to Cart</button>
-    </div>
-
-    <div class="hero-image-box">
-      <img src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="">
-    </div>
+<section class="hero-wrap">
+  <h1>Sleep, Refined.</h1>
+  <p>Premium organic cotton fitted sheets rooted in South Indian craftsmanship — tailored for European comfort.</p>
+  <div class="cta-row">
+    <button class="btn btn-main">Buy Now</button>
+    <button class="btn btn-light">Add to Cart</button>
   </div>
-</div>
+  <img class="hero-img" src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="ZELYN Bedding">
+</section>
 
 <!-- STORY -->
 <section id="story" class="story">
-  <div class="section-inner">
-    <h2>Our Story</h2>
-    <p>Our cotton begins in the sunlit fields of South India — grown with care, harvested responsibly, and woven by skilled textile communities.</p>
-    <p>ZELYN transforms this organic cotton into breathable percale sheets that feel crisp, cool, and long-lasting. Designed in a Scandinavian minimal aesthetic, each piece is tailored to fit EU mattresses perfectly.</p>
-    <p>From South Indian craftsmanship to Berlin bedrooms, ZELYN brings considered comfort wherever it goes.</p>
-
-    <div class="gallery">
-      <img src="https://i.ibb.co/847Lnp5T/file-000000007fe071fa8957a844cf310afc.png">
-      <img src="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png">
-    </div>
-  </div>
-</section>
-
-<!-- More HD MATCHING IMAGES (Premium Look) -->
-<section>
-  <div class="section-inner">
-    <h2>Experience the Details</h2>
-    <div class="gallery">
-      <img src="https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Scandinavian Bedroom HD">
-      <img src="https://images.pexels.com/photos/6585726/pexels-photo-6585726.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Percale aesthetic HD">
-    </div>
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section id="benefits">
-  <div class="section-inner">
-    <h2>Features & Benefits</h2>
-    <ul class="benefits-list">
-      <li>100% Organic Cotton Percale — crisp, breathable, and cool.</li>
-      <li>Responsibly sourced and crafted in South India.</li>
-      <li>Precise 160×200 cm EU sizing with 35 cm deep pocket.</li>
-      <li>Long-lasting elastic, premium stitching, refined feel.</li>
-      <li>Minimal Scandinavian design elevates any room.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="pricing-box">
-    <h2>Pricing</h2>
-    <div class="price">€29</div>
-    <p>Launch price for our signature organic percale fitted sheet.</p>
-    <button class="btn btn-main" style="margin-top:15px;">Buy Now</button>
-  </div>
-</section>
-
-<!-- SUPPORT -->
-<section id="support" class="support">
-  <h2>Customer Support</h2>
-  <p>We're here for anything you need:</p>
-  <p><a href="mailto:support@zelynhome.com">support@zelynhome.com</a></p>
-</section>
-
-<!-- INSTAGRAM -->
-<section id="instagram" class="instagram">
-  Follow us on Instagram:<br><br>
-  <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a>
-</section>
-
-<footer>
-  © <script>document.write(new Date().getFullYear())</script> ZELYN. All Rights Reserved.
-</footer>
-
-</body>
-</html>
