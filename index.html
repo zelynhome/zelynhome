@@ -1,113 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZELYN — Organic Percale Fitted Sheets</title>
+  <meta name="description" content="Premium fitted sheet designed for European beds. High quality, breathable and sustainable bedding. €29 launch price." />
+
   <style>
-    body{margin:0;font-family:Inter,Arial,sans-serif;color:#111;background:#fff;}
-    header{padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;border-bottom:1px solid #eee;background:#fff;z-index:100;}
-    .brand{font-size:20px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
-    nav a{margin-left:14px;color:#000;text-decoration:none;font-size:14px;font-weight:500;}
-    .hero{padding:40px 24px;text-align:center;}
-    .hero h1{font-size:40px;margin:0 0 10px;}
-    .hero p{font-size:16px;color:#666;max-width:560px;margin:auto 0 20px;}
-    button.cta{padding:12px 22px;font-size:15px;border:none;border-radius:999px;background:#111;color:#fff;cursor:pointer;margin:6px;transition:0.2s;}
-    button.cta:hover{background:#222;}
-    
-    .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:20px;}
-    .gallery img{width:200px;height:130px;object-fit:cover;border-radius:12px;cursor:pointer;transition:0.25s;}
-    .gallery img:hover{transform:scale(1.05);}
-    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);justify-content:center;align-items:center;z-index:500;}
-    .lightbox img{max-width:90%;max-height:85%;border-radius:12px;}
-    
-    .section{padding:28px 24px;}
-    .features{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:auto;}
-    .features div{background:#f9f9f9;padding:14px;border-radius:10px;font-size:14px;color:#444;}
-    
-    .pricing{font-size:28px;font-weight:600;color:#111;text-align:center;margin:12px 0;}
-    .btns{text-align:center;margin-top:14px;}
-    
-    .instagram{padding:18px 24px;text-align:center;font-size:16px;color:#333;}
-    .instagram a{color:#000;font-weight:600;text-decoration:none;}
-    
-    footer{text-align:center;color:#777;font-size:12px;padding:14px;}
-    
-    @media (max-width:880px){.features{grid-template-columns:1fr;}}
+    /* ---------- BASE ---------- */
+    body { margin: 0; font-family: 'Inter', sans-serif; color: #111; background: #fafafa; line-height: 1.6;}
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1160px; margin: auto; padding: 0 20px; }
+
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex; justify-content: space-between; align-items: center; padding: 18px 0;
+      background: #fff; border-bottom: 1px solid #eee; position: sticky; top:0; z-index:100;
+    }
+    .brand { font-weight: 700; font-size: 22px; letter-spacing: .15em; text-transform: uppercase; }
+    nav a { margin-left: 18px; font-size: 15px; font-weight: 500; color: #333; }
+    nav a:hover { color: #000; }
+
+    /* ---------- HERO ---------- */
+    .hero { text-align: center; padding: 60px 0; background: #fff; }
+    .hero h1 { font-size: 42px; margin: 0 0 10px; font-weight: 700;}
+    .hero p { font-size: 18px; color: #555; margin: 0 0 22px; max-width: 720px; margin-left:auto; margin-right:auto; }
+    .btn-cta { padding: 14px 28px; background: #111; color: #fff; font-size: 16px; border: none; border-radius: 999px;
+      cursor: pointer; transition: 0.2s; margin: 6px; font-weight: 600; }
+    .btn-cta:hover { background: #333; }
+
+    /* ---------- GALLERY ---------- */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 14px; margin-top: 36px; padding-bottom: 36px; }
+    .gallery img { width: 100%; height: 140px; object-fit: cover; border-radius: 14px; cursor: pointer; transition: .25s ease; }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .lightbox {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88);
+      justify-content: center; align-items: center; z-index: 400;
+    }
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+
+    /* ---------- SECTIONS ---------- */
+    .section { padding: 40px 0; background: #fff; }
+    .section h2 { text-align: center; font-size: 24px; margin-bottom: 18px; font-weight: 600; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 840px; margin: auto; }
+    .features div { background: #f9f9f9; padding: 18px; border-radius: 10px; font-size: 15px; color: #444; }
+    @media (max-width:900px) { .features { grid-template-columns: 1fr; } }
+
+    /* ---------- PRICING ---------- */
+    .pricing { text-align:center; margin: 18px 0; }
+    .pricing .price { font-size: 36px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .pricing p { font-size: 16px; color: #555; }
+
+    /* ---------- INSTAGRAM ---------- */
+    .instagram { text-align:center; font-size:18px; color: #000; padding: 26px 0; background: #fafafa; }
+    .instagram a { font-weight:700; text-decoration: underline; }
+
+    footer { text-align:center; font-size:13px; color:#666; padding:18px 0; }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="brand">ZELYN</div>
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#instagram">Instagram</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header class="container">
+    <div class="brand">ZELYN</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#instagram">Instagram</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>Organic Percale Fitted Sheet</h1>
-  <p>Crisp, breathable cotton percale fitted sheet designed for modern European beds — fits snug, feels soft, stays comfortable night after night.</p>
-  <div class="btns">
-    <button class="cta">Shop</button>
-    <button class="cta">Buy</button>
-    <button class="cta">Add to Cart</button>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Organic Percale Fitted Sheets</h1>
+    <p>Designed for modern European beds — crisp feel, breathable cotton, and long-lasting comfort tailored for Berlin homes and Amazon customers alike.</p>
+    <button class="btn-cta">Add to Cart</button>
+    <button class="btn-cta">Buy Now</button>
+    <button class="btn-cta">Shop Collection</button>
+  </section>
+
+  <!-- IMAGE GALLERY -->
+  <div class="container">
+    <div class="gallery">
+      <img src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" data-full="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="Organic fitted sheet front">
+      <img src="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" data-full="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" alt="Sheet lifestyle detail">
+      <img src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" data-full="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" alt="Material quality sample">
+      <img src="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" data-full="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" alt="Sheet set on bed">
+    </div>
   </div>
-</section>
 
-<!-- Gallery -->
-<section class="gallery">
-  <img src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" data-full="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="ZELYN Sheet 1">
-  <img src="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" data-full="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" alt="ZELYN Sheet 2">
-  <img src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" data-full="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" alt="ZELYN Sheet 3">
-  <img src="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" data-full="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" alt="ZELYN Sheet 4">
-</section>
+  <div id="lightbox" class="lightbox"><img src=""></div>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <img src="">
-</div>
+  <!-- FEATURES -->
+  <section id="features" class="section container">
+    <h2>Why Choose ZELYN?</h2>
+    <div class="features">
+      <div>✔ 100% Organic Cotton Percale – breathable and eco-friendly.</div>
+      <div>✔ 300 TC for crisp, durable everyday comfort.</div>
+      <div>✔ Designed for EU mattress sizes with deep 35 cm pocket.</div>
+      <div>✔ Elastic all around for a secure, wrinkle-free fit.</div>
+    </div>
+  </section>
 
-<section id="features" class="section">
-  <h2 style="text-align:center;font-size:22px;margin-bottom:12px;">Product Features</h2>
-  <div class="features">
-    <div>✔ 100% Organic Cotton Percale — soft, breathable, durable</div>
-    <div>✔ 300 Thread Count for crisp comfort night after night</div>
-    <div>✔ Deep 35 cm pocket designed for European mattresses</div>
-    <div>✔ Secure elastic all around for a snug, no-slip fit</div>
-  </div>
-</section>
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="pricing">
+      <div class="price">€29</div>
+      <p>Launch Offer – Exceptional Quality Meets Everyday Comfort</p>
+      <button class="btn-cta">Add to Cart</button>
+      <button class="btn-cta">Buy Now</button>
+    </div>
+  </section>
 
-<section id="pricing" class="section">
-  <div class="pricing">€29</div>
-  <p style="text-align:center;color:#555;font-size:15px;">Limited launch price — high quality, everyday comfort</p>
-  <div class="btns">
-    <button class="cta">Buy Now</button>
-    <button class="cta">Add to Cart</button>
-  </div>
-</section>
+  <!-- SOCIAL / INSTAGRAM -->
+  <section id="instagram" class="instagram">
+    Follow us on Instagram: <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a>
+  </section>
 
-<section id="instagram" class="instagram">
-  Follow us on Instagram: <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a>
-</section>
+  <!-- FOOTER -->
+  <footer class="container">
+    © <span id="year"></span> ZELYN • <a href="mailto:hello@zelynhome.com">hello@zelynhome.com</a>
+  </footer>
 
-<footer>
-  © <span id="year"></span> ZELYN • <a href="mailto:hello@zelynhome.com" style="color:#777;">hello@zelynhome.com</a>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-  const lb = document.getElementById('lightbox');
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.onclick = () => {
-      lb.style.display = 'flex';
-      lb.firstElementChild.src = img.dataset.full;
-    };
-  });
-  lb.onclick = () => { lb.style.display = 'none'; };
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const lightbox = document.getElementById('lightbox');
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.onclick = () => {
+        lightbox.style.display = 'flex';
+        lightbox.firstElementChild.src = img.dataset.full;
+      };
+    });
+    lightbox.onclick = () => { lightbox.style.display = 'none'; };
+  </script>
 
 </body>
 </html>
