@@ -1,469 +1,385 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZELYN — Minimal EU Bedding Store (Single-File)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="ZELYN — thoughtfully made bedding for modern European homes. Organic percale fitted sheets, EU sizing." />
+  <title>ZELYN — Bedding essentials for EU homes</title>
 
-  <!-- Optional fonts (safe to remove if you want fully offline) -->
+  <!-- FAST MODE NOTE:
+       Save your image (the one you shared) as:  /images/fitted-sheet.jpg
+       Then this file will load it everywhere (Home + Product).
+       (If you prefer another name, just change IMG_SRC below in the script.) -->
+
+  <!-- Optional fonts (remove these 2 lines if you want fully offline + even faster) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Calm “colorful” UI: sage + warm neutrals */
-      --bg: #F7F5F2;
-      --paper: #FFFFFF;
-      --ink: #1F2321;
-      --muted: #5D6861;
-      --line: #E7E1DA;
+      /* Version A: fast minimal EU UI (quiet color) */
+      --bg:#F7F5F2;
+      --paper:#FFFFFF;
+      --ink:#1F2321;
+      --muted:#5D6861;
+      --line:#E7E1DA;
 
-      --sage: #6F8A7E;
-      --sage-2: #5F776C;
-      --sand: #EFEAE4;
-      --terracotta: #C77B5A;
-      --sky: #D9E6F2;
+      --accent:#6F8A7E;  /* sage */
+      --accent2:#5F776C; /* hover */
+      --sand:#EFEAE4;
 
-      --radius: 22px;
-      --shadow: 0 10px 30px rgba(28, 28, 28, 0.06);
+      --r:18px;
+      --r2:14px;
+      --shadow:0 10px 24px rgba(20,20,20,.06);
+      --shadow2:0 6px 16px rgba(20,20,20,.05);
+      --max:1120px;
     }
 
     *{ box-sizing:border-box; }
-    html, body { height:100%; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.55;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
 
-    .container{
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
 
-    /* Top announcement */
+    /* Topbar (no blur, no filters = faster) */
     .topbar{
-      background: linear-gradient(90deg, rgba(111,138,126,.18), rgba(199,123,90,.14), rgba(217,230,242,.16));
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: .1px;
+      border-bottom:1px solid var(--line);
+      background:#fbfaf8;
+      color:var(--muted);
+      font-size:13px;
     }
-    .topbar .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 10px 0;
-      gap: 12px;
-      flex-wrap: wrap;
+    .topbar .row{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:10px 0;
+      flex-wrap:wrap;
     }
     .pill{
       display:inline-flex; align-items:center; gap:8px;
-      padding: 6px 10px;
-      border: 1px solid rgba(111,138,126,.35);
-      border-radius: 999px;
-      background: rgba(255,255,255,.55);
-      backdrop-filter: blur(8px);
-      font-size: 12.5px;
-      white-space: nowrap;
+      padding:6px 10px;
+      border:1px solid rgba(111,138,126,.28);
+      border-radius:999px;
+      background:#fff;
+      white-space:nowrap;
     }
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background: var(--sage);
-      box-shadow: 0 0 0 3px rgba(111,138,126,.18);
-    }
+    .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); }
 
-    /* Nav */
+    /* Header */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(247,245,242,.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(231,225,218,.7);
+      position:sticky; top:0; z-index:50;
+      background:rgba(247,245,242,.92);
+      border-bottom:1px solid rgba(231,225,218,.8);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      padding: 16px 0;
-      gap: 16px;
+      gap:14px;
+      padding:14px 0;
     }
     .brand{
       display:flex; align-items:baseline; gap:10px;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      font-size: 14px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:14px;
     }
-    .brand b{ letter-spacing:.28em; }
-    .brand span{ color: var(--muted); letter-spacing:.06em; text-transform:none; font-size: 12.5px; }
+    .brand b{ letter-spacing:.26em; }
+    .brand span{
+      letter-spacing:.06em;
+      text-transform:none;
+      font-size:12.5px;
+      color:var(--muted);
+    }
 
     .navlinks{
-      display:flex; align-items:center; gap:18px;
-      color: var(--muted);
-      font-size: 14px;
+      display:flex; align-items:center; gap:10px;
+      color:var(--muted);
+      font-size:14px;
+      flex-wrap:wrap;
     }
     .navlinks a{
-      padding: 8px 10px;
-      border-radius: 999px;
-      transition: background .2s ease, color .2s ease;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:background .15s ease, border-color .15s ease, color .15s ease;
     }
-    .navlinks a:hover{ background: rgba(111,138,126,.12); color: var(--ink); }
+    .navlinks a:hover{
+      background:rgba(111,138,126,.10);
+      border-color:rgba(111,138,126,.18);
+      color:var(--ink);
+    }
     .navlinks a[aria-current="page"]{
-      color: var(--ink);
-      background: rgba(111,138,126,.10);
-      border: 1px solid rgba(111,138,126,.20);
+      background:rgba(111,138,126,.12);
+      border-color:rgba(111,138,126,.22);
+      color:var(--ink);
     }
 
-    .navright{ display:flex; align-items:center; gap: 10px; }
-
+    .actions{ display:flex; align-items:center; gap:10px; }
     .iconbtn{
-      width: 40px; height: 40px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.6);
+      width:40px; height:40px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
       display:grid; place-items:center;
-      transition: transform .15s ease, border-color .2s ease, background .2s ease;
-      position: relative;
+      position:relative;
+      transition: transform .12s ease, border-color .12s ease;
     }
-    .iconbtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(111,138,126,.45);
-      background: rgba(255,255,255,.9);
-    }
+    .iconbtn:hover{ transform:translateY(-1px); border-color:rgba(111,138,126,.32); }
     .badge{
-      position:absolute;
-      top:-6px; right:-6px;
-      min-width: 18px; height: 18px;
-      padding: 0 5px;
-      border-radius: 999px;
-      background: var(--sage);
+      position:absolute; top:-6px; right:-6px;
+      min-width:18px; height:18px; padding:0 5px;
+      border-radius:999px;
+      background:var(--accent);
       color:#fff;
-      font-size: 11px;
-      display:grid; place-items:center;
-      border: 2px solid var(--bg);
+      font-size:11px;
+      display:none;
+      place-items:center;
+      border:2px solid var(--bg);
     }
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      color: var(--ink);
-      font-weight: 500;
-      font-size: 14px;
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-      cursor: pointer;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:500;
+      font-size:14px;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.95); border-color: rgba(111,138,126,.35); }
-    .btn-primary{
-      border-color: rgba(111,138,126,.55);
-      background: transparent;
-      color: var(--sage-2);
-    }
-    .btn-primary:hover{
-      background: rgba(111,138,126,.10);
-      border-color: rgba(111,138,126,.75);
-      color: var(--ink);
-    }
+    .btn:hover{ transform:translateY(-1px); border-color:rgba(111,138,126,.28); }
     .btn-solid{
-      background: var(--sage);
-      border-color: var(--sage);
-      color: #fff;
+      background:var(--accent);
+      border-color:var(--accent);
+      color:#fff;
     }
-    .btn-solid:hover{ background: var(--sage-2); border-color: var(--sage-2); }
-    .btn[disabled]{
-      opacity: .55;
-      cursor: not-allowed;
-      transform: none !important;
+    .btn-solid:hover{ background:var(--accent2); border-color:var(--accent2); }
+    .btn-ghost{
+      background:transparent;
+      border-color:rgba(111,138,126,.28);
+      color:var(--accent2);
     }
+    .btn-ghost:hover{
+      background:rgba(111,138,126,.10);
+      border-color:rgba(111,138,126,.42);
+      color:var(--ink);
+    }
+    .btn[disabled]{ opacity:.55; cursor:not-allowed; transform:none !important; }
 
-    main{ padding: 28px 0 34px; }
+    main{ padding:22px 0 34px; }
 
-    /* Layout blocks */
     .card{
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      box-shadow: 0 12px 26px rgba(28,28,28,.05);
-      overflow:hidden;
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      box-shadow:var(--shadow2);
     }
 
-    .heroGrid{
+    /* Layout */
+    .grid2{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 28px;
-      align-items: stretch;
+      gap:16px;
+      align-items:start;
     }
-    .heroLeft{
-      padding: 36px;
-      position: relative;
-      overflow:hidden;
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
     }
-    .heroLeft:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(900px 240px at 10% 0%, rgba(111,138,126,.18), transparent 60%),
-        radial-gradient(700px 220px at 100% 30%, rgba(217,230,242,.22), transparent 55%),
-        radial-gradient(650px 220px at 40% 100%, rgba(199,123,90,.14), transparent 58%);
-      pointer-events:none;
-    }
-    .heroLeft > *{ position: relative; }
 
-    .kicker{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 14px; }
-    .tag{
-      font-size: 12.5px;
-      color: var(--muted);
-      border: 1px solid rgba(231,225,218,.9);
-      background: rgba(255,255,255,.65);
-      padding: 6px 10px;
-      border-radius: 999px;
+    /* Hero */
+    .hero{
+      padding:18px;
     }
-    .tag strong{ color: var(--ink); font-weight: 600; }
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .tag{
+      font-size:12.5px;
+      color:var(--muted);
+      border:1px solid rgba(231,225,218,.95);
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
+    }
+    .tag strong{ color:var(--ink); font-weight:600; }
 
     h1{
       font-family: Fraunces, serif;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height: 1.05;
-      margin: 0 0 12px;
+      font-weight:300;
+      letter-spacing:-0.02em;
+      line-height:1.05;
+      font-size: clamp(34px, 4vw, 52px);
+      margin:0 0 10px;
     }
     h2{
       font-family: Fraunces, serif;
-      font-weight: 300;
-      font-size: 28px;
-      letter-spacing: -0.01em;
-      margin: 0;
+      font-weight:300;
+      letter-spacing:-0.01em;
+      font-size:28px;
+      margin:0;
     }
-    .lead{
-      color: var(--muted);
-      font-size: 15.5px;
-      max-width: 62ch;
-      margin: 0 0 20px;
-    }
-    .row{ display:flex; flex-wrap:wrap; gap: 12px; align-items:center; }
+    .lead{ color:var(--muted); margin:0 0 16px; max-width:62ch; }
 
-    .heroRight{
-      display:grid;
-      grid-template-rows: 1fr auto;
-      gap: 14px;
-    }
-    .imageMock{
-      min-height: 340px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(900px 320px at 30% 10%, rgba(255,255,255,.95), rgba(255,255,255,.55) 55%, rgba(239,234,228,.55)),
-        linear-gradient(135deg, rgba(111,138,126,.18), rgba(217,230,242,.20));
-      position: relative;
+    .heroImg{
       overflow:hidden;
+      border-radius:var(--r);
+      border:1px solid var(--line);
+      background:#fff;
     }
-    .imageMock:after{
-      content:"";
-      position:absolute;
-      inset: 20px;
-      border-radius: calc(var(--radius) - 8px);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35)),
-        repeating-linear-gradient(90deg, rgba(111,138,126,.05) 0 14px, rgba(199,123,90,.04) 14px 28px, rgba(217,230,242,.06) 28px 42px);
-      border: 1px solid rgba(231,225,218,.9);
-      filter: blur(.2px);
-    }
-    .imageLabel{
-      position:absolute;
-      left: 18px; top: 18px;
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(231,225,218,.9);
-      color: var(--muted);
-      font-size: 12.5px;
-    }
-    .imageLabel b{ color: var(--ink); font-weight: 600; }
-
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
-    }
-    .miniCard{
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 10px 20px rgba(28,28,28,.04);
-    }
-    .miniCard .t{ font-size: 12.5px; color: var(--muted); margin: 0 0 6px; }
-    .miniCard .v{ font-weight: 600; letter-spacing: -0.01em; margin: 0; }
-
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
-      margin: 28px 0 14px;
-    }
-    .sub{
-      color: var(--muted);
-      font-size: 14px;
-      margin: 6px 0 0;
-      max-width: 70ch;
+    .heroImg img{
+      width:100%;
+      height:auto;
+      display:block;
     }
 
-    .grid{
+    .mini{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap:12px;
+      margin-top:14px;
     }
+    .mini .m{
+      padding:12px;
+      border-radius:var(--r2);
+      border:1px solid rgba(231,225,218,.95);
+      background:#fff;
+    }
+    .mini .t{ margin:0 0 6px; color:var(--muted); font-size:12.5px; }
+    .mini .v{ margin:0; font-weight:600; letter-spacing:-0.01em; }
+
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin:22px 0 12px;
+    }
+    .sub{ margin:6px 0 0; color:var(--muted); font-size:14px; max-width:72ch; }
+
     .productCard{
-      transition: transform .18s ease, border-color .2s ease, background .2s ease;
+      overflow:hidden;
+      transition: transform .12s ease, border-color .12s ease;
     }
     .productCard:hover{
-      transform: translateY(-2px);
-      border-color: rgba(111,138,126,.40);
-      background: rgba(255,255,255,.92);
+      transform:translateY(-2px);
+      border-color:rgba(111,138,126,.30);
     }
-    .cardTop{
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(239,234,228,.55), rgba(255,255,255,0));
-      border-bottom: 1px solid rgba(231,225,218,.75);
-      position: relative;
-      min-height: 160px;
+    .pcTop{
+      padding:14px;
+      background:var(--sand);
+      border-bottom:1px solid rgba(231,225,218,.95);
     }
-    .swatches{ display:flex; gap: 8px; position:absolute; right: 16px; top: 16px; }
-    .sw{ width: 12px; height: 12px; border-radius: 999px; border: 1px solid rgba(0,0,0,.06); }
-    .sw.sage{ background: rgba(111,138,126,.55); }
-    .sw.terra{ background: rgba(199,123,90,.45); }
-    .sw.sky{ background: rgba(217,230,242,.75); }
-
-    .cardBody{ padding: 18px; }
-    .titleRow{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; margin-bottom: 8px; }
-    .ptitle{ margin: 0; font-weight: 600; letter-spacing: -0.01em; }
-    .price{ color: var(--muted); font-weight: 500; font-size: 14px; }
-    .pdesc{ margin: 0 0 12px; color: var(--muted); font-size: 13.5px; }
-    .meta{ display:flex; flex-wrap:wrap; gap: 8px; margin-bottom: 14px; }
+    .pcBody{ padding:16px; }
+    .row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .between{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .muted{ color:var(--muted); }
+    .price{ font-weight:700; }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0 14px; }
     .chip{
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid rgba(231,225,218,.95);
-      background: rgba(255,255,255,.6);
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-    .cardActions{ display:flex; gap: 10px; }
-    .cardActions .btn{ width:100%; padding: 12px 14px; }
-
-    .banner{
-      margin-top: 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(90deg, rgba(111,138,126,.16), rgba(239,234,228,.55), rgba(217,230,242,.18));
-      padding: 18px;
-      display:flex; align-items:center; justify-content:space-between; gap: 16px;
-    }
-    .banner p{ margin:0; color: var(--muted); font-size: 14px; }
-    .banner b{ color: var(--ink); }
-
-    .hr{
-      height:1px; background: rgba(231,225,218,.9);
-      margin: 14px 0;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid rgba(231,225,218,.95);
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
     }
 
     .twoCol{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-      align-items: start;
+      gap:16px;
+      align-items:start;
     }
+
+    .hr{ height:1px; background:rgba(231,225,218,.95); margin:14px 0; }
 
     .table{
       width:100%;
-      border-collapse: collapse;
-      font-size: 14px;
+      border-collapse:collapse;
+      font-size:14px;
     }
     .table th, .table td{
       text-align:left;
-      padding: 10px 8px;
-      border-bottom: 1px solid rgba(231,225,218,.9);
-      color: var(--muted);
-      vertical-align: top;
+      padding:10px 8px;
+      border-bottom:1px solid rgba(231,225,218,.95);
+      vertical-align:top;
     }
-    .table th{ color: var(--ink); font-weight: 600; }
+    .table th{ color:var(--ink); font-weight:600; }
+    .table td{ color:var(--muted); }
 
-    .input, select{
+    .notice{
+      padding:12px 14px;
+      border-radius:var(--r2);
+      border:1px solid rgba(231,225,218,.95);
+      background:#fff;
+      color:var(--muted);
+      font-size:13.5px;
+    }
+
+    .input, select, textarea{
       width:100%;
-      border-radius: 14px;
-      border: 1px solid rgba(231,225,218,.95);
-      background: rgba(255,255,255,.7);
-      padding: 12px 14px;
-      outline: none;
-      font-size: 14px;
+      border-radius:var(--r2);
+      border:1px solid rgba(231,225,218,.95);
+      background:#fff;
+      padding:12px 12px;
+      font-size:14px;
+      outline:none;
     }
-    .input:focus, select:focus{
-      border-color: rgba(111,138,126,.55);
-      box-shadow: 0 0 0 6px rgba(111,138,126,.12);
-      background: rgba(255,255,255,.95);
+    .input:focus, select:focus, textarea:focus{
+      border-color:rgba(111,138,126,.42);
+      box-shadow:0 0 0 5px rgba(111,138,126,.14);
     }
+    textarea{ min-height:120px; resize:vertical; }
+
     .formRow{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .help{ margin: 6px 0 0; color: var(--muted); font-size: 12.5px; }
-
-    .notice{
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(231,225,218,.95);
-      background: rgba(255,255,255,.65);
-      color: var(--muted);
-      font-size: 13.5px;
+      gap:12px;
     }
 
-    .toast{
-      opacity:0;
-      transition: opacity .2s ease;
-      margin-top: 16px;
-    }
-
-    /* “Pages” */
+    /* Pages */
     [data-page]{ display:none; }
     [data-page].active{ display:block; }
 
+    /* Footer */
     footer{
-      padding: 34px 0 44px;
-      border-top: 1px solid rgba(231,225,218,.8);
-      background: rgba(239,234,228,.45);
+      border-top:1px solid rgba(231,225,218,.95);
+      background:rgba(239,234,228,.55);
+      padding:26px 0 36px;
     }
     .footerGrid{
       display:grid;
       grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
-      gap: 18px;
+      gap:16px;
       align-items:start;
     }
-    .footTitle{ font-weight: 600; margin: 0 0 10px; }
-    .footText{ color: var(--muted); margin: 0 0 12px; font-size: 13.5px; }
-    .footLinks a{ display:block; color: var(--muted); padding: 6px 0; font-size: 13.5px; }
-    .footLinks a:hover{ color: var(--ink); }
-    .newsletter{ display:flex; gap: 10px; }
+    .ftitle{ margin:0 0 10px; font-weight:600; }
+    .ftext{ margin:0 0 12px; color:var(--muted); font-size:13.5px; }
+    .flinks a{ display:block; padding:6px 0; color:var(--muted); font-size:13.5px; }
+    .flinks a:hover{ color:var(--ink); }
+    .newsletter{ display:flex; gap:10px; }
 
-    @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .imageMock{ min-height: 300px; }
-      .grid{ grid-template-columns: 1fr 1fr; }
-      .footerGrid{ grid-template-columns: 1fr 1fr; }
+    /* Responsive */
+    @media (max-width:980px){
+      .grid2{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr 1fr; }
+      .footerGrid{ grid-template-columns: 1fr 1fr; }
+      .mini{ grid-template-columns: 1fr; }
     }
-    @media (max-width: 640px){
+    @media (max-width:640px){
       .navlinks{ display:none; }
-      .heroLeft{ padding: 24px; }
-      .miniGrid{ grid-template-columns: 1fr; }
-      .grid{ grid-template-columns: 1fr; }
-      .banner{ flex-direction: column; align-items:flex-start; }
+      .grid3{ grid-template-columns: 1fr; }
       .footerGrid{ grid-template-columns: 1fr; }
       .formRow{ grid-template-columns: 1fr; }
     }
@@ -471,214 +387,245 @@
 </head>
 
 <body>
-  <!-- TOPBAR -->
   <div class="topbar">
-    <div class="container inner">
+    <div class="wrap row">
       <div class="pill"><span class="dot"></span> Shipping across EU — simple returns</div>
-      <div class="pill">ZELYN fitted sheet • Queen 160×200 • Organic percale</div>
+      <div class="pill">Queen 160×200 • 35cm pocket • White percale</div>
     </div>
   </div>
 
-  <!-- HEADER -->
   <header>
-    <div class="container nav">
-      <a class="brand" href="#/home" aria-label="ZELYN Home">
-        <b>ZELYN</b> <span>bed essentials</span>
-      </a>
+    <div class="wrap nav">
+      <a class="brand" href="#/home" aria-label="ZELYN Home"><b>ZELYN</b><span>bed essentials</span></a>
 
       <nav class="navlinks" aria-label="primary">
         <a href="#/home" data-nav="home">Home</a>
-        <a href="#/product" data-nav="product">Shop</a>
-        <a href="#/cart" data-nav="cart">Cart</a>
-        <a href="#/checkout" data-nav="checkout">Checkout</a>
+        <a href="#/product" data-nav="product">Product</a>
+        <a href="#/materials" data-nav="materials">Materials</a>
+        <a href="#/faq" data-nav="faq">FAQ</a>
+        <a href="#/about" data-nav="about">About</a>
+        <a href="#/contact" data-nav="contact">Contact</a>
       </nav>
 
-      <div class="navright">
+      <div class="actions">
         <a class="iconbtn" href="#/cart" aria-label="Cart">
-          <span class="badge" data-cart-badge style="display:none;">0</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <span class="badge" data-cart-badge>0</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 9V7a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
             <path d="M6.5 9h11l1 12.5a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 5.5 21.5L6.5 9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a class="btn btn-solid" href="#/product">Shop Queen</a>
+        <a class="btn btn-solid" href="#/product">Shop</a>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="container">
+    <div class="wrap">
 
-      <!-- PAGE: HOME -->
+      <!-- HOME -->
       <section data-page="home">
-        <div class="heroGrid">
-          <div class="card heroLeft">
+        <div class="grid2">
+          <div class="card hero">
             <div class="kicker">
-              <span class="tag"><strong>New</strong> fitted sheet</span>
-              <span class="tag">Organic percale • matte finish</span>
-              <span class="tag">Designed for EU beds</span>
+              <span class="tag"><strong>Launch</strong> one essential</span>
+              <span class="tag">EU sizing</span>
+              <span class="tag">White percale</span>
             </div>
-
-            <h1>Clean bedding that simply works.</h1>
+            <h1>Good bedding should simply work.</h1>
             <p class="lead">
-              Crisp, breathable, and made to sit neatly night after night.
-              Premium feel — without the loud luxury.
+              We started with a fitted sheet — queen size for European beds.
+              Crisp, breathable percale. Designed to sit neatly and last.
             </p>
-
             <div class="row">
               <a class="btn btn-solid" href="#/product">Shop fitted sheet</a>
-              <a class="btn btn-primary" href="#/home#materials">Why percale</a>
+              <a class="btn btn-ghost" href="#/materials">Why percale</a>
+              <a class="btn" href="#/faq">FAQ</a>
             </div>
 
-            <div class="miniGrid" style="margin-top:18px;">
-              <div class="miniCard"><p class="t">Thread count</p><p class="v">300 TC</p></div>
-              <div class="miniCard"><p class="t">Finish</p><p class="v">Matte, crisp</p></div>
-              <div class="miniCard"><p class="t">Fit</p><p class="v">Holds corners</p></div>
+            <div class="mini">
+              <div class="m"><p class="t">Size</p><p class="v">160×200 cm</p></div>
+              <div class="m"><p class="t">Pocket</p><p class="v">35 cm</p></div>
+              <div class="m"><p class="t">Color</p><p class="v">White</p></div>
             </div>
           </div>
 
-          <div class="heroRight">
-            <div class="imageMock card">
-              <div class="imageLabel"><b>Fitted sheet</b> • Queen 160×200</div>
+          <div class="card" style="padding:14px;">
+            <div class="heroImg">
+              <img id="homeHeroImg" src="" alt="White fitted sheet on a minimal European bed" loading="eager" decoding="async" />
             </div>
-
-            <div class="banner">
-              <p><b>Color, done quietly.</b> Sage accents in UI. Product photos stay clean and true.</p>
-              <div class="row">
-                <a class="btn btn-primary" href="#/product">View product</a>
-                <a class="btn" href="#/cart">Go to cart</a>
+            <div style="padding:12px 4px 0;">
+              <div class="between">
+                <div>
+                  <div style="font-weight:600;">Fitted Sheet — Queen</div>
+                  <div class="muted" style="font-size:13.5px;">160×200 • 35cm pocket • percale</div>
+                </div>
+                <div class="price" id="homePrice">€29.00</div>
+              </div>
+              <div class="row" style="margin-top:12px;">
+                <button class="btn btn-solid" data-add="fitted-queen-160x200">Add to cart</button>
+                <a class="btn btn-ghost" href="#/product">View details</a>
+              </div>
+              <div class="notice" style="margin-top:12px;">
+                Minimal UI. Quiet color. Product stays the hero.
               </div>
             </div>
           </div>
-        </div>
-
-        <div id="materials" class="sectionHead">
-          <div>
-            <h2>Materials</h2>
-            <p class="sub">Percale is about structure — crisp, breathable, and made to last.</p>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="card"><div class="cardBody"><p class="ptitle" style="margin:0 0 6px;">Matte texture</p><p class="pdesc">No sheen. No glossy “hotel” look. Just clean cotton.</p></div></div>
-          <div class="card"><div class="cardBody"><p class="ptitle" style="margin:0 0 6px;">Breathable</p><p class="pdesc">Cooler feel — especially in warmer rooms and climates.</p></div></div>
-          <div class="card"><div class="cardBody"><p class="ptitle" style="margin:0 0 6px;">Shape retention</p><p class="pdesc">A tighter weave helps the sheet stay neat over time.</p></div></div>
         </div>
 
         <div class="sectionHead">
           <div>
-            <h2>Our story</h2>
-            <p class="sub">From South India’s textile roots to modern European bedrooms — designed with restraint.</p>
+            <h2>Shop</h2>
+            <p class="sub">Start with one fitted sheet. Add more essentials later.</p>
           </div>
+          <a class="btn btn-ghost" href="#/product">Open product</a>
         </div>
 
-        <div class="card">
-          <div class="cardBody">
-            <p class="ptitle" style="margin:0 0 8px;">Made with care, not noise.</p>
-            <p class="pdesc" style="font-size:14px;">
-              We’re starting with one essential: a fitted sheet that fits properly, feels crisp, and holds up.
-              The rest comes next — slowly, and done properly.
-            </p>
-            <div class="row">
-              <a class="btn btn-solid" href="#/product">Shop now</a>
-              <a class="btn btn-primary" href="#/product#details">See details</a>
+        <div class="grid3">
+          <article class="card productCard">
+            <div class="pcTop">
+              <div class="muted" style="font-size:13px;">Available now</div>
+              <div style="font-weight:600;">Fitted Sheet — Queen</div>
             </div>
-          </div>
+            <div class="pcBody">
+              <div class="between">
+                <div class="muted" style="font-size:13.5px;">160×200 • 35cm pocket</div>
+                <div class="price" id="cardPrice">€29.00</div>
+              </div>
+              <div class="chips">
+                <span class="chip">White</span>
+                <span class="chip">Percale</span>
+                <span class="chip">EU sizing</span>
+              </div>
+              <div class="row">
+                <button class="btn btn-solid" data-add="fitted-queen-160x200">Add</button>
+                <a class="btn btn-ghost" href="#/product">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card productCard">
+            <div class="pcTop">
+              <div class="muted" style="font-size:13px;">Coming soon</div>
+              <div style="font-weight:600;">Pillowcases</div>
+            </div>
+            <div class="pcBody">
+              <div class="muted" style="font-size:13.5px;">EU sizes • same fabric</div>
+              <div class="chips">
+                <span class="chip">Notify list</span>
+                <span class="chip">Percale</span>
+                <span class="chip">Minimal finish</span>
+              </div>
+              <div class="row">
+                <a class="btn btn-ghost" href="#/contact">Notify me</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card productCard">
+            <div class="pcTop">
+              <div class="muted" style="font-size:13px;">Coming soon</div>
+              <div style="font-weight:600;">Duvet covers</div>
+            </div>
+            <div class="pcBody">
+              <div class="muted" style="font-size:13.5px;">EU sizes • clean details</div>
+              <div class="chips">
+                <span class="chip">Notify list</span>
+                <span class="chip">Percale</span>
+                <span class="chip">Easy care</span>
+              </div>
+              <div class="row">
+                <a class="btn btn-ghost" href="#/contact">Notify me</a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- PAGE: PRODUCT -->
+      <!-- PRODUCT -->
       <section data-page="product">
         <div class="twoCol">
-          <div class="card" style="padding:18px;">
-            <div class="imageMock" style="min-height:420px;">
-              <div class="imageLabel"><b>Product photo</b> placeholder</div>
+          <div class="card" style="padding:14px;">
+            <div class="heroImg">
+              <img id="productImg" src="" alt="ZELYN white fitted sheet, queen size 160x200cm" loading="lazy" decoding="async" />
             </div>
-            <p class="help">Swap this placeholder with your real product image later.</p>
+            <div class="notice" style="margin-top:12px;">
+              Tip: Keep photos calm and realistic. Let texture + fit sell.
+            </div>
           </div>
 
           <div class="card">
-            <div class="cardBody">
+            <div style="padding:18px;">
               <div class="kicker">
-                <span class="tag"><strong>Organic</strong> percale</span>
-                <span class="tag">Matte finish</span>
-                <span class="tag">EU sizing</span>
+                <span class="tag"><strong>Queen</strong> 160×200</span>
+                <span class="tag">35cm pocket</span>
+                <span class="tag">White percale</span>
               </div>
 
-              <h1 style="font-size:40px; margin-bottom:10px;">Fitted Sheet — Queen</h1>
-              <p class="lead" style="margin-bottom:10px;">
-                Crisp, breathable percale with a clean fit. Made to sit neatly and stay in place.
+              <h1 style="font-size:40px;">Fitted Sheet — Queen</h1>
+              <p class="lead">
+                Crisp percale. Clean fit. Designed for European mattresses.
               </p>
 
-              <div class="notice" style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="between notice" style="align-items:center;">
                 <div>
                   <div style="font-weight:600; color:var(--ink);">Price</div>
                   <div style="font-size:13px;">Launch price</div>
                 </div>
-                <div style="font-weight:700; color:var(--ink); font-size:18px;" data-product-price>€29.00</div>
+                <div class="price" id="productPrice">€29.00</div>
+              </div>
+
+              <div class="chips">
+                <span class="chip">160×200 cm</span>
+                <span class="chip">35 cm pocket</span>
+                <span class="chip">White</span>
+                <span class="chip">Cotton percale</span>
+              </div>
+
+              <div class="row">
+                <button class="btn btn-solid" data-add="fitted-queen-160x200">Add to cart</button>
+                <a class="btn btn-ghost" href="#/cart">Go to cart</a>
               </div>
 
               <div class="hr"></div>
 
-              <div class="meta">
-                <span class="chip">160×200 cm</span>
-                <span class="chip">35 cm depth</span>
-                <span class="chip">Percale</span>
-                <span class="chip">White</span>
-              </div>
-
-              <div class="row">
-                <button class="btn btn-solid" type="button" data-add-to-cart="fitted-queen-160x200">
-                  Add to cart
-                </button>
-                <a class="btn btn-primary" href="#/cart">Go to cart</a>
-              </div>
-
-              <div class="help" style="margin-top:10px;">
-                UI is colorful (sage/sand). Product visuals stay calm and true.
-              </div>
-
-              <div id="details" class="sectionHead" style="margin-top:18px;">
-                <div>
-                  <h2 style="font-size:24px;">Details</h2>
-                  <p class="sub">Straight facts. No marketing noise.</p>
-                </div>
-              </div>
+              <h2 style="font-size:24px;">Details</h2>
+              <p class="sub">Straight facts.</p>
 
               <table class="table" aria-label="Product details">
                 <tbody>
-                  <tr><th>Product</th><td>Fitted sheet</td></tr>
+                  <tr><th>Type</th><td>Fitted sheet</td></tr>
                   <tr><th>Size</th><td>Queen 160×200 cm (EU)</td></tr>
-                  <tr><th>Depth fit</th><td>Up to 35 cm mattress depth</td></tr>
-                  <tr><th>Fabric</th><td>100% cotton percale</td></tr>
+                  <tr><th>Pocket depth</th><td>35 cm</td></tr>
                   <tr><th>Color</th><td>White</td></tr>
+                  <tr><th>Fabric</th><td>100% cotton percale</td></tr>
+                  <tr><th>Finish</th><td>Matte, breathable</td></tr>
                 </tbody>
               </table>
 
-              <div class="notice" style="margin-top:14px;">
-                Totals shown in cart/checkout are accurate to items in cart.
-                Shipping/VAT/payment are not calculated (add later when integrating a gateway).
+              <div class="notice" style="margin-top:12px;">
+                Cart totals shown are accurate for items in cart (subtotal).
+                Shipping/VAT/payment are added when you integrate checkout later.
               </div>
             </div>
           </div>
         </div>
-
-        <div data-toast class="notice toast"></div>
       </section>
 
-      <!-- PAGE: CART -->
+      <!-- CART -->
       <section data-page="cart">
         <div class="sectionHead" style="margin-top:0;">
           <div>
             <h2>Your cart</h2>
-            <p class="sub">Adjust quantities or remove items. Cart saves automatically.</p>
+            <p class="sub">Edit quantities. Cart is saved automatically on this device.</p>
           </div>
+          <a class="btn btn-ghost" href="#/product">Continue shopping</a>
         </div>
 
         <div class="twoCol">
-          <div class="card" style="padding:18px;">
-            <div data-cart-empty class="notice" style="display:none;">
-              Your cart is empty. <a class="btn btn-primary" href="#/product" style="margin-top:10px;">Shop</a>
+          <div class="card" style="padding:14px;">
+            <div id="cartEmpty" class="notice" style="display:none;">
+              Your cart is empty. <a class="btn btn-ghost" href="#/product" style="margin-top:10px;">Shop</a>
             </div>
 
             <table class="table" aria-label="Cart items">
@@ -691,72 +638,73 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody data-cart-body></tbody>
+              <tbody id="cartBody"></tbody>
             </table>
           </div>
 
           <div class="card">
-            <div class="cardBody">
-              <p class="ptitle" style="margin:0 0 10px;">Order summary</p>
+            <div style="padding:18px;">
+              <div style="font-weight:600; margin-bottom:10px;">Order summary</div>
 
-              <div class="notice" style="display:flex; justify-content:space-between;">
+              <div class="between notice">
                 <div>Subtotal</div>
-                <div style="font-weight:800; color:var(--ink);" data-cart-subtotal>€0.00</div>
+                <div class="price" id="cartSubtotal">€0.00</div>
               </div>
 
-              <p class="help">
-                Shipping and VAT are not included in this demo. Subtotal is accurate for cart items only.
+              <p class="sub" style="margin-top:12px;">
+                Shipping and VAT are not included in this demo UI.
               </p>
 
               <div class="row" style="margin-top:12px;">
-                <a class="btn btn-solid" href="#/checkout" data-go-checkout>Go to checkout</a>
-                <a class="btn btn-primary" href="#/product">Shop</a>
+                <a class="btn btn-solid" id="goCheckout" href="#/checkout">Go to checkout</a>
+                <button class="btn" id="clearCart" type="button">Clear cart</button>
               </div>
 
               <div class="notice" style="margin-top:12px;">
-                EU sizing: Queen is commonly 160×200 cm. This build uses that as default.
+                Support: <a href="mailto:support@zelynhome.com">support@zelynhome.com</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PAGE: CHECKOUT -->
+      <!-- CHECKOUT -->
       <section data-page="checkout">
         <div class="sectionHead" style="margin-top:0;">
           <div>
             <h2>Checkout</h2>
-            <p class="sub">Clean UI flow. Place order generates a demo order ID and clears the cart.</p>
+            <p class="sub">Clean UI flow. “Place order” creates a demo order ID and clears the cart.</p>
           </div>
+          <a class="btn btn-ghost" href="#/cart">Back to cart</a>
         </div>
 
         <div class="twoCol">
           <div class="card">
-            <div class="cardBody">
-              <p class="ptitle" style="margin:0 0 10px;">Shipping details</p>
+            <div style="padding:18px;">
+              <div style="font-weight:600; margin-bottom:10px;">Shipping details</div>
 
-              <form data-checkout-form>
+              <form id="checkoutForm" novalidate>
                 <div class="formRow">
-                  <div><input class="input" data-required type="text" placeholder="First name" aria-label="First name" /></div>
-                  <div><input class="input" data-required type="text" placeholder="Last name" aria-label="Last name" /></div>
+                  <div><input class="input" name="first" required placeholder="First name" /></div>
+                  <div><input class="input" name="last" required placeholder="Last name" /></div>
                 </div>
 
                 <div style="margin-top:12px;">
-                  <input class="input" data-required type="email" placeholder="Email" aria-label="Email" />
+                  <input class="input" name="email" type="email" required placeholder="Email" />
                 </div>
 
                 <div style="margin-top:12px;">
-                  <input class="input" data-required type="text" placeholder="Address" aria-label="Address" />
+                  <input class="input" name="address" required placeholder="Address" />
                 </div>
 
                 <div class="formRow" style="margin-top:12px;">
-                  <div><input class="input" data-required type="text" placeholder="City" aria-label="City" /></div>
-                  <div><input class="input" data-required type="text" placeholder="Postcode" aria-label="Postcode" /></div>
+                  <div><input class="input" name="city" required placeholder="City" /></div>
+                  <div><input class="input" name="postcode" required placeholder="Postcode" /></div>
                 </div>
 
                 <div class="formRow" style="margin-top:12px;">
                   <div>
-                    <select class="input" data-required aria-label="Country">
+                    <select class="input" name="country" required>
                       <option value="">Country</option>
                       <option>Germany</option>
                       <option>France</option>
@@ -767,62 +715,174 @@
                       <option>Other EU</option>
                     </select>
                   </div>
-                  <div><input class="input" type="tel" placeholder="Phone (optional)" aria-label="Phone" /></div>
+                  <div><input class="input" name="phone" placeholder="Phone (optional)" /></div>
                 </div>
 
                 <div class="notice" style="margin-top:12px;">
-                  Payment is not processed here. This is UI + cart logic.
-                  When you integrate Stripe, this section stays the same.
+                  Payment is not processed here. Integrate Stripe/Shopify later without changing this design.
                 </div>
 
                 <div class="row" style="margin-top:12px;">
                   <button class="btn btn-solid" type="submit">Place order</button>
-                  <a class="btn btn-primary" href="#/cart">Back to cart</a>
+                  <a class="btn btn-ghost" href="#/product">Continue shopping</a>
                 </div>
               </form>
             </div>
           </div>
 
           <div class="card">
-            <div class="cardBody">
-              <p class="ptitle" style="margin:0 0 10px;">Order summary</p>
+            <div style="padding:18px;">
+              <div style="font-weight:600; margin-bottom:10px;">Order summary</div>
 
-              <div data-checkout-summary style="display:grid; gap:10px;"></div>
+              <div id="checkoutSummary" style="display:grid; gap:10px;"></div>
 
               <div class="hr"></div>
 
-              <div class="notice" style="display:flex; justify-content:space-between;">
+              <div class="between notice">
                 <div>Subtotal</div>
-                <div style="font-weight:800; color:var(--ink);" data-checkout-subtotal>€0.00</div>
+                <div class="price" id="checkoutSubtotal">€0.00</div>
               </div>
 
-              <p class="help">
-                For full “accuracy” (VAT + shipping per EU country), connect checkout/tax/shipping later.
-                Subtotal here is accurate to cart items.
+              <p class="sub" style="margin-top:12px;">
+                Subtotal is accurate for items in cart. VAT/shipping are added at real checkout integration.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PAGE: SUCCESS -->
+      <!-- SUCCESS -->
       <section data-page="success">
-        <div class="card heroLeft" style="max-width:820px; margin: 0 auto;">
+        <div class="card hero" style="max-width:820px; margin:0 auto;">
           <div class="kicker">
             <span class="tag"><strong>Order placed</strong></span>
             <span class="tag">Demo flow</span>
           </div>
-
           <h1 style="font-size:46px;">Thank you.</h1>
           <p class="lead">Your order has been created in this demo UI.</p>
 
           <div class="notice">
-            Order ID: <b data-order-id></b>
+            Order ID: <b id="orderId">ZELYN-—</b>
           </div>
 
           <div class="row" style="margin-top:14px;">
             <a class="btn btn-solid" href="#/product">Continue shopping</a>
-            <a class="btn btn-primary" href="#/home">Back home</a>
+            <a class="btn btn-ghost" href="#/home">Back home</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section data-page="about">
+        <div class="card" style="padding:18px;">
+          <h2>About</h2>
+          <p class="sub">
+            ZELYN makes bedding essentials for modern European homes — starting with one fitted sheet.
+            Clean sizing, honest materials, and a calm aesthetic.
+          </p>
+          <div class="hr"></div>
+          <div class="notice">
+            Contact: <a href="mailto:support@zelynhome.com">support@zelynhome.com</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATERIALS -->
+      <section data-page="materials">
+        <div class="card" style="padding:18px;">
+          <h2>Materials</h2>
+          <p class="sub">Percale is defined by structure — crisp, breathable, and made for daily use.</p>
+
+          <div class="hr"></div>
+
+          <div class="grid3">
+            <div class="card" style="padding:16px;">
+              <div style="font-weight:600;">Breathability</div>
+              <div class="muted" style="margin-top:6px; font-size:13.5px;">Cooler, fresher feel through the night.</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-weight:600;">Matte finish</div>
+              <div class="muted" style="margin-top:6px; font-size:13.5px;">No shine. Clean, natural texture.</div>
+            </div>
+            <div class="card" style="padding:16px;">
+              <div style="font-weight:600;">Everyday durability</div>
+              <div class="muted" style="margin-top:6px; font-size:13.5px;">Designed to hold shape and wear well.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section data-page="faq">
+        <div class="card" style="padding:18px;">
+          <h2>FAQ</h2>
+          <p class="sub">Short answers. Clear details.</p>
+
+          <div class="hr"></div>
+
+          <div class="card" style="padding:16px; margin-bottom:12px;">
+            <div style="font-weight:600;">Is 160×200 a European queen size?</div>
+            <div class="muted" style="margin-top:6px; font-size:13.5px;">
+              It’s a common “queen equivalent” in many EU markets. It fits many standard double beds in Europe.
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px; margin-bottom:12px;">
+            <div style="font-weight:600;">What does 35cm pocket mean?</div>
+            <div class="muted" style="margin-top:6px; font-size:13.5px;">
+              It’s the maximum mattress depth the fitted sheet is designed to wrap securely.
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px; margin-bottom:12px;">
+            <div style="font-weight:600;">Is this a full checkout system?</div>
+            <div class="muted" style="margin-top:6px; font-size:13.5px;">
+              This file includes UI + cart logic. For real payments, taxes, and shipping, integrate Stripe/Shopify later.
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-weight:600;">How do I contact support?</div>
+            <div class="muted" style="margin-top:6px; font-size:13.5px;">
+              Email <a href="mailto:support@zelynhome.com">support@zelynhome.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section data-page="contact">
+        <div class="card" style="padding:18px;">
+          <h2>Contact</h2>
+          <p class="sub">For orders, sizing help, or notifications.</p>
+
+          <div class="hr"></div>
+
+          <div class="twoCol" style="grid-template-columns: 1fr 1fr;">
+            <div class="card" style="padding:16px;">
+              <div style="font-weight:600;">Email</div>
+              <div class="muted" style="margin-top:6px; font-size:13.5px;">
+                <a href="mailto:support@zelynhome.com">support@zelynhome.com</a>
+              </div>
+              <div class="notice" style="margin-top:12px;">
+                For “notify me” requests, email with subject: <b>Notify: ZELYN pillowcases</b>
+              </div>
+            </div>
+
+            <div class="card" style="padding:16px;">
+              <div style="font-weight:600;">Message (demo)</div>
+              <div class="muted" style="margin-top:6px; font-size:13.5px;">This form is UI-only.</div>
+              <div style="margin-top:10px;">
+                <input class="input" placeholder="Your email" />
+              </div>
+              <div style="margin-top:10px;">
+                <textarea class="input" placeholder="Your message"></textarea>
+              </div>
+              <div class="row" style="margin-top:10px;">
+                <button class="btn btn-solid" type="button" id="contactSend">Send (demo)</button>
+              </div>
+              <div id="contactToast" class="notice" style="margin-top:10px; display:none;">Saved (demo). Please email support for real requests.</div>
+            </div>
           </div>
         </div>
       </section>
@@ -831,366 +891,374 @@
   </main>
 
   <footer>
-    <div class="container">
+    <div class="wrap">
       <div class="footerGrid">
         <div>
-          <p class="footTitle">ZELYN</p>
-          <p class="footText">Thoughtfully made bedding for modern European homes.</p>
+          <p class="ftitle">ZELYN</p>
+          <p class="ftext">Thoughtfully made bedding for modern European homes.</p>
           <div class="pill" style="display:inline-flex;"><span class="dot"></span> Calm. Clean. Considered.</div>
         </div>
-        <div class="footLinks">
-          <p class="footTitle">Shop</p>
-          <a href="#/product">Fitted Sheet</a>
+
+        <div class="flinks">
+          <p class="ftitle">Shop</p>
+          <a href="#/product">Fitted sheet</a>
           <a href="#/cart">Cart</a>
           <a href="#/checkout">Checkout</a>
         </div>
-        <div class="footLinks">
-          <p class="footTitle">Company</p>
-          <a href="#/home#materials">Materials</a>
-          <a href="#/home">Our story</a>
-          <a href="mailto:support@zelynhome.com">Contact</a>
+
+        <div class="flinks">
+          <p class="ftitle">Info</p>
+          <a href="#/materials">Materials</a>
+          <a href="#/faq">FAQ</a>
+          <a href="#/about">About</a>
         </div>
+
         <div>
-          <p class="footTitle">Newsletter</p>
-          <p class="footText">Quiet updates. Product drops. No spam.</p>
+          <p class="ftitle">Newsletter</p>
+          <p class="ftext">Quiet updates. Product drops. No spam.</p>
           <div class="newsletter">
-            <input class="input" type="email" placeholder="Email address" aria-label="Email address" />
-            <button class="btn btn-solid" type="button">Join</button>
+            <input class="input" id="newsEmail" type="email" placeholder="Email address" aria-label="Email address" />
+            <button class="btn btn-solid" type="button" id="newsJoin">Join</button>
           </div>
+          <p class="ftext" style="margin-top:12px;">
+            Support: <a href="mailto:support@zelynhome.com">support@zelynhome.com</a>
+          </p>
         </div>
       </div>
 
-      <p class="footText" style="margin-top:18px; font-size:12.5px;">
-        © <span data-year></span> ZELYN. All rights reserved.
+      <p class="ftext" style="margin-top:18px; font-size:12.5px;">
+        © <span id="year"></span> ZELYN. All rights reserved.
       </p>
     </div>
   </footer>
 
   <script>
-    /* ===========
-       ZELYN Single-file “multi-page” store
-       - Hash routing: #/home, #/product, #/cart, #/checkout, #/success
-       - Cart persists via localStorage
-       - Totals are accurate to items in cart (subtotal only)
-       =========== */
+    /* =========
+       FAST SINGLE-FILE STORE (Version A)
+       - Hash routing for pages
+       - Small JS, event delegation
+       - Cart persistence (localStorage)
+       - Subtotal accurate to items (no VAT/shipping)
+       ========= */
 
-    const STORAGE_KEY = "zelyn_cart_v1";
+    // 1) IMAGE PATH: save your shared image as /images/fitted-sheet.jpg
+    const IMG_SRC = "images/fitted-sheet.jpg";
 
-    // Launch product (per your setup)
-    const PRODUCTS = [
-      {
+    // 2) Product config (your launch setup)
+    const PRODUCTS = {
+      "fitted-queen-160x200": {
         id: "fitted-queen-160x200",
         name: "Fitted Sheet — Queen",
-        subtitle: "Cotton percale • matte finish",
         size: "160×200 cm",
-        depth: "Up to 35 cm depth",
+        pocket: "35 cm",
         color: "White",
-        // Your current stated launch price: €29
+        fabric: "Cotton percale",
         priceCents: 2900,
         currency: "EUR"
       }
-    ];
+    };
 
-    function money(cents, currency="EUR") {
-      return new Intl.NumberFormat("en-IE", { style: "currency", currency }).format(cents / 100);
+    const STORAGE_KEY = "zelyn_cart_v2";
+    const PAGES = ["home","product","cart","checkout","success","about","materials","faq","contact"];
+
+    function money(cents, currency="EUR"){
+      return new Intl.NumberFormat("en-IE",{style:"currency",currency}).format(cents/100);
     }
 
-    function loadCart() {
-      try {
+    function loadCart(){
+      try{
         const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return [];
-        const parsed = JSON.parse(raw);
+        const parsed = raw ? JSON.parse(raw) : [];
         return Array.isArray(parsed) ? parsed : [];
-      } catch { return []; }
+      }catch{ return []; }
     }
+    function saveCart(cart){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
 
-    function saveCart(cart) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-    }
+    function cartCount(cart){ return cart.reduce((s,i)=>s+(Number(i.qty)||0),0); }
 
-    function findProduct(productId) {
-      return PRODUCTS.find(p => p.id === productId);
-    }
-
-    function cartCount(cart) {
-      return cart.reduce((sum, i) => sum + (Number(i.qty) || 0), 0);
-    }
-
-    function calcTotals(cart) {
+    function calcSubtotal(cart){
       let subtotal = 0;
-      for (const item of cart) {
-        const p = findProduct(item.id);
-        if (!p) continue;
-        subtotal += p.priceCents * (Number(item.qty) || 0);
+      for(const line of cart){
+        const p = PRODUCTS[line.id];
+        if(!p) continue;
+        subtotal += p.priceCents * (Number(line.qty)||0);
       }
-      return { subtotalCents: subtotal };
+      return subtotal;
     }
 
-    function updateCartBadge() {
+    function updateBadge(){
       const badge = document.querySelector("[data-cart-badge]");
-      if (!badge) return;
+      if(!badge) return;
       const count = cartCount(loadCart());
       badge.textContent = String(count);
       badge.style.display = count > 0 ? "grid" : "none";
     }
 
-    function addToCart(productId, qty=1) {
-      const p = findProduct(productId);
-      if (!p) return;
-
+    function addToCart(id, qty=1){
+      const p = PRODUCTS[id];
+      if(!p) return;
       const cart = loadCart();
-      const existing = cart.find(i => i.id === productId);
-      if (existing) existing.qty += qty;
-      else cart.push({ id: productId, qty });
-
+      const existing = cart.find(x=>x.id===id);
+      if(existing) existing.qty += qty;
+      else cart.push({id, qty});
       saveCart(cart);
-      updateCartBadge();
-      renderAll();
-    }
-
-    function updateQty(productId, qty) {
-      const cart = loadCart();
-      const item = cart.find(i => i.id === productId);
-      if (!item) return;
-      const n = Math.max(1, Math.min(99, Number(qty) || 1));
-      item.qty = n;
-      saveCart(cart);
-      updateCartBadge();
-      renderAll();
-    }
-
-    function removeItem(productId) {
-      const cart = loadCart().filter(i => i.id !== productId);
-      saveCart(cart);
-      updateCartBadge();
-      renderAll();
-    }
-
-    function clearCart() {
-      saveCart([]);
-      updateCartBadge();
-      renderAll();
-    }
-
-    /* ===== Routing ===== */
-    function getRoute() {
-      const hash = location.hash || "#/home";
-      // Normalize: "#/home", "#/product", etc.
-      const route = hash.split("#")[1] || "/home";
-      const path = route.split("?")[0] || "/home";
-      const clean = path.startsWith("/") ? path : ("/" + path);
-      return clean;
-    }
-
-    function setActivePage(route) {
-      document.querySelectorAll("[data-page]").forEach(sec => {
-        sec.classList.toggle("active", sec.getAttribute("data-page") === route.replace("/",""));
-      });
-
-      // Nav active
-      const key = route.replace("/","");
-      document.querySelectorAll("[data-nav]").forEach(a => {
-        a.removeAttribute("aria-current");
-        if (a.getAttribute("data-nav") === key) a.setAttribute("aria-current", "page");
-      });
-    }
-
-    /* ===== Renders ===== */
-    function bindAddButtons() {
-      document.querySelectorAll("[data-add-to-cart]").forEach(btn => {
-        btn.onclick = () => {
-          const id = btn.getAttribute("data-add-to-cart");
-          addToCart(id, 1);
-
-          const toast = document.querySelector("[data-toast]");
-          if (toast) {
-            toast.textContent = "Added to cart.";
-            toast.style.opacity = "1";
-            setTimeout(() => toast.style.opacity = "0", 1200);
-          }
-        };
-      });
-    }
-
-    function renderProductPrice() {
-      const el = document.querySelector("[data-product-price]");
-      const p = findProduct("fitted-queen-160x200");
-      if (el && p) el.textContent = money(p.priceCents, p.currency);
-    }
-
-    function renderCartTable() {
-      const tbody = document.querySelector("[data-cart-body]");
-      const empty = document.querySelector("[data-cart-empty]");
-      const subtotalEl = document.querySelector("[data-cart-subtotal]");
-      const checkoutBtn = document.querySelector("[data-go-checkout]");
-
-      if (!tbody || !subtotalEl) return;
-
-      const cart = loadCart();
-      if (cart.length === 0) {
-        if (empty) empty.style.display = "block";
-        tbody.innerHTML = "";
-        subtotalEl.textContent = money(0, "EUR");
-        if (checkoutBtn) checkoutBtn.setAttribute("disabled", "true");
-        return;
-      }
-
-      if (empty) empty.style.display = "none";
-      if (checkoutBtn) checkoutBtn.removeAttribute("disabled");
-
-      tbody.innerHTML = cart.map(item => {
-        const p = findProduct(item.id);
-        if (!p) return "";
-        const line = p.priceCents * item.qty;
-
-        return `
-          <tr>
-            <td style="color: var(--ink); font-weight:600;">
-              ${p.name}
-              <div style="font-weight:400; color: var(--muted); font-size:12.5px; margin-top:4px;">
-                ${p.size} • ${p.depth} • ${p.color}
-              </div>
-            </td>
-            <td>${money(p.priceCents, p.currency)}</td>
-            <td>
-              <input class="input" style="max-width:92px;" type="number" min="1" max="99"
-                value="${item.qty}" data-qty="${p.id}" />
-            </td>
-            <td>${money(line, p.currency)}</td>
-            <td>
-              <button class="btn" type="button" data-remove="${p.id}" style="padding:10px 12px;">
-                Remove
-              </button>
-            </td>
-          </tr>
-        `;
-      }).join("");
-
-      const totals = calcTotals(cart);
-      subtotalEl.textContent = money(totals.subtotalCents, "EUR");
-
-      // Bind qty + remove
-      document.querySelectorAll("[data-qty]").forEach(input => {
-        input.onchange = () => updateQty(input.getAttribute("data-qty"), input.value);
-      });
-      document.querySelectorAll("[data-remove]").forEach(btn => {
-        btn.onclick = () => removeItem(btn.getAttribute("data-remove"));
-      });
-    }
-
-    function renderCheckoutSummary() {
-      const wrap = document.querySelector("[data-checkout-summary]");
-      const subtotalEl = document.querySelector("[data-checkout-subtotal]");
-      if (!wrap || !subtotalEl) return;
-
-      const cart = loadCart();
-      if (cart.length === 0) {
-        wrap.innerHTML = `<div class="notice">Your cart is empty. <a class="btn btn-primary" href="#/product" style="margin-top:10px;">Shop</a></div>`;
-        subtotalEl.textContent = money(0, "EUR");
-        return;
-      }
-
-      wrap.innerHTML = cart.map(item => {
-        const p = findProduct(item.id);
-        if (!p) return "";
-        return `
-          <div class="notice" style="display:flex; justify-content:space-between; gap:12px;">
-            <div>
-              <div style="color:var(--ink); font-weight:600;">${p.name}</div>
-              <div style="font-size:12.5px;">${p.size} • Qty ${item.qty}</div>
-            </div>
-            <div style="color:var(--ink); font-weight:600;">
-              ${money(p.priceCents * item.qty, p.currency)}
-            </div>
-          </div>
-        `;
-      }).join("");
-
-      const totals = calcTotals(cart);
-      subtotalEl.textContent = money(totals.subtotalCents, "EUR");
-    }
-
-    function bindCheckoutForm() {
-      const form = document.querySelector("[data-checkout-form]");
-      if (!form) return;
-
-      form.onsubmit = (e) => {
-        e.preventDefault();
-
-        const cart = loadCart();
-        if (cart.length === 0) {
-          alert("Your cart is empty.");
-          location.hash = "#/product";
-          return;
-        }
-
-        const required = form.querySelectorAll("[data-required]");
-        for (const field of required) {
-          if (!String(field.value || "").trim()) {
-            field.focus();
-            alert("Please fill all required fields.");
-            return;
-          }
-        }
-
-        // Demo order
-        const orderId = "ZELYN-" + Math.random().toString(16).slice(2, 10).toUpperCase();
-        localStorage.setItem("zelyn_last_order_id", orderId);
-
-        clearCart();
-        location.hash = "#/success";
-      };
-    }
-
-    function renderSuccess() {
-      const el = document.querySelector("[data-order-id]");
-      if (!el) return;
-      const id = localStorage.getItem("zelyn_last_order_id") || "ZELYN-—";
-      el.textContent = id;
-    }
-
-    function setYear() {
-      const y = document.querySelector("[data-year]");
-      if (y) y.textContent = new Date().getFullYear();
-    }
-
-    function renderAll() {
-      renderProductPrice();
-      renderCartTable();
+      updateBadge();
+      renderCart();
       renderCheckoutSummary();
-      renderSuccess();
     }
 
-    function onRouteChange() {
-      const route = getRoute();
-      const known = new Set(["/home","/product","/cart","/checkout","/success"]);
-      const finalRoute = known.has(route) ? route : "/home";
-      setActivePage(finalRoute);
+    function setQty(id, qty){
+      const cart = loadCart();
+      const line = cart.find(x=>x.id===id);
+      if(!line) return;
+      const n = Math.max(1, Math.min(99, Number(qty)||1));
+      line.qty = n;
+      saveCart(cart);
+      updateBadge();
+      renderCart();
+      renderCheckoutSummary();
+    }
 
-      // If user tries to open checkout with empty cart, redirect
-      if (finalRoute === "/checkout" && loadCart().length === 0) {
+    function removeLine(id){
+      const cart = loadCart().filter(x=>x.id!==id);
+      saveCart(cart);
+      updateBadge();
+      renderCart();
+      renderCheckoutSummary();
+    }
+
+    function clearCart(){
+      saveCart([]);
+      updateBadge();
+      renderCart();
+      renderCheckoutSummary();
+    }
+
+    // Routing
+    function route(){
+      const hash = location.hash || "#/home";
+      const page = (hash.split("#/")[1] || "home").split("?")[0];
+      const finalPage = PAGES.includes(page) ? page : "home";
+
+      // Redirect: checkout with empty cart -> cart
+      if(finalPage === "checkout" && loadCart().length === 0){
         location.hash = "#/cart";
         return;
       }
+
+      document.querySelectorAll("[data-page]").forEach(s=>{
+        s.classList.toggle("active", s.getAttribute("data-page") === finalPage);
+      });
+
+      // Nav active
+      document.querySelectorAll("[data-nav]").forEach(a=>{
+        a.removeAttribute("aria-current");
+        if(a.getAttribute("data-nav") === finalPage) a.setAttribute("aria-current","page");
+      });
+
+      // Render per page
+      if(finalPage === "cart") renderCart();
+      if(finalPage === "checkout") renderCheckoutSummary();
+      if(finalPage === "success") renderSuccess();
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      // Default route
-      if (!location.hash) location.hash = "#/home";
-
-      setYear();
-      updateCartBadge();
-      bindAddButtons();
-      bindCheckoutForm();
-      renderAll();
-      onRouteChange();
-
-      window.addEventListener("hashchange", () => {
-        onRouteChange();
-        // Re-render after route swap (ensures correct content)
-        renderAll();
+    // Renders
+    function renderPrices(){
+      const p = PRODUCTS["fitted-queen-160x200"];
+      const price = money(p.priceCents, p.currency);
+      const ids = ["homePrice","cardPrice","productPrice"];
+      ids.forEach(id=>{
+        const el = document.getElementById(id);
+        if(el) el.textContent = price;
       });
+    }
+
+    function renderImages(){
+      const h = document.getElementById("homeHeroImg");
+      const p = document.getElementById("productImg");
+      if(h) h.src = IMG_SRC;
+      if(p) p.src = IMG_SRC;
+    }
+
+    function renderCart(){
+      const cart = loadCart();
+      const body = document.getElementById("cartBody");
+      const empty = document.getElementById("cartEmpty");
+      const subtotalEl = document.getElementById("cartSubtotal");
+      const goCheckout = document.getElementById("goCheckout");
+
+      if(!body || !subtotalEl) return;
+
+      if(cart.length === 0){
+        body.innerHTML = "";
+        empty.style.display = "block";
+        subtotalEl.textContent = money(0,"EUR");
+        if(goCheckout) goCheckout.setAttribute("disabled","true");
+        return;
+      }
+
+      empty.style.display = "none";
+      if(goCheckout) goCheckout.removeAttribute("disabled");
+
+      let html = "";
+      for(const line of cart){
+        const p = PRODUCTS[line.id];
+        if(!p) continue;
+        const qty = Number(line.qty)||1;
+        const lineTotal = p.priceCents * qty;
+        html += `
+          <tr>
+            <td>
+              <div style="font-weight:600; color:var(--ink);">${p.name}</div>
+              <div class="muted" style="font-size:12.5px; margin-top:4px;">
+                ${p.size} • ${p.pocket} pocket • ${p.color}
+              </div>
+            </td>
+            <td class="muted">${money(p.priceCents,p.currency)}</td>
+            <td>
+              <input class="input" style="max-width:92px;" type="number" min="1" max="99"
+                value="${qty}" data-qty="${p.id}" />
+            </td>
+            <td class="muted">${money(lineTotal,p.currency)}</td>
+            <td>
+              <button class="btn" type="button" data-remove="${p.id}" style="padding:10px 12px;">Remove</button>
+            </td>
+          </tr>
+        `;
+      }
+      body.innerHTML = html;
+
+      const subtotal = calcSubtotal(cart);
+      subtotalEl.textContent = money(subtotal,"EUR");
+    }
+
+    function renderCheckoutSummary(){
+      const cart = loadCart();
+      const wrap = document.getElementById("checkoutSummary");
+      const subtotalEl = document.getElementById("checkoutSubtotal");
+      if(!wrap || !subtotalEl) return;
+
+      if(cart.length === 0){
+        wrap.innerHTML = `<div class="notice">Your cart is empty. <a class="btn btn-ghost" href="#/product" style="margin-top:10px;">Shop</a></div>`;
+        subtotalEl.textContent = money(0,"EUR");
+        return;
+      }
+
+      let html = "";
+      for(const line of cart){
+        const p = PRODUCTS[line.id];
+        if(!p) continue;
+        const qty = Number(line.qty)||1;
+        html += `
+          <div class="notice" style="display:flex; justify-content:space-between; gap:12px;">
+            <div>
+              <div style="font-weight:600; color:var(--ink);">${p.name}</div>
+              <div class="muted" style="font-size:12.5px;">${p.size} • Qty ${qty}</div>
+            </div>
+            <div style="font-weight:700; color:var(--ink);">${money(p.priceCents*qty,p.currency)}</div>
+          </div>
+        `;
+      }
+      wrap.innerHTML = html;
+
+      const subtotal = calcSubtotal(cart);
+      subtotalEl.textContent = money(subtotal,"EUR");
+    }
+
+    function renderSuccess(){
+      const el = document.getElementById("orderId");
+      if(!el) return;
+      const id = localStorage.getItem("zelyn_last_order") || "ZELYN-—";
+      el.textContent = id;
+    }
+
+    // Events (delegation = fewer listeners)
+    document.addEventListener("click", (e)=>{
+      const add = e.target.closest("[data-add]");
+      if(add){
+        addToCart(add.getAttribute("data-add"), 1);
+        return;
+      }
+
+      const rm = e.target.closest("[data-remove]");
+      if(rm){
+        removeLine(rm.getAttribute("data-remove"));
+        return;
+      }
+
+      if(e.target && e.target.id === "clearCart"){
+        clearCart();
+        return;
+      }
+
+      if(e.target && e.target.id === "newsJoin"){
+        const email = document.getElementById("newsEmail")?.value?.trim();
+        if(!email){ alert("Enter your email."); return; }
+        alert("Joined (demo).");
+        document.getElementById("newsEmail").value = "";
+        return;
+      }
+
+      if(e.target && e.target.id === "contactSend"){
+        const t = document.getElementById("contactToast");
+        if(t){ t.style.display = "block"; setTimeout(()=>t.style.display="none", 1600); }
+        return;
+      }
     });
+
+    document.addEventListener("change", (e)=>{
+      const qty = e.target.closest("[data-qty]");
+      if(qty){
+        setQty(qty.getAttribute("data-qty"), qty.value);
+      }
+    });
+
+    document.getElementById("checkoutForm")?.addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const cart = loadCart();
+      if(cart.length === 0){ location.hash="#/cart"; return; }
+
+      const form = e.target;
+      // minimal validation
+      const required = ["first","last","email","address","city","postcode","country"];
+      for(const name of required){
+        const field = form.elements[name];
+        if(!field || !String(field.value||"").trim()){
+          field?.focus();
+          alert("Please fill all required fields.");
+          return;
+        }
+      }
+
+      // Demo order ID
+      const orderId = "ZELYN-" + Math.random().toString(16).slice(2,10).toUpperCase();
+      localStorage.setItem("zelyn_last_order", orderId);
+
+      clearCart();
+      location.hash = "#/success";
+    });
+
+    // Boot
+    (function init(){
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Ensure route exists
+      if(!location.hash) location.hash = "#/home";
+
+      // Fast paint: set images + prices once
+      renderImages();
+      renderPrices();
+      updateBadge();
+
+      // Initial renders
+      renderCart();
+      renderCheckoutSummary();
+      route();
+
+      // Route changes
+      window.addEventListener("hashchange", route);
+    })();
   </script>
 </body>
 </html>
