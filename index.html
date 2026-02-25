@@ -1,276 +1,838 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>ZELYN — Premium Organic Cotton Fitted Sheets</title>
-<meta name="description" content="Premium organic cotton fitted sheets crafted in South India, tailored for European beds. Simple, honest, and premium bedding." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZELYN — Fitted Sheets</title>
+  <meta name="description" content="ZELYN fitted sheets — crisp, breathable cotton. Thoughtfully made with South Indian roots, designed for modern European homes." />
+  <meta name="theme-color" content="#0b0b0d" />
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#fbfaf8;
+      --card:#ffffff;
+      --ink:#0b0b0d;
+      --muted:#5a5f66;
+      --line:rgba(11,11,13,.10);
+      --shadow:0 10px 30px rgba(11,11,13,.08);
+      --radius:18px;
 
-<style>
-/* ---------- COLORS ---------- */
-:root {
-  --cream: #FAF7F2;
-  --beige-soft: #E8DCC8;
-  --clay-warm: #C3A68C;
-  --olive-accent: #A6B69F;
-  --text-dark: #2A2A2A;
-  --text-soft: #555;
-  --white: #FFFFFF;
-}
+      --accent1:#1a73e8;   /* subtle blue */
+      --accent2:#19b37a;   /* subtle green */
+      --accent3:#f59e0b;   /* subtle amber */
+    }
 
-/* ---------- GLOBAL ---------- */
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--cream);
-  color: var(--text-dark);
-  line-height:1.7;
-  -webkit-font-smoothing: antialiased;
-}
-img { width:100%; display:block; border-radius:16px; }
-a { text-decoration:none; color:inherit; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:
+        radial-gradient(1000px 700px at 10% -10%, rgba(26,115,232,.10), transparent 60%),
+        radial-gradient(900px 650px at 90% 0%, rgba(25,179,122,.10), transparent 55%),
+        radial-gradient(900px 650px at 50% 110%, rgba(245,158,11,.10), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+    }
 
-/* ---------- HEADER ---------- */
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid #e5e5e5;
-  z-index:999;
-}
-.nav-container {
-  max-width:1200px;
-  margin:auto;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.nav-left { display:flex; align-items:center; gap:10px; }
-.logo-img { height:40px; }
-.logo-text {
-  font-size:20px;
-  font-weight:700;
-  letter-spacing:.18em;
-}
-nav a {
-  margin-left:22px;
-  font-size:15px;
-  font-weight:500;
-  color:var(--text-soft);
-  transition:0.25s;
-}
-nav a:hover { color:var(--text-dark); font-weight:600; }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
 
-@media(max-width:810px) {
-  .nav-container {
-    flex-direction:column;
-    gap:8px;
-  }
-  nav a { margin-left:0; font-size:14px; }
-  .logo-text { font-size:18px; }
-}
+    /* Header */
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,250,248,.82);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 150px;
+    }
+    .brand img{
+      width:36px; height:36px; object-fit:contain;
+      border-radius:10px;
+      background:rgba(11,11,13,.03);
+      border:1px solid var(--line);
+      padding:6px;
+    }
+    .brand-name{
+      font-weight:800; letter-spacing:.22em;
+      font-size:15px;
+    }
+    .nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .nav a{
+      font-size:14px;
+      color:rgba(11,11,13,.72);
+      padding:10px 10px;
+      border-radius:12px;
+      transition:.15s ease;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color:var(--ink);
+      background:rgba(11,11,13,.04);
+      border-color:var(--line);
+    }
+    .header-cta{
+      display:flex; align-items:center; gap:10px; min-width: 170px; justify-content:flex-end;
+    }
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      border-radius:999px;
+      padding:11px 14px;
+      font-weight:700;
+      font-size:14px;
+      transition:.15s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:var(--ink);
+      color:#fff;
+      box-shadow: 0 12px 28px rgba(11,11,13,.18);
+    }
+    .btn-primary:hover{ transform: translateY(-1px); }
+    .btn-ghost{
+      background:rgba(11,11,13,.04);
+      color:var(--ink);
+      border:1px solid var(--line);
+    }
+    .btn-ghost:hover{ background:rgba(11,11,13,.06); }
 
-/* ---------- HERO ---------- */
-.hero-wrap {
-  padding:62px 20px 98px;
-  background: linear-gradient(135deg,var(--beige-soft),var(--cream));
-  border-bottom-left-radius:40px;
-  border-bottom-right-radius:40px;
-  text-align:center;
-}
-.hero-wrap h1 {
-  font-size:38px;
-  font-weight:700;
-  margin-bottom:10px;
-}
-.hero-wrap p {
-  max-width:700px;
-  margin:auto;
-  font-size:16px;
-  color:var(--text-soft);
-  margin-bottom:24px;
-}
-.btn {
-  padding:12px 26px;
-  font-size:15px;
-  font-weight:600;
-  border-radius:999px;
-  cursor:pointer;
-  transition:0.25s;
-}
-.btn-main {
-  background: var(--text-dark);
-  color: var(--white);
-}
-.btn-main:hover { background: #000; }
-.btn-light {
-  background: var(--white);
-  border:1px solid #ddd;
-  color: var(--text-dark);
-}
-.btn-light:hover { background: var(--clay-warm); color: #fff; }
-.hero-img {
-  margin-top:36px;
-  box-shadow:0 14px 30px rgba(0,0,0,0.12);
-}
+    /* Hero */
+    .hero{
+      padding:28px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-copy{
+      padding:22px 20px;
+      display:flex; flex-direction:column; justify-content:center;
+      position:relative;
+    }
+    .pill-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+    .pill{
+      font-size:12px; font-weight:700;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(11,11,13,.03);
+      color:rgba(11,11,13,.78);
+    }
+    .pill.blue{ background:rgba(26,115,232,.10); border-color:rgba(26,115,232,.18); }
+    .pill.green{ background:rgba(25,179,122,.10); border-color:rgba(25,179,122,.18); }
+    .pill.amber{ background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.22); }
 
-/* ---------- SECTIONS ---------- */
-section { padding:70px 20px; }
-.section-inner { max-width:1100px; margin:auto; }
-h2 {
-  text-align:center;
-  font-size:26px;
-  font-weight:600;
-  color:var(--text-dark);
-  margin-bottom:18px;
-}
+    h1{
+      margin:0;
+      font-size:44px;
+      letter-spacing:-.03em;
+      line-height:1.05;
+    }
+    .sub{
+      margin:12px 0 18px;
+      color:rgba(11,11,13,.70);
+      font-size:16px;
+      max-width:56ch;
+    }
+    .hero-actions{ display:flex; gap:10px; flex-wrap:wrap; }
 
-/* STORY */
-.story p {
-  max-width:760px;
-  margin:14px auto;
-  font-size:16px;
-  color:var(--text-soft);
-}
+    .hero-media{
+      position:relative;
+      min-height:320px;
+    }
+    .hero-media img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+      filter:saturate(1.02) contrast(1.02);
+    }
+    .hero-media::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.08));
+      pointer-events:none;
+    }
+    .price-badge{
+      position:absolute;
+      left:14px; bottom:14px;
+      background: rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 12px;
+      display:flex; align-items:center; gap:10px;
+      box-shadow: 0 12px 24px rgba(11,11,13,.14);
+      backdrop-filter: blur(6px);
+    }
+    .price-badge strong{font-size:14px}
+    .price-badge span{font-size:12px; color:rgba(11,11,13,.65)}
 
-/* GALLERY */
-.gallery {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:28px;
-}
-@media(max-width:780px) {
-  .gallery { grid-template-columns:1fr; }
-}
+    /* Section */
+    section{ padding:18px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin:6px 0 12px;
+    }
+    h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.02em;
+    }
+    .hint{ color:rgba(11,11,13,.62); font-size:14px; }
 
-/* SOUTH INDIA ROOT */
-.origin {
-  background:var(--beige-soft);
-  border-radius:20px;
-  padding:36px 22px;
-  margin-top:20px;
-  text-align:center;
-}
-.origin p {
-  font-size:16px;
-  color:var(--text-dark);
-  max-width:700px;
-  margin:auto;
-}
+    /* Product / Features */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .mini{
+      padding:16px;
+    }
+    .mini h3{ margin:0 0 6px; font-size:15px; }
+    .mini p{ margin:0; color:rgba(11,11,13,.68); font-size:14px; }
+    .icon{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      margin-bottom:10px;
+      border:1px solid var(--line);
+      background:rgba(11,11,13,.03);
+      font-weight:900;
+    }
+    .icon.blue{ background:rgba(26,115,232,.10); border-color:rgba(26,115,232,.18); }
+    .icon.green{ background:rgba(25,179,122,.10); border-color:rgba(25,179,122,.18); }
+    .icon.amber{ background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.22); }
 
-/* BENEFITS */
-.benefits-list {
-  max-width:760px;
-  margin:auto;
-  margin-top:16px;
-}
-.benefits-list li {
-  border-bottom:1px solid #ddd;
-  padding:10px 0;
-  font-size:16px;
-  color:var(--text-soft);
-}
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .g1{ grid-column: span 7; }
+    .g2{ grid-column: span 5; }
+    .g3{ grid-column: span 5; }
+    .g4{ grid-column: span 7; }
 
-/* TESTIMONIAL */
-.testimonial {
-  background:var(--cream);
-  padding:32px 18px;
-  border-radius:18px;
-  box-shadow:0 12px 26px rgba(0,0,0,0.08);
-  margin:20px auto;
-  max-width:850px;
-  font-size:16px;
-  color:var(--text-soft);
-}
+    .shot{
+      position:relative;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.6);
+      box-shadow: var(--shadow);
+      cursor: zoom-in;
+      min-height:220px;
+    }
+    .shot img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transform: scale(1.01);
+    }
+    .shot .label{
+      position:absolute; left:12px; bottom:12px;
+      background: rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:12px;
+      color:rgba(11,11,13,.72);
+      backdrop-filter: blur(6px);
+    }
 
-/* PRICING */
-.pricing-box {
-  background: linear-gradient(135deg,var(--beige-soft),var(--cream));
-  padding:48px;
-  border-radius:22px;
-  text-align:center;
-  max-width:540px;
-  margin:auto;
-  box-shadow:0 18px 36px rgba(0,0,0,0.08);
-}
-.pricing-box .price {
-  font-size:38px;
-  font-weight:700;
-  margin-bottom:8px;
-}
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .price-card{ padding:18px; }
+    .price-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .price{
+      font-size:40px; font-weight:900; letter-spacing:-.03em;
+    }
+    .per{
+      color:rgba(11,11,13,.60);
+      font-size:14px;
+      margin-top:10px;
+    }
+    .bullets{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:rgba(11,11,13,.72);
+      font-size:14px;
+    }
+    .tick{
+      width:18px; height:18px;
+      border-radius:6px;
+      background:rgba(25,179,122,.16);
+      border:1px solid rgba(25,179,122,.25);
+      display:grid; place-items:center;
+      font-size:12px;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .side-card{
+      padding:18px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      gap:14px;
+      background:
+        radial-gradient(420px 240px at 20% 10%, rgba(26,115,232,.14), transparent 55%),
+        radial-gradient(380px 220px at 80% 15%, rgba(245,158,11,.14), transparent 60%),
+        #ffffff;
+    }
+    .side-card p{ margin:0; color:rgba(11,11,13,.70); }
+    .small{ font-size:13px; color:rgba(11,11,13,.62); }
 
-/* SUPPORT */
-.support p {
-  font-size:16px;
-  text-align:center;
-  color:var(--text-soft);
-}
-.support a {
-  font-size:16px;
-  font-weight:600;
-  text-decoration:underline;
-}
+    /* Story / Support */
+    .story{
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .story p{ margin:0; color:rgba(11,11,13,.72); }
+    .story .note{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(11,11,13,.03);
+    }
 
-/* INSTAGRAM */
-.instagram {
-  text-align:center;
-  background:var(--beige-soft);
-  padding:38px 20px;
-  border-radius:18px;
-  max-width:1100px;
-  margin:auto;
-}
-.instagram a {
-  font-size:19px;
-  font-weight:700;
-  text-decoration:underline;
-}
+    /* Footer */
+    footer{
+      padding:18px 0 26px;
+      color:rgba(11,11,13,.60);
+      font-size:13px;
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
 
-/* FOOTER */
-footer {
-  text-align:center;
-  font-size:12px;
-  padding:18px 0;
-  color:var(--text-soft);
-}
-</style>
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0;
+      display:none;
+      background: rgba(11,11,13,.78);
+      z-index:1000;
+      padding:16px;
+    }
+    .lightbox.open{ display:flex; align-items:center; justify-content:center; }
+    .lb-inner{
+      max-width:min(980px, 96vw);
+      max-height:86vh;
+      width:100%;
+      position:relative;
+    }
+    .lb-img{
+      width:100%;
+      height:100%;
+      max-height:86vh;
+      object-fit:contain;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      display:block;
+    }
+    .lb-close{
+      position:absolute; top:-10px; right:-10px;
+      width:40px; height:40px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color:#fff;
+      display:grid; place-items:center;
+      cursor:pointer;
+      font-size:18px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Modal (waitlist) */
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      background: rgba(11,11,13,.55);
+      z-index:1200;
+      padding:16px;
+    }
+    .modal.open{ display:flex; align-items:center; justify-content:center; }
+    .modal-card{
+      width:min(520px, 96vw);
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(11,11,13,.30);
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:16px 16px 10px;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      border-bottom:1px solid var(--line);
+      background: rgba(11,11,13,.02);
+    }
+    .modal-head strong{ letter-spacing:.08em; font-size:13px; }
+    .modal-body{ padding:16px; }
+    .field{
+      display:grid; gap:8px; margin:12px 0;
+    }
+    input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:14px;
+    }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-media{ min-height:260px; }
+      h1{ font-size:38px; }
+      .pricing{ grid-template-columns: 1fr; }
+      .story{ grid-template-columns: 1fr; }
+      .g1,.g2,.g3,.g4{ grid-column: span 12; }
+    }
+    @media (max-width: 520px){
+      .brand-name{ display:none; }
+      .header-cta{ min-width:auto; }
+      .nav a{ padding:8px 8px; }
+      h1{ font-size:34px; }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Header -->
+  <header class="header">
+    <div class="wrap">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="ZELYN Home">
+          <img
+            src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png"
+            alt="ZELYN logo"
+            loading="eager"
+          />
+          <div class="brand-name">ZELYN</div>
+        </a>
 
-<!-- HEADER -->
-<header>
-  <div class="nav-container">
-    <div class="nav-left">
-      <img class="logo-img" src="https://i.ibb.co/YYC62sF/file-00000000242471faba7ff42d01073187.png" alt="ZELYN Logo">
-      <span class="logo-text">ZELYN</span>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#story">Story</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#support">Support</a>
+          <a href="#instagram">Instagram</a>
+        </nav>
+
+        <div class="header-cta">
+          <button class="btn btn-ghost" type="button" id="btnInstagram">Follow</button>
+          <button class="btn btn-primary" type="button" id="btnWaitlistTop">Join Waitlist</button>
+        </div>
+      </div>
     </div>
-    <nav>
-      <a href="#story">Story</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#support">Support</a>
-      <a href="#instagram">Instagram</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<!-- HERO -->
-<section class="hero-wrap">
-  <h1>Sleep, Refined.</h1>
-  <p>Premium organic cotton fitted sheets rooted in South Indian craftsmanship — tailored for European comfort.</p>
-  <div class="cta-row">
-    <button class="btn btn-main">Buy Now</button>
-    <button class="btn btn-light">Add to Cart</button>
-  </div>
-  <img class="hero-img" src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="ZELYN Bedding">
-</section>
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card hero-copy">
+          <div class="pill-row">
+            <div class="pill blue">Berlin-ready</div>
+            <div class="pill green">Breathable • Crisp</div>
+            <div class="pill amber">Made with South Indian roots</div>
+          </div>
 
-<!-- STORY -->
-<section id="story" class="story">
+          <h1>Fitted Sheets.<br/>Done properly.</h1>
+
+          <p class="sub">
+            A calm, clean fitted sheet that stays in place and feels fresh night after night.
+            Designed for modern European beds — with craftsmanship rooted in South India.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" id="btnBuyHero">Buy — €29</button>
+            <button class="btn btn-ghost" type="button" id="btnSeePhotos">See photos</button>
+            <button class="btn btn-ghost" type="button" id="btnWaitlistHero">Join Waitlist</button>
+          </div>
+        </div>
+
+        <div class="card hero-media" id="photos">
+          <img
+            src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png"
+            alt="ZELYN fitted sheet on bed — hero"
+            loading="eager"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            onerror="this.closest('.hero-media').style.display='none';"
+          />
+          <div class="price-badge">
+            <strong>€29</strong>
+            <span>Launch price • limited run</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Benefits -->
+  <section id="benefits">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Why people keep it</h2>
+        <div class="hint">Simple benefits. No hype.</div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card mini">
+          <div class="icon blue">⟡</div>
+          <h3>Crisp, breathable feel</h3>
+          <p>Stays airy through the night — the “fresh sheets” feeling, longer.</p>
+        </div>
+
+        <div class="card mini">
+          <div class="icon green">✓</div>
+          <h3>Stays in place</h3>
+          <p>Elastic all around to hold the corners neatly. Fewer readjustments.</p>
+        </div>
+
+        <div class="card mini">
+          <div class="icon amber">⌁</div>
+          <h3>Clean, minimal look</h3>
+          <p>Matte white tone with a quiet texture that suits modern European homes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section aria-label="Product photos">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Photos</h2>
+        <div class="hint">Tap any image to zoom.</div>
+      </div>
+
+      <div class="gallery">
+        <figure class="shot g1" data-full="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" aria-label="Room view">
+          <img src="https://i.ibb.co/4wX9jh5Q/file-0000000088907209ac2d721064d573e0.png" alt="Full bed view" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="this.closest('.shot').style.display='none';" />
+          <figcaption class="label">Full bed view</figcaption>
+        </figure>
+
+        <figure class="shot g2" data-full="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" aria-label="Sheet surface">
+          <img src="https://i.ibb.co/N2YFhKWf/file-000000001b847209b307fd2575f61291.png" alt="Sheet surface detail" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="this.closest('.shot').style.display='none';" />
+          <figcaption class="label">Surface + finish</figcaption>
+        </figure>
+
+        <figure class="shot g3" data-full="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" aria-label="Corner fit">
+          <img src="https://i.ibb.co/7tqfP8qR/file-000000004be071faa15d3b3ec9fd908e.png" alt="Fitted corner close-up" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="this.closest('.shot').style.display='none';" />
+          <figcaption class="label">Corner fit</figcaption>
+        </figure>
+
+        <figure class="shot g4" data-full="https://i.ibb.co/847Lnp5T/file-000000007fe071fa8957a844cf310afc.png" aria-label="Pillow detail">
+          <img src="https://i.ibb.co/847Lnp5T/file-000000007fe071fa8957a844cf310afc.png" alt="Pillow detail" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+               onerror="this.closest('.shot').style.display='none';" />
+          <figcaption class="label">Detail shot</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <div class="hint">Clear and simple.</div>
+      </div>
+
+      <div class="pricing">
+        <div class="card price-card">
+          <div class="price-top">
+            <div>
+              <div class="price">€29</div>
+              <div class="per">per fitted sheet (launch)</div>
+            </div>
+            <button class="btn btn-primary" type="button" id="btnBuyPrice">Buy — €29</button>
+          </div>
+
+          <ul class="bullets">
+            <li><span class="tick">✓</span>Designed for European beds (focus: Berlin + EU).</li>
+            <li><span class="tick">✓</span>Elastic all around for a secure fit.</li>
+            <li><span class="tick">✓</span>Clean white, minimal, premium look.</li>
+            <li><span class="tick">✓</span>Support: <a href="mailto:support@zelynhome.com"><strong>support@zelynhome.com</strong></a></li>
+          </ul>
+        </div>
+
+        <div class="card side-card">
+          <div>
+            <h2 style="margin:0 0 8px;">Launch notes</h2>
+            <p>
+              We’re starting with one essential: the fitted sheet.
+              Small batches, careful finishing, and a calm aesthetic that works in modern European homes.
+            </p>
+          </div>
+          <div class="row">
+            <button class="btn btn-ghost" type="button" id="btnWaitlistPrice">Join Waitlist</button>
+            <button class="btn btn-ghost" type="button" id="btnInstagram2">Instagram</button>
+          </div>
+          <div class="small">
+            If you’re a buyer or retailer in Berlin/EU, email us — we respond quickly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Story</h2>
+        <div class="hint">South Indian roots, made for Europe.</div>
+      </div>
+
+      <div class="card story">
+        <div>
+          <p>
+            ZELYN is built around a simple idea: good bedding should quietly do its job.
+            Crisp, breathable cotton. A neat fit. A clean look that feels at home in Berlin apartments
+            and modern European bedrooms.
+          </p>
+          <div style="height:12px"></div>
+          <p>
+            Our roots are in South India — where textile work is a craft, not a trend.
+            We work with experienced makers and keep the product details practical, not complicated.
+          </p>
+        </div>
+
+        <div class="note">
+          <p><strong>What we care about:</strong></p>
+          <div style="height:10px"></div>
+          <p>• Straight specs and honest pricing.</p>
+          <p>• Finishing and fit that looks tidy in real homes.</p>
+          <p>• Packaging kept minimal (less waste, more function).</p>
+          <div style="height:12px"></div>
+          <p class="small">Questions? Email <a href="mailto:support@zelynhome.com"><strong>support@zelynhome.com</strong></a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section id="support">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Support</h2>
+        <div class="hint">Fast, human replies.</div>
+      </div>
+
+      <div class="card" style="padding:18px;">
+        <p style="margin:0; color:rgba(11,11,13,.72);">
+          For orders, buyers, or questions — email us at
+          <a href="mailto:support@zelynhome.com"><strong>support@zelynhome.com</strong></a>.
+        </p>
+        <div style="height:12px"></div>
+        <div class="row">
+          <button class="btn btn-primary" type="button" id="btnEmail">Email support</button>
+          <button class="btn btn-ghost" type="button" id="btnWaitlistSupport">Join Waitlist</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section id="instagram">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Follow us</h2>
+        <div class="hint">@zelyn.home</div>
+      </div>
+
+      <div class="card" style="padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>
+          <div style="font-weight:900; letter-spacing:.02em;">ZELYN on Instagram</div>
+          <div class="small">New photos, updates, and launch details.</div>
+        </div>
+        <div class="row">
+          <a class="btn btn-primary" href="https://www.instagram.com/zelyn.home/" target="_blank" rel="noopener">Open Instagram</a>
+          <button class="btn btn-ghost" type="button" id="btnWaitlistInsta">Join Waitlist</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> ZELYN — Sleep, refined.</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="pill" href="#top">Back to top</a>
+          <a class="pill" href="mailto:support@zelynhome.com">support@zelynhome.com</a>
+          <a class="pill" href="https://www.instagram.com/zelyn.home/" target="_blank" rel="noopener">@zelyn.home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-inner" role="dialog" aria-label="Image viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+      <img class="lb-img" id="lbImg" alt="Zoomed product photo" />
+    </div>
+  </div>
+
+  <!-- Waitlist Modal (simple + works everywhere) -->
+  <div class="modal" id="waitlistModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-label="Join waitlist">
+      <div class="modal-head">
+        <strong>JOIN WAITLIST</strong>
+        <button class="btn btn-ghost" type="button" id="modalClose" style="padding:8px 12px;">Close</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-weight:900; font-size:18px;">Early access + launch pricing</div>
+        <div class="small" style="margin-top:6px;">
+          We’ll email you once we open ordering (Berlin/EU first). No spam.
+        </div>
+
+        <!-- This uses mailto so it works on any hosting without setup -->
+        <div class="field">
+          <label class="small" for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+
+        <div class="row">
+          <button class="btn btn-primary" type="button" id="submitWaitlist">Send</button>
+          <a class="btn btn-ghost" href="mailto:support@zelynhome.com?subject=Buyer%20request%20(ZELYN)&body=Hi%20ZELYN%2C%0A%0AI%E2%80%99m%20interested%20in%20your%20fitted%20sheets.%20Please%20share%20availability%20and%20details.%0A%0AThanks%2C" style="display:inline-flex;">Buyer / Retailer</a>
+        </div>
+
+        <div class="small" style="margin-top:10px;">
+          Support: <a href="mailto:support@zelynhome.com"><strong>support@zelynhome.com</strong></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLightbox(src){
+      lbImg.src = src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.shot').forEach(el=>{
+      el.addEventListener('click', ()=> openLightbox(el.getAttribute('data-full')));
+    });
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+
+    // Waitlist modal
+    const modal = document.getElementById('waitlistModal');
+    const openButtons = [
+      'btnWaitlistTop','btnWaitlistHero','btnWaitlistPrice','btnWaitlistSupport','btnWaitlistInsta'
+    ].map(id=>document.getElementById(id)).filter(Boolean);
+
+    function openModal(){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(()=> document.getElementById('email')?.focus(), 100);
+    }
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach(b=> b.addEventListener('click', openModal));
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+    // CTAs
+    const instaUrl = "https://www.instagram.com/zelyn.home/";
+    document.getElementById('btnInstagram').addEventListener('click', ()=> window.open(instaUrl,'_blank','noopener'));
+    document.getElementById('btnInstagram2').addEventListener('click', ()=> window.open(instaUrl,'_blank','noopener'));
+
+    document.getElementById('btnSeePhotos').addEventListener('click', ()=>{
+      document.getElementById('photos').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // "Buy" for now = opens waitlist (until checkout is wired)
+    ['btnBuyHero','btnBuyPrice'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.addEventListener('click', openModal);
+    });
+
+    // Support email button
+    document.getElementById('btnEmail').addEventListener('click', ()=>{
+      window.location.href = "mailto:support@zelynhome.com?subject=ZELYN%20Support&body=Hi%20ZELYN%2C%0A%0A";
+    });
+
+    // Waitlist submit uses mailto (no backend needed)
+    document.getElementById('submitWaitlist').addEventListener('click', ()=>{
+      const email = (document.getElementById('email').value || '').trim();
+      const subject = "ZELYN Waitlist";
+      const body = "Hi ZELYN,%0A%0APlease add me to the waitlist.%0AEmail: " + encodeURIComponent(email || "(not provided)") + "%0A%0AThanks.";
+      window.location.href = "mailto:support@zelynhome.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
