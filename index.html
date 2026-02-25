@@ -5,88 +5,195 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ZELYN — Organic Percale Bedding</title>
 
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#F9F7F4;--paper:#fff;--ink:#1A1D1B;--muted:#666;--line:#E8E2DA;
-  --accent:#748D81;--r:12px;--max:900px;
+  --bg:#F7F5F0;
+  --paper:#FFFFFF;
+  --ink:#1A1D1B;
+  --muted:#5F615F;
+  --line:#E5E2DA;
+  --accent:#748D81;
+  --max:1050px;
+  --radius:14px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-h1,h2,h3{font-family:Fraunces,serif;font-weight:300;margin:0}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
 
-header{padding:20px 0;border-bottom:1px solid var(--line)}
-nav{display:flex;justify-content:space-between;align-items:center}
-.brand{text-transform:uppercase;letter-spacing:.2em;font-weight:600}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, sans-serif;
+  line-height:1.55;
+}
 
+/* Layout */
+.wrap{
+  width:min(var(--max),calc(100% - 40px));
+  margin:auto;
+}
+header{
+  border-bottom:1px solid var(--line);
+  padding:22px 0;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-family:Fraunces, serif;
+  font-size:22px;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+}
 .btn{
-  padding:12px 22px;border-radius:999px;border:1px solid var(--line);
-  background:var(--paper);font-size:14px;cursor:pointer;
+  padding:12px 26px;
+  border-radius:999px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  font-size:14px;
+  cursor:pointer;
 }
-.btn-solid{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-solid{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:white;
+}
+section{
+  padding:60px 0;
+}
 
-.page{padding:40px 0}
+/* Hero */
+.hero-headline{
+  font-family:Fraunces, serif;
+  font-size:44px;
+  line-height:1.18;
+  max-width:700px;
+  margin-bottom:14px;
+}
+.hero-text{
+  font-size:17px;
+  color:var(--muted);
+  max-width:600px;
+  margin-bottom:26px;
+}
 
-.card{
-  background:var(--paper);padding:20px;border-radius:var(--r);
-  border:1px solid var(--line);margin-top:20px;
+/* Feature grid */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:18px;
+  margin-top:40px;
+}
+.feature-box{
+  background:var(--paper);
+  padding:20px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+.feature-title{
+  font-weight:600;
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+/* Product card */
+.product-card{
+  margin-top:40px;
+  background:var(--paper);
+  padding:28px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+.product-title{
+  font-family:Fraunces, serif;
+  font-size:32px;
+  margin-bottom:6px;
+}
+.price{
+  font-size:20px;
+  margin-top:8px;
+  margin-bottom:14px;
+}
+
+/* Footer */
+footer{
+  margin-top:80px;
+  padding:40px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="wrap">
-  <nav>
-    <div class="brand">ZELYN</div>
-    <a href="#shop" class="btn-solid">Shop</a>
-  </nav>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">ZELYN</div>
+      <a href="#shop" class="btn btn-solid">Shop</a>
+    </nav>
+  </div>
 </header>
 
 <main class="wrap">
 
-<section class="page" id="home">
-  <h1 style="font-size:38px;line-height:1.2;margin-bottom:10px;">
-    The perfect fit for European beds.
-  </h1>
-  <p style="color:var(--muted);max-width:620px;">
-    One essential, done properly — a crisp organic percale fitted sheet
-    designed for European queen mattresses, with a secure deep pocket and
-    breathable hotel-like feel.
+<!-- HERO -->
+<section>
+  <h1 class="hero-headline">The perfect fit for European beds.</h1>
+  <p class="hero-text">
+    One essential, done properly — a crisp 300TC organic percale fitted sheet
+    designed to stay put, breathe through the night, and bring hotel-like
+    freshness to your home.
   </p>
+  <a href="#shop" class="btn btn-solid">Shop Queen Size</a>
 
-  <a href="#shop" class="btn btn-solid" style="margin-top:20px;display:inline-block;">
-    Shop Queen Size
-  </a>
-
-  <div class="card">
-    <h3>Why ZELYN?</h3>
-    <ul style="margin-top:10px; padding-left:20px; color:var(--muted);">
-      <li>100% Organic Cotton</li>
-      <li>300TC Percale (cool + crisp)</li>
-      <li>EU Queen Size: 160×200×35cm</li>
-      <li>OEKO-TEX® Standard Materials</li>
-    </ul>
+  <div class="features">
+    <div class="feature-box">
+      <div class="feature-title">100% Organic Cotton</div>
+      Breathable long-staple cotton sourced responsibly. Naturally cool.
+    </div>
+    <div class="feature-box">
+      <div class="feature-title">300TC Percale</div>
+      Crisp, matte, and airy — the signature European percale feel.
+    </div>
+    <div class="feature-box">
+      <div class="feature-title">Deep 35cm Pocket</div>
+      Secure fit for EU queen mattresses (160×200×35 cm).
+    </div>
+    <div class="feature-box">
+      <div class="feature-title">OEKO-TEX® Certified</div>
+      Fabric tested and certified safe for direct skin contact.
+    </div>
   </div>
 </section>
 
-<section class="page" id="shop">
-  <h2 style="font-size:32px;margin-bottom:10px;">Shop — Fitted Sheet</h2>
-  <p class="muted">Queen size (160×200×35cm)</p>
+<!-- SHOP SECTION -->
+<section id="shop">
+  <h2 class="product-title">Fitted Sheet — Queen Size</h2>
+  <p style="color:var(--muted);">160×200×35 cm • Organic Cotton • 300TC Percale</p>
 
-  <div class="card">
-    <p><strong>Price:</strong> €29.00</p>
-    <p style="color:var(--muted);margin-top:4px;">300TC Organic Percale</p>
-    <button class="btn btn-solid" style="margin-top:14px;">Add to Cart</button>
+  <div class="product-card">
+    <div class="price">€29.00</div>
+    <p style="color:var(--muted); margin-bottom:20px;">
+      Designed for modern European homes — durable stitching, structured
+      percale weave, and a long-lasting hold.
+    </p>
+    <button class="btn btn-solid">Add to Cart</button>
   </div>
 </section>
 
 </main>
+
+<footer class="wrap">
+  © ZELYN — Thoughtfully made bedding for modern European homes.
+</footer>
 
 </body>
 </html>
