@@ -4,328 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ZELYN — Organic Percale Bedding</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#F9F7F4;--paper:#fff;--ink:#1A1D1B;--muted:#6A736C;--line:#E8E2DA;
-  --accent:#748D81;--sand:#F2EFEA;--r:12px;--max:1100px;
-  --t:all .18s cubic-bezier(.4,0,.2,1);
+  --bg:#F9F7F4;--paper:#fff;--ink:#1A1D1B;--muted:#666;--line:#E8E2DA;
+  --accent:#748D81;--r:12px;--max:900px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Fraunces,serif;font-weight:300}
-a{text-decoration:none;color:inherit;transition:var(--t)}
-img{max-width:100%;border-radius:10px;display:block}
-
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:300;margin:0}
+a{text-decoration:none;color:inherit}
 .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
 
-/* NAV */
-header{position:sticky;top:0;z-index:10;background:rgba(249,247,244,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-.brand{text-transform:uppercase;letter-spacing:.25em;font-weight:600}
-.navlinks{display:flex;gap:22px;font-size:14px;color:var(--muted)}
-.navlinks a.active{color:var(--ink)}
-.right{display:flex;gap:12px;align-items:center}
+header{padding:20px 0;border-bottom:1px solid var(--line)}
+nav{display:flex;justify-content:space-between;align-items:center}
+.brand{text-transform:uppercase;letter-spacing:.2em;font-weight:600}
 
-.btn{padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-size:14px;cursor:pointer;transition:var(--t)}
-.btn:hover{transform:translateY(-1px)}
+.btn{
+  padding:12px 22px;border-radius:999px;border:1px solid var(--line);
+  background:var(--paper);font-size:14px;cursor:pointer;
+}
 .btn-solid{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-solid:hover{background:#5F776C}
-.badge{background:var(--accent);color:#fff;font-size:10px;padding:2px 6px;border-radius:10px;margin-left:6px}
 
-/* Pages */
-.page{display:none;padding:50px 0}
-.page.active{display:block}
+.page{padding:40px 0}
 
-/* Layouts */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:0 4px 20px rgba(0,0,0,.04)}
-.trust{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:12px;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-top:30px}
-
-.product{display:grid;grid-template-columns:1fr 420px;gap:40px}
-.specs{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
-.specs td{padding:10px 0;border-bottom:1px solid var(--line)}
-.specs td:first-child{color:var(--muted);width:45%}
-
-.center{max-width:800px;margin:auto}
-
-/* Toast */
-#toast{position:fixed;bottom:22px;right:22px;background:#000;color:#fff;padding:10px 18px;border-radius:8px;opacity:0;pointer-events:none;transform:translateY(10px);transition:var(--t);z-index:50}
-#toast.show{opacity:1;transform:translateY(0)}
-
-@media(max-width:850px){
-  .hero,.product{grid-template-columns:1fr;gap:22px}
-  .navlinks{display:none}
+.card{
+  background:var(--paper);padding:20px;border-radius:var(--r);
+  border:1px solid var(--line);margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#/home" class="brand">ZELYN</a>
-    <nav class="navlinks">
-      <a data-link href="#/product">Product</a>
-      <a data-link href="#/materials">Percale</a>
-      <a data-link href="#/guide">Size Guide</a>
-      <a data-link href="#/wholesale">Wholesale</a>
-    </nav>
-    <div class="right">
-      <a data-link href="#/cart">Cart <span id="cartCount" class="badge">0</span></a>
-      <a data-link href="#/product" class="btn btn-solid">Shop</a>
-    </div>
-  </div>
+<header class="wrap">
+  <nav>
+    <div class="brand">ZELYN</div>
+    <a href="#shop" class="btn-solid">Shop</a>
+  </nav>
 </header>
 
 <main class="wrap">
 
-<!-- HOME -->
-<section data-page="home" class="page active">
-  <div class="hero">
-    <div>
-      <h1 style="font-size:42px;line-height:1.1;margin-bottom:12px">The perfect fit for European beds.</h1>
-      <p style="color:var(--muted);max-width:520px;font-size:17px;margin-bottom:22px">
-        One essential, done properly — a crisp organic percale fitted sheet that stays put and breathes all night.
-      </p>
-      <a data-link href="#/product" class="btn btn-solid">Shop Queen Size</a>
-    </div>
-    <div class="card">
-      <img id="homeImg" src="images/fitted-sheet.jpg" alt="ZELYN fitted sheet">
-    </div>
-  </div>
+<section class="page" id="home">
+  <h1 style="font-size:38px;line-height:1.2;margin-bottom:10px;">
+    The perfect fit for European beds.
+  </h1>
+  <p style="color:var(--muted);max-width:620px;">
+    One essential, done properly — a crisp organic percale fitted sheet
+    designed for European queen mattresses, with a secure deep pocket and
+    breathable hotel-like feel.
+  </p>
 
-  <div class="trust">
-    <span>100% Organic Cotton</span>
-    <span>OEKO-TEX® Certified</span>
-    <span>Deep 35cm Pocket</span>
-    <span>300TC Percale</span>
-  </div>
-</section>
+  <a href="#shop" class="btn btn-solid" style="margin-top:20px;display:inline-block;">
+    Shop Queen Size
+  </a>
 
-<!-- PRODUCT -->
-<section data-page="product" class="page">
-  <div class="product">
-    <div class="card">
-      <img id="prodImg" src="images/fitted-sheet.jpg" alt="ZELYN sheet">
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
-        <div class="card" style="background:var(--sand);border:none;box-shadow:none">
-          <h3>Cool & Crisp</h3>
-          <p style="color:var(--muted);font-size:13px">Fresh hotel-like percale feel.</p>
-        </div>
-        <div class="card" style="background:var(--sand);border:none;box-shadow:none">
-          <h3>Deep Pocket</h3>
-          <p style="color:var(--muted);font-size:13px">35cm pocket with full elastic.</p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h1 style="font-size:36px;margin-bottom:6px">Organic Percale Fitted Sheet</h1>
-      <div style="font-size:24px;font-family:Fraunces;margin:10px 0">€29,00</div>
-
-      <div style="margin:20px 0">
-        <div style="font-size:12px;font-weight:600;text-transform:uppercase;margin-bottom:6px">Size</div>
-        <div class="btn" style="width:100%;justify-content:space-between;border-color:var(--accent)">
-          <span>Queen 160×200×35cm</span><span style="color:var(--accent)">In Stock</span>
-        </div>
-      </div>
-
-      <button class="btn btn-solid" style="width:100%;font-size:16px" data-add="queen-sheet">
-        Add to Bag
-      </button>
-
-      <table class="specs">
-        <tr><td>Material</td><td>100% Organic Cotton</td></tr>
-        <tr><td>Weave</td><td>Percale (one-over, one-under)</td></tr>
-        <tr><td>Thread Count</td><td>300 TC</td></tr>
-        <tr><td>Pocket Depth</td><td>35 cm</td></tr>
-      </table>
-    </div>
+  <div class="card">
+    <h3>Why ZELYN?</h3>
+    <ul style="margin-top:10px; padding-left:20px; color:var(--muted);">
+      <li>100% Organic Cotton</li>
+      <li>300TC Percale (cool + crisp)</li>
+      <li>EU Queen Size: 160×200×35cm</li>
+      <li>OEKO-TEX® Standard Materials</li>
+    </ul>
   </div>
 </section>
 
-<!-- MATERIALS -->
-<section data-page="materials" class="page">
-  <div class="center">
-    <h2 style="font-size:34px;margin-bottom:14px">Our Percale</h2>
-    <p style="color:var(--muted);margin-bottom:20px">
-      Percale is a clean, matte, cool weave — ideal for European climates and everyday washing.
-    </p>
+<section class="page" id="shop">
+  <h2 style="font-size:32px;margin-bottom:10px;">Shop — Fitted Sheet</h2>
+  <p class="muted">Queen size (160×200×35cm)</p>
 
-    <div class="card" style="margin-bottom:14px">
-      <h3>Breathable Structure</h3>
-      <p style="color:var(--muted);font-size:14px">
-        The tight, balanced weave keeps nights cool while staying durable.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>From Karur, South India</h3>
-      <p style="color:var(--muted);font-size:14px">
-        Our sheets are woven and stitched in India’s textile belt with ethical, long-term partners.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SIZE GUIDE -->
-<section data-page="guide" class="page">
-  <div class="center">
-    <h2 style="font-size:34px;margin-bottom:14px">Size Guide</h2>
-
-    <div class="card">
-      <h3>Queen (EU): 160×200 cm</h3>
-      <table class="specs">
-        <tr><td>Pocket Depth</td><td>35 cm</td></tr>
-        <tr><td>Elastic</td><td>Full perimeter</td></tr>
-        <tr><td>Fit</td><td>Best for EU mattresses up to 30cm height</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- WHOLESALE -->
-<section data-page="wholesale" class="page">
-  <div class="center">
-    <h2 style="font-size:34px;margin-bottom:16px">Wholesale</h2>
-
-    <div class="card">
-      <p style="color:var(--muted);margin-bottom:14px">
-        Ideal for hotels, Airbnb hosts, retail shops, and distributors across Europe.
-      </p>
-      <p><strong>MOQ:</strong> 50 / 100 / 300 units<br>
-         <strong>Lead Time:</strong> 20–28 days<br>
-         <strong>Customization:</strong> Labels, packaging, colors<br>
-         <strong>Contact:</strong> wholesale@zelynhome.com
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- CART -->
-<section data-page="cart" class="page">
-  <div class="center">
-    <h2 style="font-size:34px;margin-bottom:16px">Your Bag</h2>
-    <div id="cartItems"></div>
-
-    <div class="card" style="margin-top:20px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:10px">
-        <span>Subtotal</span><span id="subtotal">€0,00</span>
-      </div>
-      <a data-link href="#/checkout" class="btn btn-solid" style="width:100%">Checkout</a>
-      <button class="btn" data-clear style="width:100%;margin-top:10px">Clear Bag</button>
-    </div>
-  </div>
-</section>
-
-<!-- CHECKOUT -->
-<section data-page="checkout" class="page">
-  <div class="center">
-    <h2 style="font-size:34px;margin-bottom:16px">Checkout</h2>
-
-    <div class="card">
-      <p style="color:var(--muted);margin-bottom:14px">
-        Checkout coming soon. For now, order via email:
-      </p>
-      <a class="btn btn-solid" href="mailto:support@zelynhome.com">Email Order</a>
-    </div>
+  <div class="card">
+    <p><strong>Price:</strong> €29.00</p>
+    <p style="color:var(--muted);margin-top:4px;">300TC Organic Percale</p>
+    <button class="btn btn-solid" style="margin-top:14px;">Add to Cart</button>
   </div>
 </section>
 
 </main>
-
-<div id="toast">Added to bag</div>
-
-<script>
-// ---------- CONFIG ----------
-const IMG = "images/fitted-sheet.jpg";
-const KEY = "zelyn_cart";
-
-// ---------- STATE ----------
-let cart = JSON.parse(localStorage.getItem(KEY) || "[]");
-
-// ---------- HELPERS ----------
-const $ = (s, r=document) => r.querySelector(s);
-const $$ = (s, r=document) => [...r.querySelectorAll(s)];
-
-function eur(n){ return "€" + n.toFixed(2).replace(".", ","); }
-function save(){ localStorage.setItem(KEY, JSON.stringify(cart)); }
-function toast(msg){
-  const t=$("#toast");
-  t.textContent=msg; t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"),1800);
-}
-
-// ---------- CART ----------
-function updateBadge(){
-  $("#cartCount").textContent = cart.reduce((a,i)=>a+i.qty,0);
-}
-
-function renderCart(){
-  const box=$("#cartItems");
-  const sub=$("#subtotal");
-  if(!box) return;
-
-  if(cart.length===0){
-    box.innerHTML="<p style='color:var(--muted)'>Your bag is empty.</p>";
-    sub.textContent="€0,00";
-    return;
-  }
-
-  let html="", total=0;
-  for(const i of cart){
-    const line=i.qty*i.price; total+=line;
-    html+=`
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)">
-        <div><strong>${i.name}</strong><div style="color:var(--muted);font-size:12px">Qty: ${i.qty}</div></div>
-        <div>${eur(line)}</div>
-      </div>`;
-  }
-  box.innerHTML=html;
-  sub.textContent=eur(total);
-}
-
-function addItem(id){
-  const found=cart.find(i=>i.id===id);
-  if(found) found.qty++;
-  else cart.push({id,name:"Fitted Sheet — Queen",price:29,qty:1});
-  save(); updateBadge(); toast("Added to bag");
-  if(location.hash==="#/cart") renderCart();
-}
-
-function clearCart(){
-  cart=[]; save(); updateBadge(); renderCart();
-  toast("Bag cleared");
-}
-
-// ---------- ROUTER ----------
-function route(){
-  const h=location.hash.replace("#/","")||"home";
-  $$(".page").forEach(p=>p.classList.toggle("active",p.dataset.page===h));
-  $$(".navlinks a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")===("#/"+h)));
-  if(h==="cart") renderCart();
-  updateBadge();
-}
-
-document.addEventListener("click",e=>{
-  const add=e.target.closest("[data-add]");
-  if(add){ addItem(add.dataset.add); return; }
-
-  const clr=e.target.closest("[data-clear]");
-  if(clr){ clearCart(); return; }
-});
-
-window.addEventListener("hashchange",route);
-window.addEventListener("load",()=>{
-  route(); updateBadge();
-  $("#homeImg").src=IMG; $("#prodImg").src=IMG;
-});
-</script>
 
 </body>
 </html>
