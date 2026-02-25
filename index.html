@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ZELYN — Organic Percale Bedding</title>
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,34 +29,32 @@ body{
   line-height:1.55;
 }
 
-.wrap{
-  width:min(var(--max),calc(100% - 40px));
-  margin:auto;
-}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto;}
+
 header{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);
   border-bottom:1px solid var(--line);
-  padding:22px 0;
+  padding:20px 0;
 }
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+
+nav{display:flex;justify-content:space-between;align-items:center;}
+nav a{text-decoration:none;color:inherit;font-size:14px;margin-left:18px;}
+
 .brand{
   font-family:Fraunces, serif;
-  font-size:22px;
+  font-size:20px;
   letter-spacing:.20em;
   text-transform:uppercase;
 }
-a{text-decoration:none;color:inherit;}
 
 .btn{
-  padding:12px 26px;
+  padding:12px 22px;
   border-radius:999px;
   background:var(--paper);
   border:1px solid var(--line);
-  font-size:14px;
   cursor:pointer;
+  font-size:14px;
 }
 .btn-solid{
   background:var(--accent);
@@ -65,83 +62,52 @@ a{text-decoration:none;color:inherit;}
   color:white;
 }
 
-section{padding:60px 0;}
+.page{display:none;padding:60px 0;}
+.page.active{display:block;}
 
-/* Typography */
 .hero-headline{
   font-family:Fraunces, serif;
-  font-size:44px;
+  font-size:42px;
   line-height:1.18;
-  max-width:700px;
+  max-width:680px;
   margin-bottom:14px;
 }
 .hero-text{
-  font-size:17px;
-  color:var(--muted);
-  max-width:600px;
-  margin-bottom:26px;
+  font-size:17px;color:var(--muted);
+  max-width:600px;margin-bottom:26px;
 }
 
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  margin-top:40px;
-}
-.feature-box{
-  background:var(--paper);
-  padding:20px;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-}
-.feature-title{
-  font-weight:600;
-  margin-bottom:6px;
-  font-size:15px;
-}
-
-.product-card{
-  margin-top:40px;
-  background:var(--paper);
-  padding:28px;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-}
-.product-title{
-  font-family:Fraunces, serif;
-  font-size:32px;
-  margin-bottom:6px;
-}
-.price{
-  font-size:20px;
-  margin-top:8px;
-  margin-bottom:14px;
-}
-
-.story{
-  max-width:700px;
-  font-size:17px;
-  color:var(--muted);
-  margin-top:20px;
-  line-height:1.7;
-}
-
-.support-box{
+.card{
   background:var(--paper);
   padding:24px;
   border-radius:var(--radius);
   border:1px solid var(--line);
-  max-width:600px;
+  margin-top:20px;
 }
 
-footer{
-  margin-top:80px;
-  padding:40px 0;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-  font-size:14px;
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;margin-top:26px;
 }
-footer a{color:var(--muted);}
+.feature-title{font-weight:600;margin-bottom:6px;color:var(--ink);}
+
+h2.section-title{
+  font-family:Fraunces,serif;
+  font-size:32px;
+  margin-bottom:14px;
+}
+
+p{margin-bottom:14px;}
+
+ul{margin-left:18px;margin-bottom:14px;}
+
+footer{
+  margin-top:60px;
+  padding:36px 0;
+  border-top:1px solid var(--line);
+  font-size:14px;
+  color:var(--muted);
+}
 </style>
 </head>
 
@@ -151,99 +117,186 @@ footer a{color:var(--muted);}
   <div class="wrap">
     <nav>
       <div class="brand">ZELYN</div>
-      <a href="#shop" class="btn btn-solid">Shop</a>
+      <div>
+        <a href="#/home">Home</a>
+        <a href="#/product">Product</a>
+        <a href="#/wholesale">Wholesale</a>
+        <a href="#/returns">Returns</a>
+        <a href="#/faq">FAQ</a>
+        <a href="#/catalog">Catalog</a>
+        <a href="#/amazon">Amazon EU</a>
+        <a href="https://instagram.com/zelyn.home" target="_blank">Instagram</a>
+      </div>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
 
-<!-- HERO -->
-<section>
+<!-- HOME -->
+<section data-page="home" class="page active">
   <h1 class="hero-headline">The perfect fit for European beds.</h1>
   <p class="hero-text">
     A crisp 300TC organic percale fitted sheet designed to stay put, breathe
-    through the night, and bring hotel-like comfort into real homes.
+    through the night, and bring hotel-like freshness into everyday homes.
   </p>
-  <a href="#shop" class="btn btn-solid">Shop Queen Size</a>
+
+  <a href="#/product" class="btn btn-solid">Shop Fitted Sheet</a>
 
   <div class="features">
-    <div class="feature-box">
-      <div class="feature-title">100% Organic Cotton</div>
-      Breathable long-staple cotton sourced responsibly in South India.
-    </div>
-    <div class="feature-box">
-      <div class="feature-title">300TC Percale</div>
-      Cool, crisp, matte. The classic European percale character.
-    </div>
-    <div class="feature-box">
-      <div class="feature-title">Deep 35cm Pocket</div>
-      Secure hold for EU queen mattresses (160×200×35 cm).
-    </div>
-    <div class="feature-box">
-      <div class="feature-title">OEKO-TEX® Certified</div>
-      Materials tested safe for your home and skin.
-    </div>
+    <div class="card"><div class="feature-title">100% Organic Cotton</div>Long-staple, breathable, responsibly sourced.</div>
+    <div class="card"><div class="feature-title">300TC Percale</div>Cool, crisp, matte European percale feel.</div>
+    <div class="card"><div class="feature-title">35cm Deep Pocket</div>Secure fit for EU queen mattresses.</div>
+    <div class="card"><div class="feature-title">OEKO-TEX® Certified</div>Safe, tested materials.</div>
   </div>
 </section>
 
-<!-- STORY SECTION -->
-<section id="story">
-  <h2 class="product-title">Our Story</h2>
-  <p class="story">
-    ZELYN began with a simple idea — essential bedding, done properly.
-    Growing up around the mills of South India, we knew the craftsmanship,
-    heritage, and care woven into every metre of cotton. Yet, most bedding
-    in Europe felt over-priced or over-designed.
-    <br><br>
-    So we focused on one essential: the fitted sheet. A sheet that sits
-    neatly, feels naturally cool, holds its shape, and lasts beyond seasons.
-    No unnecessary extras. No inflated markups. Just honest quality from
-    mills that have perfected cotton for generations.
-  </p>
-</section>
+<!-- PRODUCT -->
+<section data-page="product" class="page">
+  <h2 class="section-title">Fitted Sheet — Queen Size</h2>
+  <p>160×200×35 cm • Organic Cotton • 300TC Percale</p>
 
-<!-- SHOP SECTION -->
-<section id="shop">
-  <h2 class="product-title">Fitted Sheet — Queen Size</h2>
-  <p style="color:var(--muted);">160×200×35 cm • Organic Cotton • 300TC Percale</p>
-
-  <div class="product-card">
-    <div class="price">€29.00</div>
-    <p style="color:var(--muted); margin-bottom:20px;">
-      A hotel-crisp percale sheet tailored for modern European homes.
-      Breathable, structured, and exceptionally comfortable.
-    </p>
+  <div class="card">
+    <strong>Price: €29.00</strong>
+    <p style="margin-top:10px;">Hotel-crisp percale tailored for European homes. Breathable, structured, and durable.</p>
     <button class="btn btn-solid">Add to Cart</button>
   </div>
 </section>
 
-<!-- SUPPORT -->
-<section id="support">
-  <h2 class="product-title">Customer Support</h2>
-  <div class="support-box">
-    <p style="margin-bottom:10px;">
-      Need help with sizing, shipping, or wholesale?
-    </p>
+<!-- WHOLESALE BUYERS -->
+<section data-page="wholesale" class="page">
+  <h2 class="section-title">Wholesale Buyers</h2>
+  <p>
+    ZELYN supplies hotels, Airbnb hosts, interior designers, and retail stores across Europe.
+    We offer reliable quality, transparent pricing, and consistent production through mill
+    partners in South India.
+  </p>
+
+  <div class="card">
+    <strong>MOQ Options</strong>
+    <ul>
+      <li>50 units — Small boutique orders</li>
+      <li>100–300 units — Hotels & rental operators</li>
+      <li>1000+ units — Contract & retail</li>
+    </ul>
+
+    <strong>Lead Time</strong>
+    <p>20–30 days depending on quantity.</p>
+
+    <strong>Customization</strong>
+    <ul>
+      <li>Private labeling</li>
+      <li>Packaging customization</li>
+      <li>Color & sizing adjustments</li>
+    </ul>
+
+    <strong>Wholesale Contact</strong><br>
+    <p>wholesale@zelynhome.com</p>
+  </div>
+</section>
+
+<!-- RETURNS & CARE -->
+<section data-page="returns" class="page">
+  <h2 class="section-title">Returns & Care Guide</h2>
+
+  <div class="card">
+    <h3>Returns</h3>
     <p>
-      Email us anytime:
-      <br>
-      <strong>support@zelynhome.com</strong>
+      We offer a simple 30-day return window for unused or gently tested bedding.
+      If something doesn’t feel right, email us and we’ll help quickly.
     </p>
-    <p style="margin-top:14px;">
-      Instagram:
-      <br>
-      <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a>
+    <p><strong>support@zelynhome.com</strong></p>
+
+    <h3 style="margin-top:20px;">Care Guide</h3>
+    <ul>
+      <li>Machine wash at 40°C</li>
+      <li>Use mild detergent</li>
+      <li>Avoid bleach & harsh chemicals</li>
+      <li>Tumble dry low or line dry</li>
+      <li>Percale naturally softens over time</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section data-page="faq" class="page">
+  <h2 class="section-title">FAQ</h2>
+
+  <div class="card">
+    <p><strong>What size is EU Queen?</strong><br>160×200 cm with 35cm depth.</p>
+
+    <p><strong>Does percale feel soft?</strong><br>
+      Percale starts crisp and softens beautifully with each wash.
     </p>
+
+    <p><strong>Do you ship across Europe?</strong><br>
+      Yes — standard and tracked options available.
+    </p>
+
+    <p><strong>Where are the sheets made?</strong><br>
+      Designed in Europe, crafted in South India’s textile region.
+    </p>
+  </div>
+</section>
+
+<!-- FUTURE PRODUCT CATALOG -->
+<section data-page="catalog" class="page">
+  <h2 class="section-title">Catalog — Future Expansion</h2>
+  <p>As ZELYN grows, we will introduce:</p>
+
+  <ul>
+    <li>Pillowcases — 50×70 cm</li>
+    <li>Duvet covers — 200×200 cm</li>
+    <li>Color variants (White, Stone, Sand)</li>
+    <li>Hotel-grade bundles for wholesale partners</li>
+  </ul>
+
+  <div class="card">
+    <p>Interested in being first to access new launches?</p>
+    <p><strong>support@zelynhome.com</strong></p>
+  </div>
+</section>
+
+<!-- AMAZON EU LAUNCH -->
+<section data-page="amazon" class="page">
+  <h2 class="section-title">Amazon EU Launch</h2>
+  <p>We are preparing our Amazon EU rollout across Germany, France, Italy, Spain, and the Netherlands.</p>
+
+  <div class="card">
+    <strong>Listing Includes:</strong>
+    <ul>
+      <li>Parent/child SKU structure for future colors & sizes</li>
+      <li>SEO-optimized title & bullets</li>
+      <li>EU-specific keywords</li>
+      <li>A+ Content story section</li>
+    </ul>
+
+    <strong>Launch Timeline</strong>
+    <p>Estimated 2–4 weeks.</p>
+
+    <strong>Wholesale-based Amazon Supply</strong>
+    <p>Email: <strong>wholesale@zelynhome.com</strong></p>
   </div>
 </section>
 
 </main>
 
 <footer class="wrap">
-  © ZELYN — Thoughtfully made bedding for modern European homes.
-  <br> Crafted in South India. Designed for Europe.
+  © ZELYN — Thoughtfully made bedding for modern European homes.<br>
+  Support: support@zelynhome.com • Instagram: @zelyn.home
 </footer>
+
+<script>
+// Simple SPA Router
+function route(){
+  const page = location.hash.replace("#/","") || "home";
+  document.querySelectorAll("[data-page]").forEach(sec =>{
+    sec.classList.toggle("active", sec.dataset.page === page);
+  });
+}
+window.addEventListener("hashchange", route);
+window.addEventListener("load", route);
+</script>
 
 </body>
 </html>
