@@ -3,437 +3,1370 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="ZELYN — 300TC organic percale fitted sheets designed for European beds. Crafted in South India.">
+<meta name="description" content="ZELYN — 300TC organic percale fitted sheets designed for European beds. Crisp, breathable, deep-pocket fit. Crafted in South India." />
+<meta name="theme-color" content="#F7F5F0" />
 <title>ZELYN — Organic Percale Bedding</title>
 
+<!-- Open Graph -->
+<meta property="og:title" content="ZELYN — Organic Percale Bedding" />
+<meta property="og:description" content="Crisp, breathable 300TC organic percale fitted sheets made for European beds. Crafted in South India." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 /* ===========================
-   ROOT
+   THEME
 =========================== */
-
-:root {
+:root{
   --bg:#F7F5F0;
   --paper:#FFFFFF;
   --ink:#1A1D1B;
   --muted:#5F615F;
   --line:#E5E2DA;
   --accent:#748D81;
+  --accent-ink:#FFFFFF;
   --radius:14px;
   --max:1100px;
+  --shadow:0 8px 22px rgba(0,0,0,0.06);
+  --anim:180ms ease;
+  --anim2:520ms cubic-bezier(.2,.8,.2,1);
+  --focus:0 0 0 3px rgba(116,141,129,.25);
 }
 
-body.dark {
+body.dark{
   --bg:#141414;
   --paper:#1E1E1E;
   --ink:#F2F2F2;
-  --muted:#B0B0B0;
+  --muted:#B7B7B7;
   --line:#2C2C2C;
   --accent:#8FBBA8;
-}
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family:Inter, sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.6;
-  transition:.3s;
-}
-
-.wrap {
-  width:min(var(--max), calc(100% - 40px));
-  margin:auto;
+  --accent-ink:#0B1210;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --focus:0 0 0 3px rgba(143,187,168,.25);
 }
 
 /* ===========================
-   HEADER
+   BASE
 =========================== */
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height:1.6;
+  transition: background .25s, color .25s;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a{ color:inherit; }
+.wrap{
+  width:min(var(--max), calc(100% - 40px));
+  margin:auto;
+}
+hr{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:16px 0;
+}
+.muted{ color:var(--muted); }
 
-header {
+/* ===========================
+   A11Y
+=========================== */
+.skip{
+  position:absolute; left:-999px; top:10px;
+  background:var(--paper); color:var(--ink);
+  border:1px solid var(--line);
+  padding:10px 12px; border-radius:12px;
+  box-shadow:var(--shadow);
+  z-index:9999;
+}
+.skip:focus{ left:10px; outline:none; box-shadow:var(--focus), var(--shadow); }
+
+/* ===========================
+   HEADER / NAV
+=========================== */
+header{
   position:sticky;
   top:0;
-  background:var(--bg);
-  border-bottom:1px solid var(--line);
   z-index:999;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
 }
-
-nav {
+nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:18px 0;
 }
-
-.brand {
+.brand{
   font-family:Fraunces, serif;
-  letter-spacing:.18em;
   font-size:20px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  user-select:none;
+}
+.brand-dot{
+  width:10px; height:10px; border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
-.nav-links a {
-  margin-left:18px;
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.nav-links a{
   text-decoration:none;
-  font-size:14px;
-  color:inherit;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:999px;
+  opacity:.95;
+  transition: transform var(--anim), opacity var(--anim), background var(--anim), border-color var(--anim);
+}
+.nav-links a:hover{ opacity:.7; transform: translateY(-1px); }
+.nav-links a[aria-current="page"]{
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border:1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
 }
 
-.nav-links a:hover { opacity:.7; }
-
-.menu-btn {
+.menu-btn{
   display:none;
-  background:none;
-  border:none;
-  font-size:26px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:8px 10px;
+  font-size:18px;
   cursor:pointer;
+  transition: transform var(--anim);
 }
+.menu-btn:hover{ transform: translateY(-1px); }
+.menu-btn:focus{ outline:none; box-shadow:var(--focus); }
 
-.mobile-menu {
+.mobile-menu{
   display:none;
   flex-direction:column;
-  padding:20px;
-  border-top:1px solid var(--line);
   background:var(--paper);
+  border-top:1px solid var(--line);
+  padding:14px 0 18px 0;
 }
-
-.mobile-menu a {
-  padding:10px 0;
+.mobile-panel{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+.mobile-links{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.mobile-links a{
   text-decoration:none;
-  font-size:18px;
-  color:var(--ink);
+  font-size:16px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid transparent;
 }
-
-/* ===========================
-   TYPOGRAPHY
-=========================== */
-
-.hero-headline {
-  font-family:Fraunces, serif;
-  font-size:42px;
-  line-height:1.15;
-  margin-bottom:14px;
+.mobile-links a:hover{
+  border-color:var(--line);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
 }
-
-.hero-text {
-  font-size:17px;
-  color:var(--muted);
-  margin-bottom:24px;
-  max-width:600px;
+.mobile-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
 }
-
-.section-title {
-  font-family:Fraunces, serif;
-  font-size:32px;
-  margin-bottom:18px;
-}
-
-p { margin-bottom:14px; }
-
-ul { padding-left:20px; }
-
-li { margin-bottom:8px; color:var(--muted); }
 
 /* ===========================
    BUTTONS
 =========================== */
-
-.btn {
-  display:inline-block;
-  padding:12px 22px;
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 20px;
   border-radius:999px;
   border:1px solid var(--line);
   background:var(--paper);
   cursor:pointer;
-  text-decoration:none;
   font-size:14px;
-  transition:.2s;
+  transition: transform var(--anim), filter var(--anim), background var(--anim);
+  text-decoration:none;
+  user-select:none;
 }
-
-.btn:hover { transform:translateY(-2px); }
-
-.btn-solid {
+.btn:hover{ transform: translateY(-2px); }
+.btn:active{ transform: translateY(0); }
+.btn:focus{ outline:none; box-shadow:var(--focus); }
+.btn-solid{
   background:var(--accent);
-  border-color:var(--accent);
-  color:white;
+  border-color: color-mix(in srgb, var(--accent) 80%, var(--line));
+  color:var(--accent-ink);
+}
+.btn-solid:hover{ filter:brightness(.96); }
+.btn-ghost{
+  background:transparent;
+}
+.btn-small{
+  padding:8px 12px;
+  font-size:12px;
 }
 
 /* ===========================
-   LAYOUT
+   PAGES
 =========================== */
+main{ padding-bottom: 92px; }
+.page{ display:none; padding:56px 0; }
+.page.active{ display:block; }
 
-.page {
-  display:none;
-  padding:60px 0;
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+.hero-headline{
+  font-family:Fraunces, serif;
+  font-size:44px;
+  line-height:1.12;
+  letter-spacing:-0.01em;
+  max-width:820px;
+  margin-bottom:14px;
 }
+.hero-text{
+  font-size:17px;
+  color:var(--muted);
+  max-width:680px;
+  margin-bottom:22px;
+}
+.section-title{
+  font-family:Fraunces, serif;
+  font-size:34px;
+  line-height:1.15;
+  margin-bottom:16px;
+  letter-spacing:-0.01em;
+}
+p{ margin-bottom:14px; }
+ul{ padding-left:18px; }
+li{ margin:8px 0; color:var(--muted); }
 
-.page.active { display:block; }
-
-.card {
+/* ===========================
+   CARDS / GRID
+=========================== */
+.card{
   background:var(--paper);
   border:1px solid var(--line);
-  padding:24px;
   border-radius:var(--radius);
-  margin-top:20px;
+  padding:22px;
+  transition: transform var(--anim), box-shadow var(--anim);
 }
+.card:hover{ transform: translateY(-2px); box-shadow:var(--shadow); }
 
-.features {
+.features{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:16px;
-  margin-top:30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:14px;
+  margin-top:22px;
+}
+.feature-title{ font-weight:600; margin-bottom:8px; letter-spacing:-0.01em; }
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin: 4px 0 14px;
 }
 
-input, textarea {
-  width:100%;
-  padding:12px;
-  border-radius:8px;
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
   border:1px solid var(--line);
-  margin-bottom:12px;
-  font-size:14px;
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  font-size:12px;
+  color:var(--muted);
 }
 
-textarea { height:120px; resize:none; }
-
-.success {
-  background:#d9f7e1;
-  border:1px solid #9ad4aa;
-  padding:10px;
-  border-radius:6px;
-  margin-top:10px;
-  font-size:14px;
-}
-
-.placeholder {
-  height:200px;
-  background:var(--line);
-  border-radius:var(--radius);
+.placeholder{
+  width:100%;
+  min-height:240px;
+  background: color-mix(in srgb, var(--line) 55%, transparent);
+  border:1px dashed color-mix(in srgb, var(--line) 70%, var(--accent) 22%);
+  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--muted);
+  overflow:hidden;
 }
 
-footer {
-  padding:40px 0;
-  margin-top:60px;
+/* ===========================
+   FORMS
+=========================== */
+label{ display:block; font-size:13px; color:var(--muted); margin: 2px 0 6px; }
+input, textarea, select{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:14px;
+  transition: box-shadow var(--anim), border-color var(--anim);
+}
+input:focus, textarea:focus, select:focus{
+  outline:none;
+  box-shadow:var(--focus);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+textarea{ height:140px; resize:vertical; }
+
+.notice{
+  margin-top:12px;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  color:var(--muted);
+  font-size:14px;
+}
+.success{
+  background:#d9f7e1;
+  border:1px solid #9ad4aa;
+  padding:10px 12px;
+  color:#0b642e;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+.error{
+  background:#ffd7d7;
+  color:#7a1f1f;
+  border:1px solid #ffb4b4;
+  padding:10px 12px;
+  border-radius:12px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* ===========================
+   CART ROWS
+=========================== */
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.cart-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.qty{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.qty button{
+  width:34px; height:34px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  cursor:pointer;
+}
+.qty button:focus{ outline:none; box-shadow:var(--focus); }
+.qty span{ min-width:18px; text-align:center; }
+
+/* ===========================
+   FOOTER + BOTTOM CTA
+=========================== */
+footer{
+  margin-top:64px;
+  padding:34px 0 42px;
   text-align:center;
   font-size:14px;
   color:var(--muted);
+  border-top:1px solid var(--line);
 }
-
-.bottom-cta {
+.bottom-cta{
   position:fixed;
-  bottom:0;
-  left:0;
+  bottom:0; left:0;
   width:100%;
-  background:var(--accent);
-  text-align:center;
-  padding:14px 0;
   display:none;
+  background: color-mix(in srgb, var(--accent) 92%, black 0%);
+  border-top:1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+  padding:12px 0;
+  z-index:998;
 }
-
-.bottom-cta a {
-  color:white;
+.bottom-cta .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.bottom-cta a{
+  color:var(--accent-ink);
   text-decoration:none;
   font-weight:600;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid color-mix(in srgb, var(--accent-ink) 18%, transparent);
+  background: color-mix(in srgb, var(--accent-ink) 10%, transparent);
+}
+.bottom-cta .mini{
+  color: color-mix(in srgb, var(--accent-ink) 75%, transparent);
+  font-size:12px;
+  text-align:right;
+  line-height:1.2;
+}
+
+/* ===========================
+   REVEAL (optional polish)
+=========================== */
+.reveal{
+  opacity:0;
+  transform: translateY(12px);
+  transition: opacity var(--anim2), transform var(--anim2);
+  will-change: opacity, transform;
+}
+.reveal.in{ opacity:1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .btn{ transition:none; }
+  .card{ transition:none; }
 }
 
 /* ===========================
    RESPONSIVE
 =========================== */
-
-@media (max-width:820px) {
-  .nav-links { display:none; }
-  .menu-btn { display:block; }
-  .bottom-cta { display:block; }
+@media (max-width: 980px){
+  .features{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
+@media (max-width: 820px){
+  .nav-links{ display:none; }
+  .menu-btn{ display:inline-flex; }
+  .mobile-menu{ display:block; }
+  .bottom-cta{ display:block; }
+  .hero-headline{ font-size:38px; }
+  .section-title{ font-size:30px; }
+}
+@media (max-width: 460px){
+  .wrap{ width: calc(100% - 28px); }
+  .hero-headline{ font-size:34px; }
+}
 </style>
+
+<!-- JSON-LD (SEO) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "name":"ZELYN",
+      "url":"https://zelynhome.com",
+      "email":"support@zelynhome.com",
+      "sameAs":["https://instagram.com/zelyn.home"]
+    },
+    {
+      "@type":"Product",
+      "name":"ZELYN Organic Percale Fitted Sheet (EU Queen 160x200x35 cm)",
+      "description":"300TC organic percale fitted sheet designed for European beds. Crisp, breathable, deep-pocket fit. Crafted in South India.",
+      "brand":{"@type":"Brand","name":"ZELYN"},
+      "offers":{
+        "@type":"Offer",
+        "priceCurrency":"EUR",
+        "price":"29.00",
+        "availability":"https://schema.org/PreOrder"
+      }
+    }
+  ]
+}
+</script>
 </head><body>
+<a class="skip" href="#content">Skip to content</a>
 
 <header>
   <div class="wrap">
-    <nav>
-      <div class="brand">ZELYN</div>
-      <button id="menuBtn" class="menu-btn">☰</button>
-
-      <div class="nav-links">
-        <a href="#/home">Home</a>
-        <a href="#/story">Our Story</a>
-        <a href="#/product">Product</a>
-        <a href="#/wholesale">Wholesale</a>
-        <a href="#/faq">FAQ</a>
-        <a href="#/contact">Contact</a>
-        <a href="#/cart">Cart</a>
-        <button id="themeBtn" class="btn">Theme</button>
+    <nav aria-label="Primary">
+      <div class="brand" aria-label="ZELYN">
+        <span class="brand-dot" aria-hidden="true"></span>
+        ZELYN
       </div>
 
-      <div id="mobileMenu" class="mobile-menu">
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">☰</button>
+
+      <!-- Desktop nav -->
+      <div class="nav-links" aria-label="Desktop navigation">
         <a href="#/home">Home</a>
         <a href="#/story">Our Story</a>
         <a href="#/product">Product</a>
+        <a href="#/catalog">Catalog</a>
         <a href="#/wholesale">Wholesale</a>
+        <a href="#/returns">Returns</a>
         <a href="#/faq">FAQ</a>
+        <a href="#/amazon">Amazon</a>
         <a href="#/contact">Contact</a>
         <a href="#/cart">Cart</a>
+        <button id="themeBtn" class="btn btn-small btn-ghost" type="button">Theme</button>
       </div>
     </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <div class="wrap">
+        <div class="mobile-panel">
+          <div class="mobile-links" aria-label="Mobile navigation">
+            <a href="#/home">Home</a>
+            <a href="#/story">Our Story</a>
+            <a href="#/product">Product</a>
+            <a href="#/catalog">Catalog</a>
+            <a href="#/wholesale">Wholesale</a>
+            <a href="#/returns">Returns</a>
+            <a href="#/faq">FAQ</a>
+            <a href="#/amazon">Amazon</a>
+            <a href="#/contact">Contact</a>
+            <a href="#/cart">Cart</a>
+          </div>
+          <div class="mobile-actions">
+            <button id="themeBtnMobile" class="btn btn-small btn-ghost" type="button">Toggle theme</button>
+            <a class="btn btn-small btn-solid" href="#/product">Shop</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main id="content" class="wrap" tabindex="-1">
 
-<!-- HOME -->
-<section data-page="home" class="page active">
-  <h1 class="hero-headline">The perfect fit for European beds.</h1>
-  <p class="hero-text">
-    300TC organic percale. Crisp. Breathable. Built for real EU mattress dimensions.
-  </p>
-  <a href="#/product" class="btn btn-solid">Shop Fitted Sheet</a>
+  <!-- HOME -->
+  <section data-page="home" class="page active">
+    <div class="reveal">
+      <h1 class="hero-headline">The perfect fit for European beds.</h1>
+      <p class="hero-text">
+        Crisp, breathable 300TC organic percale — designed to stay neatly in place.
+        European design meets South Indian textile expertise.
+      </p>
 
-  <div class="features">
-    <div class="card">
-      <strong>Organic Cotton</strong>
-      Long-staple cotton from South India.
+      <div class="hero-actions">
+        <a href="#/product" class="btn btn-solid">Shop fitted sheet</a>
+        <a href="#/story" class="btn btn-ghost">Our story</a>
+        <a href="#/wholesale" class="btn btn-ghost">Wholesale</a>
+      </div>
+
+      <div class="features">
+        <div class="card reveal">
+          <div class="feature-title">100% Organic Cotton</div>
+          <div class="muted">Long-staple South Indian cotton — breathable and durable.</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">300TC Percale</div>
+          <div class="muted">A crisp hotel-like feel that softens with time.</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">35cm Deep Pocket</div>
+          <div class="muted">Made for EU queen mattresses (160×200 cm).</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">OEKO-TEX® Materials</div>
+          <div class="muted">Skin-safe and responsibly sourced materials.</div>
+        </div>
+      </div>
+
+      <div class="card reveal" style="margin-top:18px;">
+        <h3 style="margin-bottom:10px;">Why percale?</h3>
+        <p class="muted">
+          Percale is a plain weave that stays airy and cool. It feels crisp at first, then becomes softer while keeping
+          a clean structure. If you sleep warm, percale is usually the best choice.
+        </p>
+        <p class="muted" style="margin-bottom:0;">
+          If you prefer “silky and heavy”, sateen is better. If you want “fresh and breathable”, percale wins.
+        </p>
+      </div>
+
+      <div class="card reveal" style="margin-top:18px;">
+        <h3 style="margin-bottom:10px;">Stay updated</h3>
+        <p class="muted">Early access to launches and restocks. No spam.</p>
+        <label for="emailInput">Email</label>
+        <input id="emailInput" type="email" inputmode="email" autocomplete="email" placeholder="you@domain.com">
+        <button class="btn btn-solid" type="button" onclick="signup()">Join</button>
+        <div id="emailMsg" aria-live="polite"></div>
+      </div>
     </div>
-    <div class="card">
-      <strong>True EU Fit</strong>
-      160×200×35 cm deep pocket.
+  </section>
+
+  <!-- STORY -->
+  <section data-page="story" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Our Story</h2>
+      <div class="card reveal">
+        <p>
+          ZELYN began in the textile heartland of <strong>Karur, South India</strong> — a region known for generations
+          of weaving, stitching, and export-grade home linen production.
+        </p>
+        <p class="muted">
+          We grew up around mills and workshops. Real production. Quality checks. Consistent stitching.
+          People who understand cotton by feel — not by marketing terms.
+        </p>
+        <p class="muted">
+          In Europe, we wanted bedding that felt premium but honest. Minimal. Durable. Calm.
+          A sheet that fits properly and lasts beyond seasons.
+        </p>
+
+        <h3 style="margin-top:16px;">What we stand for</h3>
+        <ul>
+          <li><strong>Fit first:</strong> made for real EU mattress dimensions</li>
+          <li><strong>Material truth:</strong> breathable, matte percale (not glossy)</li>
+          <li><strong>Simple design:</strong> no loud branding, no clutter</li>
+          <li><strong>Better choices:</strong> safer materials, sensible packaging</li>
+        </ul>
+
+        <h3 style="margin-top:16px;">What we won’t do</h3>
+        <ul>
+          <li>Overpromise softness on day one (percale starts crisp — that’s the point)</li>
+          <li>Use heavy “luxury” language to hide average quality</li>
+          <li>Sell bundles before the one essential is perfect</li>
+        </ul>
+
+        <p style="margin-top:14px;"><strong>Indian roots. European living.</strong></p>
+      </div>
     </div>
-    <div class="card">
-      <strong>Percale Weave</strong>
-      Matte, airy, hotel-like feel.
+  </section>
+
+  <!-- PRODUCT -->
+  <section data-page="product" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Fitted Sheet — EU Queen</h2>
+
+      <div class="placeholder reveal" aria-label="Product image placeholder">
+        Product image placeholder (we’ll replace with real photos)
+      </div>
+
+      <div class="card reveal" style="margin-top:16px;">
+        <div class="row">
+          <div>
+            <div class="pill">160×200×35 cm • 300TC organic percale</div>
+            <div style="font-weight:600; font-size:18px; margin-top:6px;">€29.00</div>
+            <div class="muted" style="margin-top:4px;">Crisp, breathable percale with a secure deep-pocket fit.</div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+            <button class="btn btn-solid" type="button" onclick="addToCart('sheet')">Add to cart</button>
+            <a class="btn btn-ghost" href="#/returns">Care & returns</a>
+          </div>
+        </div>
+
+        <hr>
+
+        <h3 style="margin-bottom:10px;">Specs</h3>
+        <ul>
+          <li><strong>Fabric:</strong> 100% organic cotton percale</li>
+          <li><strong>Thread count:</strong> 300TC</li>
+          <li><strong>Size:</strong> EU Queen 160×200 cm</li>
+          <li><strong>Depth:</strong> 35 cm deep pocket (works with most toppers)</li>
+          <li><strong>Feel:</strong> crisp + airy, softens over time</li>
+          <li><strong>Design:</strong> made for European beds</li>
+          <li><strong>Made:</strong> crafted in South India</li>
+        </ul>
+
+        <h3 style="margin-top:14px; margin-bottom:10px;">Who it’s for</h3>
+        <ul>
+          <li>Warm sleepers who want breathable bedding</li>
+          <li>People who like sheets that look neat, not drapey</li>
+          <li>Anyone tired of “almost fits” sheets on EU mattresses</li>
+        </ul>
+
+        <div class="notice">
+          <strong>Launch note:</strong> We start with one essential. Pillowcases and duvet covers follow.
+          Calm neutrals (Ivory / Sand / Stone) are planned next.
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <strong>OEKO-TEX®</strong>
-      Tested for skin-safe materials.
+  </section>
+
+  <!-- CATALOG -->
+  <section data-page="catalog" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Catalog</h2>
+      <p class="muted">A preview of what’s next in the ZELYN lineup:</p>
+      <div class="card reveal">
+        <ul>
+          <li>Pillowcases — 50×70 cm</li>
+          <li>Duvet covers — 200×200 cm</li>
+          <li>Sheet bundles (when the base sheet is perfect)</li>
+          <li>Color variants: Ivory, Sand, Stone</li>
+          <li>Bulk packs for hotels & rentals</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE -->
+  <section data-page="wholesale" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Wholesale Buyers</h2>
+      <p class="muted">Boutiques, hotels, designers, rentals — Europe-focused supply with clean, minimal presentation.</p>
+
+      <div class="features" style="margin-top:16px;">
+        <div class="card reveal">
+          <div class="feature-title">MOQ options</div>
+          <div class="muted">50 units (boutiques) • 100–300 (hotels/rentals) • 1000+ (distributors)</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">Lead time</div>
+          <div class="muted">20–30 days depending on customization & volume.</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">Customization</div>
+          <div class="muted">Private label • packaging • size & color variants.</div>
+        </div>
+        <div class="card reveal">
+          <div class="feature-title">Support</div>
+          <div class="muted">Email: <strong>support@zelynhome.com</strong></div>
+        </div>
+      </div>
+
+      <div class="card reveal" style="margin-top:18px;">
+        <h3 style="margin-bottom:10px;">Wholesale inquiry</h3>
+
+        <label for="wsName">Name</label>
+        <input id="wsName" autocomplete="name" placeholder="Your name">
+
+        <label for="wsEmail">Email</label>
+        <input id="wsEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com">
+
+        <label for="wsMsg">Requirement</label>
+        <textarea id="wsMsg" placeholder="Volumes, sizes, delivery country, and any labeling/packaging needs."></textarea>
+
+        <button class="btn btn-solid" type="button" onclick="submitWholesale()">Submit inquiry</button>
+        <div id="wsSuccess" aria-live="polite"></div>
+
+        <div class="notice">
+          This demo saves your inquiry locally. When you’re ready, we’ll connect it to email/CRM properly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RETURNS -->
+  <section data-page="returns" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Returns & Care</h2>
+      <div class="card reveal">
+        <h3 style="margin-bottom:10px;">Returns</h3>
+        <p class="muted">
+          30-day return window from delivery. For help, contact <strong>support@zelynhome.com</strong>.
+        </p>
+        <ul>
+          <li>Return item in original condition</li>
+          <li>We’ll share the return address + instructions by email</li>
+          <li>Refund processed after inspection</li>
+        </ul>
+
+        <h3 style="margin:18px 0 10px;">Care instructions</h3>
+        <ul>
+          <li>Machine wash at 40°C</li>
+          <li>Mild detergent</li>
+          <li>Avoid bleach</li>
+          <li>Line dry or tumble dry low</li>
+          <li>Percale softens naturally over time</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section data-page="faq" class="page">
+    <div class="reveal">
+      <h2 class="section-title">FAQ</h2>
+      <div class="card reveal">
+        <p><strong>Is this EU Queen size?</strong><br><span class="muted">Yes — 160×200×35 cm.</span></p>
+        <p><strong>Does percale feel soft?</strong><br><span class="muted">Percale starts crisp and softens with use while staying breathable.</span></p>
+        <p><strong>Will it shrink?</strong><br><span class="muted">Minimal shrinkage when washed at 40°C and dried low/line dried.</span></p>
+        <p><strong>Is it glossy?</strong><br><span class="muted">No — percale is matte and airy, not shiny.</span></p>
+        <p><strong>Where is it made?</strong><br><span class="muted">Crafted in South India, designed for European homes.</span></p>
+        <p><strong>Do you ship across Europe?</strong><br><span class="muted">Yes — carriers and timelines will be finalized at launch.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMAZON -->
+  <section data-page="amazon" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Amazon EU Listing Builder</h2>
+      <div class="card reveal">
+        <p class="muted">Generates a clean listing draft (title + bullets + description + backend keywords).</p>
+        <button class="btn btn-solid" type="button" onclick="genAmazon()">Generate listing</button>
+        <pre id="amazonOut" style="margin-top:16px; white-space:pre-wrap; color:var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;"></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section data-page="contact" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="card reveal">
+        <p class="muted">
+          Support: <strong>support@zelynhome.com</strong><br>
+          Instagram: <strong>@zelyn.home</strong><br>
+          Typical response time: <strong>within 24–48 hours</strong>
+        </p>
+
+        <form action="https://formsubmit.co/support@zelynhome.com" method="POST" style="margin-top:12px;">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="ZELYN Website Contact">
+          <input type="hidden" name="_template" value="table">
+
+          <label for="cName">Name</label>
+          <input id="cName" name="name" autocomplete="name" placeholder="Your name" required>
+
+          <label for="cEmail">Email</label>
+          <input id="cEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@domain.com" required>
+
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" name="message" placeholder="How can we help?" required></textarea>
+
+          <button class="btn btn-solid" type="submit">Send</button>
+        </form>
+
+        <div class="notice">
+          If you want, we can replace FormSubmit with a cleaner serverless endpoint (more reliable long-term).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART -->
+  <section data-page="cart" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Your Cart</h2>
+
+      <div class="card reveal" id="cartBox">
+        <p class="muted">Your cart is empty.</p>
+      </div>
+
+      <div class="card reveal" style="margin-top:16px;">
+        <div class="row">
+          <div>
+            <div style="font-weight:600;">Next step</div>
+            <div class="muted">Proceed to checkout to send your order request.</div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-solid" href="#/checkout">Checkout</a>
+            <button class="btn btn-ghost" type="button" onclick="clearCart()">Clear cart</button>
+          </div>
+        </div>
+        <div class="notice">
+          Checkout is built as an order request (email). When we move to Shopify, this becomes real checkout.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section data-page="checkout" class="page">
+    <div class="reveal">
+      <h2 class="section-title">Checkout</h2>
+
+      <div class="card reveal">
+        <p class="muted">Fill details once. We generate an order summary and email it to <strong>support@zelynhome.com</strong>.</p>
+
+        <div id="checkoutEmpty" class="notice" style="display:none;">
+          Your cart is empty. Add a product first.
+        </div>
+
+        <div id="checkoutWrap">
+          <h3 style="margin-bottom:10px;">Customer details</h3>
+
+          <label for="coName">Full name</label>
+          <input id="coName" autocomplete="name" placeholder="Full name">
+
+          <label for="coEmail">Email</label>
+          <input id="coEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@domain.com">
+
+          <label for="coPhone">Phone (optional)</label>
+          <input id="coPhone" inputmode="tel" placeholder="+49 …">
+
+          <hr>
+
+          <h3 style="margin-bottom:10px;">Shipping address</h3>
+
+          <label for="coAddress1">Address line 1</label>
+          <input id="coAddress1" autocomplete="address-line1" placeholder="Street + number">
+
+          <label for="coAddress2">Address line 2 (optional)</label>
+          <input id="coAddress2" autocomplete="address-line2" placeholder="Apartment, floor, etc.">
+
+          <label for="coCity">City</label>
+          <input id="coCity" autocomplete="address-level2" placeholder="City">
+
+          <label for="coPostcode">Postcode</label>
+          <input id="coPostcode" autocomplete="postal-code" placeholder="Postcode">
+
+          <label for="coCountry">Country</label>
+          <select id="coCountry">
+            <option value="Germany">Germany</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="France">France</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Austria">Austria</option>
+            <option value="Other (EU)">Other (EU)</option>
+          </select>
+
+          <hr>
+
+          <h3 style="margin-bottom:10px;">Order summary</h3>
+          <div id="orderSummary" class="muted"></div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <button class="btn btn-solid" type="button" onclick="generateOrderEmail()">Email order request</button>
+            <a class="btn btn-ghost" href="#/cart">Back to cart</a>
+          </div>
+
+          <div id="checkoutMsg" aria-live="polite"></div>
+
+          <div class="notice">
+            This is a lightweight launch checkout. Next phase: Shopify checkout + Amazon EU listing.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <div class="bottom-cta" role="region" aria-label="Shop call to action">
+    <div class="wrap">
+      <a href="#/product">Shop now — €29</a>
+      <div class="mini">EU Queen 160×200×35<br>300TC organic percale</div>
     </div>
   </div>
-</section>
 
-<!-- STORY -->
-<section data-page="story" class="page">
-  <h2 class="section-title">Our Story</h2>
-  <div class="card">
-    <p>ZELYN began in Karur, South India — a textile region known for serious home linen production.</p>
-    <p>We combine Indian cotton craftsmanship with European minimal design.</p>
-    <p>One product. Done properly.</p>
-  </div>
-</section>
+  <footer>
+    © <span id="year"></span> ZELYN — Thoughtfully made bedding, from South India to Europe. •
+    <a href="https://instagram.com/zelyn.home" target="_blank" rel="noreferrer noopener">Instagram</a>
+  </footer>
 
-<!-- PRODUCT -->
-<section data-page="product" class="page">
-  <h2 class="section-title">Fitted Sheet — EU Queen</h2>
-  <div class="placeholder">Product Image</div>
-  <div class="card">
-    <strong>€29.00</strong>
-    <p>160×200×35 cm • 300TC organic percale</p>
-    <button class="btn btn-solid" onclick="addToCart()">Add to Cart</button>
-  </div>
-</section>
+</main><script>
+/* ===========================
+   HELPERS
+=========================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-<!-- WHOLESALE -->
-<section data-page="wholesale" class="page">
-  <h2 class="section-title">Wholesale</h2>
-  <div class="card">
-    <ul>
-      <li>50+ units — boutiques</li>
-      <li>100–300 units — hotels</li>
-      <li>Private label available</li>
-      <li>20–30 day lead time</li>
-    </ul>
-  </div>
-</section>
+const STORAGE = {
+  theme: "zelyn_theme",
+  signup: "zelyn_signup",
+  cart: "zelyn_cart",
+  wholesaleDraft: "zelyn_ws_draft"
+};
 
-<!-- FAQ -->
-<section data-page="faq" class="page">
-  <h2 class="section-title">FAQ</h2>
-  <div class="card">
-    <p><strong>Does it shrink?</strong><br>Minimal shrinkage when washed at 40°C.</p>
-    <p><strong>Is it soft?</strong><br>Percale starts crisp and softens with use.</p>
-    <p><strong>Where is it made?</strong><br>Crafted in South India.</p>
-  </div>
-</section>
+const SUPPORT_EMAIL = "support@zelynhome.com";
 
-<!-- CONTACT -->
-<section data-page="contact" class="page">
-  <h2 class="section-title">Contact</h2>
-  <div class="card">
-    <form>
-      <input placeholder="Name">
-      <input placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-      <button class="btn btn-solid">Send</button>
-    </form>
-  </div>
-</section>
+const PRODUCTS = {
+  sheet: {
+    id: "sheet",
+    name: "Fitted Sheet — EU Queen (160×200×35 cm)",
+    price: 29.00,
+    currency: "EUR"
+  }
+};
 
-<!-- CART -->
-<section data-page="cart" class="page">
-  <h2 class="section-title">Your Cart</h2>
-  <div id="cartBox" class="card">Your cart is empty.</div>
-</section>
+function money(n){ return "€" + Number(n).toFixed(2); }
+function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||"").trim()); }
 
-<div class="bottom-cta">
-  <a href="#/product">Shop Now — €29</a>
-</div>
+function safeText(v){
+  return String(v||"").replace(/[<>]/g, "").trim();
+}
 
-<footer>
-  © ZELYN — Thoughtfully made bedding.
-</footer><script>
+/* ===========================
+   THEME (persist)
+=========================== */
+function applyTheme(t){
+  const theme = (t === "dark" || t === "light") ? t : "light";
+  document.body.classList.toggle("dark", theme === "dark");
+  localStorage.setItem(STORAGE.theme, theme);
+}
+function toggleTheme(){
+  const isDark = document.body.classList.contains("dark");
+  applyTheme(isDark ? "light" : "dark");
+}
+(function initTheme(){
+  const saved = localStorage.getItem(STORAGE.theme);
+  if (saved) return applyTheme(saved);
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(prefersDark ? "dark" : "light");
+})();
 
-const pages = document.querySelectorAll("[data-page]");
-const mobileMenu = document.getElementById("mobileMenu");
+/* ===========================
+   MOBILE MENU (accessible)
+=========================== */
+const menuBtn = $("#menuBtn");
+const mobileMenu = $("#mobileMenu");
 
-function route() {
+function setDrawer(open){
+  if (!mobileMenu || !menuBtn) return;
+  mobileMenu.hidden = !open;
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+menuBtn?.addEventListener("click", () => setDrawer(mobileMenu.hidden));
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") setDrawer(false);
+});
+
+/* ===========================
+   REVEAL (IntersectionObserver)
+=========================== */
+const io = ("IntersectionObserver" in window)
+  ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 })
+  : null;
+
+function observeReveals(scope=document){
+  $$(".reveal", scope).forEach(el=>{
+    el.classList.remove("in");
+    if(!io) el.classList.add("in");
+    else io.observe(el);
+  });
+}
+
+/* ===========================
+   ROUTER (fast + stable)
+=========================== */
+const pages = $$("[data-page]");
+function setActiveNav(page){
+  $$(".nav-links a").forEach(a=>{
+    const target = (a.getAttribute("href") || "").replace("#/", "");
+    a.setAttribute("aria-current", target === page ? "page" : "false");
+  });
+}
+
+function route(){
   const page = location.hash.replace("#/", "") || "home";
-  pages.forEach(p => p.classList.toggle("active", p.dataset.page === page));
-  mobileMenu.style.display = "none";
+  pages.forEach(sec=>{
+    const on = sec.dataset.page === page;
+    sec.classList.toggle("active", on);
+    if (on) observeReveals(sec);
+  });
+  setActiveNav(page);
+  setDrawer(false);
+  renderCart();
+  renderCheckout();
+  $("#content")?.focus({ preventScroll:true });
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 window.addEventListener("hashchange", route);
-window.addEventListener("load", route);
-
-document.querySelectorAll(".nav-links a, .mobile-menu a").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const href = link.getAttribute("href");
-    if (location.hash === href) route();
-    else location.hash = href;
-  });
+window.addEventListener("load", () => {
+  $("#year").textContent = new Date().getFullYear();
+  route();
+  observeReveals(document);
 });
 
-document.getElementById("menuBtn").onclick = () => {
-  mobileMenu.style.display =
-    mobileMenu.style.display === "flex" ? "none" : "flex";
+/* Navigation: event delegation (desktop + mobile) */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#/"]');
+  if (!a) return;
+  e.preventDefault();
+  const href = a.getAttribute("href");
+  if (location.hash === href) route();     // tap same page again → still works
+  else location.hash = href;
+});
+
+/* Theme buttons */
+$("#themeBtn")?.addEventListener("click", toggleTheme);
+$("#themeBtnMobile")?.addEventListener("click", toggleTheme);
+
+/* ===========================
+   EMAIL SIGNUP
+=========================== */
+window.signup = function signup(){
+  const input = $("#emailInput");
+  const msg = $("#emailMsg");
+  if(!input || !msg) return;
+
+  const value = (input.value || "").trim();
+  if(!value) return msg.innerHTML = "<div class='error'>Please enter an email.</div>";
+  if(!isValidEmail(value)) return msg.innerHTML = "<div class='error'>That email doesn’t look right.</div>";
+
+  localStorage.setItem(STORAGE.signup, value);
+  msg.innerHTML = "<div class='success'>You're on the list.</div>";
+  input.value = "";
 };
 
-document.getElementById("themeBtn").onclick = () => {
-  document.body.classList.toggle("dark");
+/* ===========================
+   WHOLESALE (demo save)
+=========================== */
+window.submitWholesale = function submitWholesale(){
+  const name = safeText($("#wsName")?.value);
+  const email = safeText($("#wsEmail")?.value);
+  const message = safeText($("#wsMsg")?.value);
+  const out = $("#wsSuccess");
+  if(!out) return;
+
+  if(!name || !email || !message) return out.innerHTML = "<div class='error'>Please fill all fields.</div>";
+  if(!isValidEmail(email)) return out.innerHTML = "<div class='error'>Please enter a valid email.</div>";
+
+  localStorage.setItem(STORAGE.wholesaleDraft, JSON.stringify({ name, email, message, ts: Date.now() }));
+  out.innerHTML = "<div class='success'>Inquiry saved. We’ll reply soon.</div>";
+
+  $("#wsName").value = "";
+  $("#wsEmail").value = "";
+  $("#wsMsg").value = "";
 };
 
-let cart = [];
+/* ===========================
+   AMAZON BUILDER
+=========================== */
+window.genAmazon = function genAmazon(){
+  const text =
+`TITLE
+ZELYN Organic Percale Fitted Sheet 160x200x35 cm (EU Queen) — 300TC Crisp Cotton — Deep Pocket — Breathable — OEKO-TEX®
 
-function addToCart() {
-  cart.push("Fitted Sheet — €29");
-  renderCart();
-  alert("Added to cart!");
+BULLETS
+• 300TC organic percale: crisp, breathable feel that softens with washing
+• Made for EU beds: 160×200 cm with a secure 35 cm deep-pocket fit
+• Stays neat: elastic designed to hold corners evenly and cleanly
+• Skin-safe materials: OEKO-TEX® Standard certified fabrics
+• Designed for Europe, crafted in South India: Karur textile expertise
+
+DESCRIPTION
+ZELYN makes one essential well — a fitted sheet that fits European mattresses properly.
+Crisp 300TC organic percale, breathable through the night, built for everyday durability.
+
+BACKEND KEYWORDS (example)
+percale fitted sheet 160x200 deep pocket 35cm organic cotton sheet eu queen hotel crisp breathable`;
+
+  const out = $("#amazonOut");
+  if(out) out.textContent = text;
+};
+
+/* ===========================
+   CART (localStorage)
+=========================== */
+function loadCart(){
+  return JSON.parse(localStorage.getItem(STORAGE.cart) || "[]");
+}
+function saveCart(cart){
+  localStorage.setItem(STORAGE.cart, JSON.stringify(cart));
+}
+function cartTotals(cart){
+  const subtotal = cart.reduce((sum, it) => sum + (Number(it.price) * Number(it.qty)), 0);
+  return { subtotal, total: subtotal };
 }
 
-function renderCart() {
-  const box = document.getElementById("cartBox");
-  if (!cart.length) {
-    box.innerHTML = "Your cart is empty.";
+window.addToCart = function addToCart(productId){
+  const p = PRODUCTS[productId];
+  if(!p) return;
+
+  const cart = loadCart();
+  const existing = cart.find(x => x.id === productId);
+  if(existing) existing.qty += 1;
+  else cart.push({ id: p.id, name: p.name, price: p.price, qty: 1 });
+
+  saveCart(cart);
+  renderCart();
+  alert("Added to cart");
+  location.hash = "#/cart";
+};
+
+window.clearCart = function clearCart(){
+  saveCart([]);
+  renderCart();
+  renderCheckout();
+};
+
+function changeQty(id, delta){
+  const cart = loadCart();
+  const item = cart.find(x => x.id === id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){
+    const idx = cart.findIndex(x => x.id === id);
+    cart.splice(idx, 1);
+  }
+  saveCart(cart);
+  renderCart();
+  renderCheckout();
+}
+
+function renderCart(){
+  const box = $("#cartBox");
+  if(!box) return;
+
+  const cart = loadCart();
+  if(cart.length === 0){
+    box.innerHTML = "<p class='muted'>Your cart is empty.</p>";
     return;
   }
-  box.innerHTML = cart.map(item => `<p>${item}</p>`).join("");
+
+  const rows = cart.map(it => `
+    <div class="cart-item">
+      <div>
+        <div style="font-weight:600;">${it.name}</div>
+        <div class="muted" style="font-size:13px;">${money(it.price)}</div>
+      </div>
+      <div class="qty">
+        <button type="button" aria-label="Decrease quantity" data-qty="-1" data-id="${it.id}">−</button>
+        <span>${it.qty}</span>
+        <button type="button" aria-label="Increase quantity" data-qty="1" data-id="${it.id}">+</button>
+      </div>
+    </div>
+  `).join("");
+
+  const t = cartTotals(cart);
+
+  box.innerHTML = `
+    ${rows}
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+      <strong>Total</strong>
+      <strong>${money(t.total)}</strong>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn btn-solid" href="#/checkout">Checkout</a>
+      <button class="btn btn-ghost" type="button" onclick="clearCart()">Clear cart</button>
+    </div>
+  `;
 }
 
+/* qty buttons (delegation) */
+document.addEventListener("click", (e)=>{
+  const btn = e.target.closest("button[data-qty]");
+  if(!btn) return;
+  const id = btn.getAttribute("data-id");
+  const delta = Number(btn.getAttribute("data-qty"));
+  changeQty(id, delta);
+});
+
+/* ===========================
+   CHECKOUT (email order request)
+=========================== */
+function renderCheckout(){
+  const page = location.hash.replace("#/", "") || "home";
+  if(page !== "checkout") return;
+
+  const cart = loadCart();
+  const empty = $("#checkoutEmpty");
+  const wrap = $("#checkoutWrap");
+  const sum = $("#orderSummary");
+
+  if(!empty || !wrap || !sum) return;
+
+  if(cart.length === 0){
+    empty.style.display = "block";
+    wrap.style.display = "none";
+    return;
+  }
+
+  empty.style.display = "none";
+  wrap.style.display = "block";
+
+  const t = cartTotals(cart);
+  const lines = cart.map(it => `• ${it.name} x${it.qty} — ${money(it.price * it.qty)}`).join("<br>");
+  sum.innerHTML = `
+    ${lines}
+    <br><br>
+    <strong>Subtotal:</strong> ${money(t.subtotal)}<br>
+    <strong>Total:</strong> ${money(t.total)}
+  `;
+}
+
+window.generateOrderEmail = function generateOrderEmail(){
+  const cart = loadCart();
+  const msgBox = $("#checkoutMsg");
+  if(!msgBox) return;
+
+  if(cart.length === 0){
+    msgBox.innerHTML = "<div class='error'>Your cart is empty.</div>";
+    return;
+  }
+
+  const name = safeText($("#coName")?.value);
+  const email = safeText($("#coEmail")?.value);
+  const phone = safeText($("#coPhone")?.value);
+  const a1 = safeText($("#coAddress1")?.value);
+  const a2 = safeText($("#coAddress2")?.value);
+  const city = safeText($("#coCity")?.value);
+  const pc = safeText($("#coPostcode")?.value);
+  const country = safeText($("#coCountry")?.value);
+
+  if(!name || !email || !a1 || !city || !pc || !country){
+    msgBox.innerHTML = "<div class='error'>Please fill all required fields (name, email, address, city, postcode, country).</div>";
+    return;
+  }
+  if(!isValidEmail(email)){
+    msgBox.innerHTML = "<div class='error'>Please enter a valid email.</div>";
+    return;
+  }
+
+  const orderId = "ZELYN-" + Date.now().toString().slice(-8);
+  const t = cartTotals(cart);
+
+  const itemsText = cart.map(it => `- ${it.name} x${it.qty} = ${money(it.price * it.qty)}`).join("\n");
+
+  const body =
+`New Order Request: ${orderId}
+
+CUSTOMER
+Name: ${name}
+Email: ${email}
+Phone: ${phone || "-"}
+
+SHIPPING ADDRESS
+${a1}
+${a2 ? (a2 + "\n") : ""}${city} ${pc}
+${country}
+
+ITEMS
+${itemsText}
+
+TOTAL
+Subtotal: ${money(t.subtotal)}
+Total: ${money(t.total)}
+
+NOTES
+(Reply with payment + delivery details)`;
+
+  const subject = `New Order Request — ${orderId}`;
+  const mailto = `mailto:${encodeURIComponent(SUPPORT_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  msgBox.innerHTML = "<div class='success'>Opening your email app with the order summary…</div>";
+  window.location.href = mailto;
+};
+
+/* ===========================
+   Boot
+=========================== */
+renderCart();
 </script>
 
 </body>
