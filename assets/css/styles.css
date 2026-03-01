@@ -209,8 +209,7 @@ main section:last-of-type {
   max-width: var(--content-max);
 }
 
-.product-wrap,
-.engineering-grid {
+.product-wrap {
   display: grid;
   gap: 1.3rem;
 }
@@ -251,7 +250,6 @@ main section:last-of-type {
   transform: translateY(-2px);
 }
 
-.engineering-grid img,
 .product-wrap img {
   border-radius: 1rem;
 }
@@ -347,10 +345,6 @@ img.hover-media {
   background: var(--surface);
 }
 
-.fit-guarantee {
-  background: color-mix(in srgb, var(--surface) 92%, white 8%);
-}
-
 .button-secondary {
   background: transparent;
   color: var(--ink);
@@ -442,8 +436,7 @@ img.hover-media {
     gap: 1.25rem;
   }
 
-  .product-wrap,
-  .engineering-grid {
+  .product-wrap {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
