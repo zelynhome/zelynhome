@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="ZELYN — 300TC cotton percale fitted sheets deep-fit engineered for European mattresses. Designed for Europe. Crafted in South India." />
+<meta name="description" content="ZELYN — 300TC cotton percale fitted sheets deep-fit engineered for European mattresses." />
 <title>ZELYN — Cotton Percale Bedding</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -18,39 +18,32 @@
   --muted:#58605d;
   --line:#e4e0d4;
   --accent:#4f6f63;
-  --accent-2:#e7f0ec;
   --radius:16px;
   --max:1120px;
-  --shadow:0 12px 28px rgba(0,0,0,.06);
-  --transition:180ms ease;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
 body{
   background:var(--bg);
   color:var(--ink);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
+  font-family:Inter,system-ui,sans-serif;
+  line-height:1.6;
 }
-a{color:inherit;text-decoration:none;}
+a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
-.wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto;}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto;}
 
 header{
   position:sticky;
   top:0;
-  z-index:20;
-  backdrop-filter:blur(10px);
-  background:color-mix(in srgb,var(--bg) 80%,white 20%);
+  background:rgba(246,243,236,.95);
+  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
 nav{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   min-height:72px;
-  gap:16px;
 }
 .brand{
   font-family:Fraunces,serif;
@@ -58,390 +51,81 @@ nav{
   text-transform:uppercase;
   font-size:20px;
 }
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  font-size:14px;
-  color:var(--muted);
-}
-.nav-links a{padding:6px 0;border-bottom:1px solid transparent;transition:var(--transition);}
-.nav-links a:hover{color:var(--ink);border-color:var(--ink);}
 
-.page{padding:64px 0;}
-.hero{padding-top:56px;}
-.hero-grid{
+.hero{
+  padding:80px 0;
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:28px;
-  align-items:stretch;
+  gap:40px;
+  align-items:center;
 }
-.hero-copy{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:34px;
-  box-shadow:var(--shadow);
-}
-.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;}
 .hero h1{
   font-family:Fraunces,serif;
-  font-size:clamp(34px,4.8vw,52px);
+  font-size:clamp(34px,4vw,52px);
   line-height:1.1;
-  margin:12px 0 14px;
+  margin-bottom:18px;
 }
-.hero p{color:var(--muted);max-width:58ch;}
-.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
-.pill{
-  font-size:12px;
+.hero p{
   color:var(--muted);
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:8px 12px;
-  background:#fbfaf7;
+  margin-bottom:24px;
 }
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
 .btn{
-  padding:12px 20px;
+  display:inline-block;
+  padding:14px 22px;
+  background:var(--accent);
+  color:white;
   border-radius:999px;
-  border:1px solid var(--line);
-  background:var(--paper);
-  cursor:pointer;
-  font-size:14px;
   font-weight:600;
-  transition:var(--transition);
 }
-.btn:hover{transform:translateY(-1px);}
-.btn-solid{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:white;
-}
-.hero-visual{
+
+.hero-image{
   border-radius:var(--radius);
-  border:1px solid #d5dacc;
-  background:
-    radial-gradient(circle at 20% 20%, #f6f8f2 0%, transparent 42%),
-    linear-gradient(145deg, #fdfdfb 0%, #e8eee7 60%, #d7e2db 100%);
-  box-shadow:var(--shadow);
-  padding:26px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:380px;
-}
-.hero-stat{font-size:13px;color:var(--muted);}
-.hero-stat strong{display:block;font-size:26px;color:var(--ink);font-family:Fraunces,serif;margin-bottom:3px;}
-.hero-note{
-  font-size:14px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(0,0,0,.07);
-  border-radius:12px;
-  padding:12px;
-}
-
-.section-title{
-  font-family:Fraunces,serif;
-  font-size:clamp(28px,4vw,38px);
-  margin-bottom:12px;
-}
-.section-subtitle{color:var(--muted);max-width:66ch;margin-bottom:20px;}
-
-.grid-4,.grid-3{
-  display:grid;
-  gap:14px;
-}
-.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
-.card{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
-}
-.feature-card h3{font-size:16px;margin-bottom:8px;}
-.feature-card p{font-size:14px;color:var(--muted);}
-
-.product-layout{
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:18px;
-  align-items:start;
-}
-.product-image{
-  min-height:300px;
-  border-radius:16px;
-  border:1px solid #d4dbd0;
-  background:
-    linear-gradient(135deg,#f8f9f6 0%,#e6ece5 45%,#d8e0d8 100%);
-  position:relative;
   overflow:hidden;
-}
-.product-image::before{
-  content:"";
-  position:absolute;
-  inset:22px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.85);
-}
-.product-image span{
-  position:absolute;
-  left:24px;
-  bottom:22px;
-  font-size:13px;
-  color:#32413a;
-  background:rgba(255,255,255,.82);
-  padding:8px 10px;
-  border-radius:8px;
-}
-.price{font-size:30px;font-family:Fraunces,serif;}
-.meta{font-size:14px;color:var(--muted);}
-ul{padding-left:18px;}
-li{margin:6px 0;}
-hr{margin:18px 0;border:0;border-top:1px solid var(--line);}
-
-.testimonial{background:var(--accent-2);border-color:#d4dfd8;}
-.testimonial blockquote{font-size:15px;}
-.testimonial cite{display:block;margin-top:12px;color:var(--muted);font-size:13px;}
-
-.faq details{border-top:1px solid var(--line);padding:12px 2px;}
-.faq details:last-child{border-bottom:1px solid var(--line);}
-.faq summary{cursor:pointer;font-weight:600;}
-.faq p{margin-top:8px;color:var(--muted);font-size:14px;}
-
-footer{
-  margin-top:72px;
-  padding:32px 0 104px;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-  font-size:14px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:14px;
+  border:1px solid var(--line);
 }
 
-.bottom-cta{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:var(--accent);
-  border-top:1px solid rgba(255,255,255,.25);
-  padding:10px 0;
-  z-index:15;
-}
-.bottom-cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.bottom-cta p{color:#e9f1ec;font-size:13px;}
-.bottom-cta a{
-  color:white;
-  padding:10px 16px;
-  border-radius:999px;
-  background:rgba(255,255,255,.16);
-  font-weight:700;
-  font-size:14px;
-}
-
-@media(max-width:980px){
-  .hero-grid,.product-layout{grid-template-columns:1fr;}
-  .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .grid-3{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
-}
-@media(max-width:640px){
-  .wrap{width:min(var(--max),calc(100% - 28px));}
-  .nav-links{display:none;}
-  .page{padding:52px 0;}
-  .hero-copy{padding:24px;}
-  .grid-4{grid-template-columns:1fr;}
-  .bottom-cta .wrap{flex-direction:column;align-items:flex-start;}
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="wrap">
     <nav>
-      <a class="brand" href="#">ZELYN</a>
-      <div class="nav-links" aria-label="Primary">
-        <a href="#product">Product</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#story">Story</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <div class="brand">ZELYN</div>
+      <div>EU Queen 160×200×35</div>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="page hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Designed for European homes</p>
-        <h1>Deep-fit fitted sheets that stay smooth all night.</h1>
-        <p>
-          Crisp 300TC cotton percale with a breathable matte finish, engineered for EU mattress + topper combinations.
-          Minimalist, durable, and tailored for everyday comfort.
-        </p>
 
-        <div class="pills">
-          <span class="pill">EU Queen 160×200×35 cm</span>
-          <span class="pill">300TC Cotton Percale</span>
-          <span class="pill">OEKO-TEX® tested materials</span>
-        </div>
+<section class="hero">
 
-        <div class="cta-row">
-          <a href="#product" class="btn btn-solid">Shop fitted sheet — €29</a>
-          <a href="#faq" class="btn">See FAQs</a>
-        </div>
-      </div>
+  <div>
+    <h1>Deep-fit fitted sheets that stay smooth all night.</h1>
+    <p>
+      Crisp 300TC cotton percale engineered for European mattresses and topper combinations.
+      Minimalist. Durable. Designed for everyday comfort.
+    </p>
+    <a href="#product" class="btn">Shop fitted sheet — €29</a>
+  </div>
 
-      <div class="hero-visual" aria-label="Product quality highlights">
-        <div class="hero-stat">
-          <strong>35 cm</strong>
-          Deep pocket for modern mattress setups.
-        </div>
-        <div class="hero-stat">
-          <strong>360° elastic</strong>
-          Full-perimeter hold with reinforced corners.
-        </div>
-        <div class="hero-note">
-          “Built for real beds, not perfect showroom corners.”
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="hero-image">
+    <img 
+      src="assets/images/hero-160x200.webp" 
+      alt="ZELYN white cotton percale fitted sheet on EU Queen mattress"
+      loading="eager">
+  </div>
 
-  <section id="benefits" class="page">
-    <h2 class="section-title">Why customers switch to ZELYN</h2>
-    <p class="section-subtitle">A practical product page built around trust signals, fit clarity, and comfort-first material information.</p>
-    <div class="grid-4">
-      <article class="card feature-card">
-        <h3>300TC Percale</h3>
-        <p>Crisp hotel-like hand feel that softens naturally over time without becoming limp.</p>
-      </article>
-      <article class="card feature-card">
-        <h3>Deep-fit Design</h3>
-        <p>35 cm pocket depth engineered for mattress + topper combinations common in Europe.</p>
-      </article>
-      <article class="card feature-card">
-        <h3>Secure Every Corner</h3>
-        <p>½ inch woven full-perimeter elastic keeps edges neat and tight through the night.</p>
-      </article>
-      <article class="card feature-card">
-        <h3>Skin-Safe Materials</h3>
-        <p>OEKO-TEX tested components chosen for daily contact and breathable year-round use.</p>
-      </article>
-    </div>
-  </section>
+</section>
 
-  <section id="product" class="page">
-    <h2 class="section-title">Fitted Sheet — EU Queen</h2>
-    <p class="section-subtitle">Clear specs, no fluff. Exactly what you need for a secure fit and breathable sleep.</p>
-    <div class="product-layout">
-      <div class="product-image" role="img" aria-label="Stylized fitted sheet preview">
-        <span>Calm White • Matte Percale Finish</span>
-      </div>
-
-      <article class="card">
-        <p class="price">€29.00</p>
-        <p class="meta">Deep-fit engineered. Crisp 300TC percale. Secure full-perimeter elastic.</p>
-
-        <hr>
-
-        <strong>Fit & Construction</strong>
-        <ul>
-          <li>EU Queen: 160 × 200 × 35 cm</li>
-          <li>35 cm deep-fit construction</li>
-          <li>½ inch full-perimeter elastic</li>
-          <li>Reinforced stress-point stitching</li>
-          <li>No slipping, no loose corners</li>
-        </ul>
-
-        <hr>
-
-        <strong>Fabric Details</strong>
-        <ul>
-          <li>100% cotton percale</li>
-          <li>300 thread count</li>
-          <li>True 1-up / 1-down weave</li>
-          <li>Crisp, breathable, matte finish</li>
-          <li>Crafted in South India</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="story" class="page">
-    <h2 class="section-title">Our Story</h2>
-    <div class="grid-3">
-      <article class="card">
-        ZELYN began in Karur, South India — a textile region known for export-grade home linen manufacturing.
-        We focus on one essential: a fitted sheet that actually fits European mattresses properly.
-      </article>
-      <article class="card testimonial">
-        <blockquote>
-          “Finally, a fitted sheet that doesn't ride up after one night. It feels fresh, cool, and properly made.”
-        </blockquote>
-        <cite>— Early customer feedback, Amsterdam</cite>
-      </article>
-      <article class="card">
-        <strong>Care</strong>
-        <ul>
-          <li>Machine wash at 40°C</li>
-          <li>Tumble dry low or line dry</li>
-          <li>Gets softer with each wash</li>
-          <li>Avoid bleach to preserve fibers</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="faq" class="page faq">
-    <h2 class="section-title">FAQ</h2>
-    <details open>
-      <summary>Is this true EU Queen sizing?</summary>
-      <p>Yes. The fitted sheet is sized at 160 × 200 × 35 cm and optimized for European bed dimensions.</p>
-    </details>
-    <details>
-      <summary>Will it fit mattress + topper combinations?</summary>
-      <p>Yes. The 35 cm pocket and full-perimeter elastic are designed specifically for deeper, layered setups.</p>
-    </details>
-    <details>
-      <summary>Is percale soft or slippery?</summary>
-      <p>Percale feels crisp and matte (not glossy). It breathes well and softens naturally with regular use.</p>
-    </details>
-    <details>
-      <summary>Where is it made?</summary>
-      <p>Designed for Europe and crafted in South India using export-grade production standards.</p>
-    </details>
-  </section>
-
-  <section id="contact" class="page">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:support@zelynhome.com">support@zelynhome.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/zelyn.home" target="_blank" rel="noopener noreferrer">@zelyn.home</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <div>© ZELYN — Designed for Europe. Crafted in South India.</div>
-      <div><a href="#story">About</a> · <a href="#faq">FAQ</a></div>
-      <div><a href="#contact">Support</a></div>
-    </div>
-  </footer>
 </main>
 
-<div class="bottom-cta" aria-label="Sticky product CTA">
-  <div class="wrap">
-    <p>EU Queen 160×200×35 · 300TC percale · 30-day returns</p>
-    <a href="#product">Shop fitted sheet — €29</a>
-  </div>
-</div>
 </body>
 </html>
