@@ -5,28 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ZELYN — Deep-Fit Engineered Fitted Sheets for European Mattresses</title>
   <meta name="description" content="ZELYN deep-fit engineered fitted sheets for European mattresses. 300TC cotton percale, 35cm pocket depth, and full-perimeter reinforced elastic for stable fit.">
+  <link rel="canonical" href="https://zelynhome.com/">
+  <link rel="alternate" hreflang="en" href="https://zelynhome.com/">
+  <link rel="alternate" hreflang="de" href="https://zelynhome.com/de/">
+  <link rel="alternate" hreflang="x-default" href="https://zelynhome.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+  (function() {
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang && userLang.startsWith('de') && !window.location.pathname.startsWith('/de')) {
+      window.location.href = '/de/';
+    }
+  })();
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="ZELYN Home">ZELYN</a>
+      <a class="logo" href="/" aria-label="ZELYN Home">ZELYN</a>
       <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
       <nav class="site-nav" data-nav>
         <a href="#product">Product</a>
-        <a href="returns.html">Returns</a>
-        <a href="wholesale.html">Wholesale</a>
+        <a href="/returns.html">Returns</a>
+        <a href="/wholesale.html">Wholesale</a>
         <a href="mailto:support@zelynhome.com">Contact</a>
+      </nav>
+      <nav class="language-switch">
+        <a href="/" class="lang-en active">EN</a>
+        <span class="divider">|</span>
+        <a href="/de/" class="lang-de">DE</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="reveal section-hero">
-      <img class="hero-media hover-media" src="assets/images/hero-bedroom.webp" alt="Deep-fit fitted sheet on a European bed setup" width="1536" height="1024" fetchpriority="high" decoding="async">
+      <img class="hero-media hover-media" src="/assets/images/hero-bedroom.webp" alt="Deep-fit fitted sheet on a European bed setup" width="1536" height="1024" fetchpriority="high" decoding="async">
       <div class="hero-copy">
         <p class="kicker">Deep-fit engineered for European mattresses.</p>
         <h1>Finally, a fitted sheet that actually fits European beds.</h1>
@@ -43,15 +60,15 @@
     <section class="reveal section-proof section-flow-tight">
       <div class="section-inner proof-grid">
         <figure class="proof-item proof-item-large hover-media">
-          <img src="assets/images/fit-demonstration.webp" alt="Fitted sheet wrapped over mattress and topper profile" width="1024" height="1024" loading="lazy" decoding="async">
+          <img src="/assets/images/fit-demonstration.webp" alt="Fitted sheet wrapped over mattress and topper profile" width="1024" height="1024" loading="lazy" decoding="async">
           <figcaption>Corner geometry distributes tension across depth transitions to reduce upward creep during use.</figcaption>
         </figure>
         <figure class="proof-item hover-media">
-          <img src="assets/images/elastic-closeup.webp" alt="Close-up of full-perimeter elastic seam" width="1024" height="1024" loading="lazy" decoding="async">
+          <img src="/assets/images/elastic-closeup.webp" alt="Close-up of full-perimeter elastic seam" width="1024" height="1024" loading="lazy" decoding="async">
           <figcaption>½ inch woven perimeter elastic keeps continuous retention force around all four corners.</figcaption>
         </figure>
         <figure class="proof-item hover-media">
-          <img src="assets/images/topdown.webp" alt="Top-down view of smooth fitted sheet plane" width="1024" height="1024" loading="lazy" decoding="async">
+          <img src="/assets/images/topdown.webp" alt="Top-down view of smooth fitted sheet plane" width="1024" height="1024" loading="lazy" decoding="async">
           <figcaption>Top-surface stability minimizes wrinkle migration and preserves fit alignment overnight.</figcaption>
         </figure>
       </div>
@@ -106,7 +123,7 @@
 
     <section id="product" class="reveal section-product section-flow-tight">
       <div class="section-inner product-wrap">
-        <img class="hover-media" src="assets/images/folded.webp" alt="Folded ZELYN fitted sheet in cotton percale" width="1024" height="1024" loading="lazy" decoding="async">
+        <img class="hover-media" src="/assets/images/folded.webp" alt="Folded ZELYN fitted sheet in cotton percale" width="1024" height="1024" loading="lazy" decoding="async">
         <div class="product-copy">
           <h2>Fitted Sheet — EU Queen</h2>
           <p class="spec">160 × 200 × 35 cm</p>
@@ -120,7 +137,7 @@
             <li>Made in India</li>
           </ul>
           <a class="button" href="mailto:support@zelynhome.com?subject=Buy%20Now%20%E2%80%94%20ZELYN%20EU%20Queen">Buy Now</a>
-          <a class="button button-secondary" href="wholesale.html">Wholesale Enquiry</a>
+          <a class="button button-secondary" href="/wholesale.html">Wholesale Enquiry</a>
         </div>
       </div>
     </section>
@@ -206,15 +223,15 @@
 
   <footer class="site-footer">
     <div class="footer-inner footer-links">
-      <a href="returns.html">Returns</a>
-      <a href="wholesale.html">Wholesale</a>
+      <a href="/returns.html">Returns</a>
+      <a href="/wholesale.html">Wholesale</a>
       <a href="mailto:support@zelynhome.com">Contact</a>
       <a href="#">Privacy</a>
       <span>Made in India</span>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -228,12 +245,14 @@
       "size": "160x200x35",
       "material": "Cotton Percale",
       "image": [
-        "assets/images/topdown.webp",
-        "assets/images/folded.webp",
-        "assets/images/fit-demonstration.webp"
+        "https://zelynhome.com/assets/images/topdown.webp",
+        "https://zelynhome.com/assets/images/folded.webp",
+        "https://zelynhome.com/assets/images/fit-demonstration.webp"
       ],
       "offers": {
         "@type": "Offer",
+        "url": "https://zelynhome.com/",
+        "price": "34.99",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock"
       }

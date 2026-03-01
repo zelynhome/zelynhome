@@ -146,6 +146,30 @@ h3 + p {
   text-decoration: none;
 }
 
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.language-switch a {
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 200ms ease;
+}
+
+.language-switch a.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.language-switch .divider {
+  opacity: 0.45;
+}
+
 .site-nav.is-open {
   display: flex;
   flex-direction: column;
@@ -415,6 +439,10 @@ img.hover-media {
   .site-nav {
     display: flex;
     position: static;
+  }
+
+  .language-switch {
+    font-size: 0.82rem;
   }
 
   .hero-media {
