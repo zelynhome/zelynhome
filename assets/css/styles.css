@@ -221,12 +221,10 @@ main section {
   border-radius: 8px;
   font-weight: 500;
   margin-top: 0.35rem;
-  transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .button:hover {
   background: #202020;
-  transform: translateY(-1px);
 }
 
 .engineering-grid img,
