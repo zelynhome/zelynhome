@@ -259,13 +259,15 @@ main section:last-of-type {
 
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(12px);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0ms;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 0ms;
 }
 
 .hover-media {
@@ -455,6 +457,9 @@ img.hover-media {
     width: auto;
   }
 
+}
+
+@media (hover: hover) and (pointer: fine) {
   .hover-media:hover img {
     transform: scale(1.02);
   }
@@ -498,8 +503,10 @@ img.hover-media {
   .reveal.is-visible,
   .button,
   .hover-media img,
+  img.hover-media,
   .faq-answer {
     transition: none;
+    transition-delay: 0ms;
     transform: none;
     opacity: 1;
   }
