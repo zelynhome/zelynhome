@@ -7,6 +7,7 @@
   --brand: #111311;
   --max: 1120px;
   --content-max: 720px;
+  --paragraph-max: 680px;
   --measure: 720px;
 }
 
@@ -28,7 +29,7 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--bg);
-  line-height: 1.65;
+  line-height: 1.72;
   font-size: 1rem;
 }
 
@@ -66,10 +67,12 @@ h3 {
 
 h1 {
   font-size: clamp(2rem, 6.6vw, 4rem);
+  font-weight: 300;
 }
 
 h2 {
   font-size: clamp(1.55rem, 4vw, 2.45rem);
+  letter-spacing: -0.03em;
 }
 
 h3 {
@@ -79,6 +82,16 @@ h3 {
 p,
 ul {
   margin: 0 0 1.15rem;
+}
+
+p {
+  max-width: var(--paragraph-max);
+}
+
+h1 + p,
+h2 + p,
+h3 + p {
+  margin-top: 0.3rem;
 }
 
 .site-header {
@@ -397,6 +410,10 @@ img.hover-media {
 }
 
 @media (min-width: 768px) {
+  h1 {
+    font-size: clamp(2.3rem, 5.4vw, 4.25rem);
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -471,6 +488,29 @@ img.hover-media {
 
 
 @media (max-width: 767px) {
+  h1 {
+    font-size: clamp(1.9rem, 8.8vw, 2.8rem);
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 1.05rem;
+    line-height: 1.2;
+  }
+
+  p,
+  ul {
+    margin-bottom: 1.25rem;
+    line-height: 1.76;
+  }
+
+  h1 + p,
+  h2 + p,
+  h3 + p {
+    margin-top: 0.45rem;
+  }
+
   .section-flow-tight .section-inner {
     padding-top: 2rem;
   }
