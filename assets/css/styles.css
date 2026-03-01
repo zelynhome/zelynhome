@@ -1,0 +1,267 @@
+:root {
+  --bg: #f7f5f0;
+  --surface: #fcfbf8;
+  --ink: #111311;
+  --muted: #66706a;
+  --line: #e7e3da;
+  --brand: #1a1f1b;
+  --max: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.8rem;
+  line-height: 1.15;
+}
+
+p,
+ul {
+  margin: 0 0 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 94%, white 6%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner,
+.footer-inner,
+.section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.1rem;
+}
+
+.header-inner {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.menu-toggle {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.site-nav {
+  display: none;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.site-nav a {
+  text-decoration: none;
+}
+
+.site-nav.is-open {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64px;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+main section {
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.hero-copy {
+  padding: 2.2rem 1.1rem 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.kicker {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: clamp(1.95rem, 6vw, 3.3rem);
+}
+
+.trust-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.83rem;
+  margin-top: 1.3rem;
+}
+
+.section-inner {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.product-wrap,
+.engineering-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.product-copy {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1.15rem;
+}
+
+.spec {
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.price {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+.engineering-grid img,
+.product-wrap img {
+  border-radius: 1rem;
+}
+
+.faq-item {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.faq-item p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.page-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.4rem 1.1rem;
+}
+
+.page-content ul {
+  padding-left: 1rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.footer-inner {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex;
+    position: static;
+  }
+
+  .hero-media {
+    aspect-ratio: 16 / 8;
+  }
+
+  .hero-copy {
+    padding-top: 3rem;
+    padding-bottom: 3.4rem;
+  }
+
+  .trust-row {
+    grid-template-columns: repeat(4, auto);
+    gap: 1rem;
+  }
+
+  .product-wrap,
+  .engineering-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .section-inner {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

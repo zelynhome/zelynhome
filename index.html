@@ -1,216 +1,163 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>ZELYN — Deep-Fit Organic Percale Fitted Sheets</title>
-<meta name="description" content="300TC organic cotton percale fitted sheet engineered for European mattresses. Deep-fit 35cm pocket. OEKO-TEX® certified. €34.99.">
-
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
---bg:#F7F5F0;
---ink:#1A1D1B;
---muted:#6B6D6B;
---line:#E6E2DA;
---accent:#111;
-}
-
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter,sans-serif;
-background:var(--bg);
-color:var(--ink);
-line-height:1.6;
-}
-
-h1,h2,h3{
-font-family:Fraunces,serif;
-font-weight:400;
-letter-spacing:-0.5px;
-}
-
-.container{
-max-width:1180px;
-margin:auto;
-padding:80px 24px;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-padding:24px;
-font-size:14px;
-border-bottom:1px solid var(--line);
-}
-
-header a{
-text-decoration:none;
-color:var(--ink);
-margin-left:20px;
-}
-
-.hero{
-display:grid;
-grid-template-columns:1.1fr 1fr;
-gap:60px;
-align-items:center;
-padding:80px 24px;
-max-width:1180px;
-margin:auto;
-}
-
-.hero img{
-width:100%;
-border-radius:16px;
-}
-
-.trust-row{
-font-size:13px;
-color:var(--muted);
-margin-top:20px;
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.product{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-border-top:1px solid var(--line);
-padding-top:80px;
-}
-
-.product img{
-width:100%;
-border-radius:12px;
-}
-
-.price{
-font-size:28px;
-margin:20px 0;
-}
-
-button{
-background:#111;
-color:#fff;
-padding:14px 26px;
-border:none;
-font-size:14px;
-cursor:pointer;
-}
-
-.section{
-border-top:1px solid var(--line);
-}
-
-.footer{
-border-top:1px solid var(--line);
-padding:40px 24px;
-font-size:14px;
-color:var(--muted);
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZELYN — Premium Deep-Fit Bedding for Europe</title>
+  <meta name="description" content="Premium organic percale fitted sheet built for European mattresses with deep-fit performance and a refined Scandinavian aesthetic.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="ZELYN Home">ZELYN</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">Menu</button>
+      <nav class="site-nav" data-nav>
+        <a href="index.html">Product</a>
+        <a href="returns.html">Returns</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="amazon.html">Amazon EU</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-<div>ZELYN</div>
-<div>
-<a href="returns.html">Returns</a>
-<a href="wholesale.html">Wholesale</a>
-<a href="amazon.html">Amazon EU</a>
-</div>
-</header>
+  <main>
+    <section>
+      <img class="hero-media" src="assets/images/hero-bedroom.webp" alt="Crisp white fitted sheet in a modern bedroom">
+      <div class="hero-copy">
+        <p class="kicker">Premium EU Bedding</p>
+        <h1>Deep-fit fitted sheets designed to stay smooth through the night.</h1>
+        <p>Clean structure. Crisp organic percale. Built for European beds that combine mattress and topper comfort.</p>
+        <div class="trust-row" aria-label="Trust highlights">
+          <span>OEKO-TEX® Standard 100</span>
+          <span>30-day returns</span>
+          <span>EU sizing precision</span>
+          <span>Made in India</span>
+        </div>
+      </div>
+    </section>
 
-<section class="hero">
-<div>
-<h1>Deep-fit fitted sheets that stay smooth all night.</h1>
-<p>300TC organic cotton percale engineered for European mattresses and topper combinations.</p>
-<div class="trust-row">
-<span>OEKO-TEX® Certified</span>
-<span>30-Day Returns</span>
-<span>EU Standard Sizing</span>
-<span>Made in India</span>
-</div>
-</div>
-<img src="assets/images/hero-bedroom.webp" alt="White fitted sheet on European mattress">
-</section>
+    <section id="product">
+      <div class="section-inner product-wrap">
+        <img src="assets/images/topdown.webp" alt="Top view of ZELYN fitted sheet">
+        <div class="product-copy">
+          <h2>Fitted Sheet — EU Queen</h2>
+          <p class="spec">160 × 200 × 35 cm</p>
+          <p class="price">€34.99</p>
+          <ul>
+            <li>300TC long-staple organic cotton percale</li>
+            <li>Deep 35cm pocket for mattress + topper setups</li>
+            <li>Reinforced full-perimeter elastic hold</li>
+            <li>Breathable matte finish for year-round use</li>
+          </ul>
+          <a class="button" href="amazon.html">Shop on Amazon EU</a>
+        </div>
+      </div>
+    </section>
 
-<section class="container product">
-<img src="assets/images/topdown.webp" alt="Top view fitted sheet">
-<div>
-<h2>Fitted Sheet — EU Queen</h2>
-<p>160 × 200 × 35 cm</p>
+    <section>
+      <div class="section-inner engineering-grid">
+        <div>
+          <h2>Engineering that holds every corner.</h2>
+          <p>Every sheet is woven in balanced percale, pre-shrunk for consistent fit, and finished with durable edge reinforcement to reduce lift and bunching.</p>
+        </div>
+        <img src="assets/images/elastic-closeup.webp" alt="Close-up of reinforced elastic seam">
+      </div>
+    </section>
 
-<div class="price">€34.99</div>
+    <section>
+      <div class="section-inner">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+          <h3>Will this fit mattresses with a topper?</h3>
+          <p>Yes. The 35cm deep pocket is designed for common European mattress-and-topper combinations.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How does percale feel?</h3>
+          <p>Percale feels crisp, breathable, and cool with a smooth matte finish.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Where is the sheet made?</h3>
+          <p>Our fitted sheet is made in India under consistent quality and material controls.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<ul>
-<li>300TC long-staple cotton percale</li>
-<li>Deep-fit engineered for European mattresses</li>
-<li>Full-perimeter reinforced elastic</li>
-<li>Breathable matte finish</li>
-<li>OEKO-TEX® Standard 100</li>
-</ul>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span data-year></span> ZELYN</span>
+      <span>support@zelynhome.com</span>
+    </div>
+  </footer>
 
-<button>Buy Now</button>
-</div>
-</section>
-
-<section class="container section">
-<h2>Precision Construction</h2>
-<p>Woven in true 1/1 percale construction using compact 60s yarn. Mercerized, pre-shrunk and reinforced at all stress points for long-term structural integrity.</p>
-<img src="assets/images/elastic-closeup.webp" style="margin-top:40px;border-radius:12px;">
-</section>
-
-<section class="container section">
-<h2>Engineered for Real European Beds</h2>
-<p>35cm pocket depth accommodates mattresses with toppers without tension loss or corner lift.</p>
-<img src="assets/images/fit-demonstration.webp" style="margin-top:40px;border-radius:12px;">
-</section>
-
-<section class="container section">
-<h2>Why Percale?</h2>
-<p>Percale offers a crisp, hotel-like feel with superior breathability. Ideal for warm sleepers and year-round comfort.</p>
-<img src="assets/images/folded.webp" style="margin-top:40px;border-radius:12px;">
-</section>
-
-<section class="container section">
-<h2>Packaging</h2>
-<p>Minimal recyclable packaging designed for EU distribution efficiency.</p>
-<img src="assets/images/packaging.webp" style="margin-top:40px;border-radius:12px;">
-</section>
-
-<footer class="footer">
-<div>© 2026 ZELYN</div>
-<div>support@zelynhome.com</div>
-</footer>
-
-<script type="application/ld+json">
-{
-"@context":"https://schema.org/",
-"@type":"Product",
-"name":"ZELYN EU Queen Fitted Sheet",
-"image":"https://zelynhome.com/assets/images/topdown.webp",
-"description":"300TC organic cotton percale fitted sheet engineered for European mattresses. Deep-fit 35cm pocket.",
-"brand":{"@type":"Brand","name":"ZELYN"},
-"offers":{
-"@type":"Offer",
-"priceCurrency":"EUR",
-"price":"34.99",
-"availability":"https://schema.org/InStock"
-}
-}
-</script>
-
+  <script src="assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "ZELYN",
+          "url": "https://zelynhome.com",
+          "logo": "https://zelynhome.com/assets/images/packaging.webp",
+          "email": "support@zelynhome.com"
+        },
+        {
+          "@type": "Product",
+          "name": "ZELYN Fitted Sheet EU Queen",
+          "image": [
+            "https://zelynhome.com/assets/images/topdown.webp",
+            "https://zelynhome.com/assets/images/fit-demonstration.webp"
+          ],
+          "description": "Premium 300TC organic cotton percale fitted sheet with deep-fit 35cm pocket for European mattresses.",
+          "brand": {
+            "@type": "Brand",
+            "name": "ZELYN"
+          },
+          "countryOfAssembly": "India",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EUR",
+            "price": "34.99",
+            "availability": "https://schema.org/InStock",
+            "url": "https://zelynhome.com"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Will this fit mattresses with a topper?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The 35cm deep pocket is designed for common European mattress-and-topper combinations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does percale feel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Percale feels crisp, breathable, and cool with a smooth matte finish."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is the sheet made?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The sheet is made in India under consistent quality controls."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 </body>
 </html>
