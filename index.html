@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="ZELYN — 300TC cotton percale fitted sheets deep-fit engineered for European mattresses." />
+<meta name="description" content="ZELYN — Deep-fit engineered cotton percale fitted sheets designed for European mattresses. Crafted in South India." />
 <title>ZELYN — Cotton Percale Bedding</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,10 @@
   --bg:#f6f3ec;
   --paper:#ffffff;
   --ink:#181b1a;
-  --muted:#58605d;
-  --line:#e4e0d4;
+  --muted:#5f6763;
+  --line:#e5e1d6;
   --accent:#4f6f63;
-  --radius:18px;
+  --radius:20px;
   --max:1120px;
 }
 
@@ -28,7 +28,7 @@ body{
   background:var(--bg);
   color:var(--ink);
   font-family:Inter,system-ui,sans-serif;
-  line-height:1.6;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 a{text-decoration:none;color:inherit;}
@@ -47,7 +47,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  min-height:72px;
+  min-height:76px;
 }
 .brand{
   font-family:Fraunces,serif;
@@ -55,140 +55,128 @@ nav{
   text-transform:uppercase;
   font-size:20px;
 }
-.nav-right{
+.nav-links{
+  display:flex;
+  gap:24px;
   font-size:14px;
   color:var(--muted);
 }
+.nav-links a:hover{color:var(--ink);}
 
 .hero{
-  padding:100px 0;
+  padding:110px 0;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:64px;
+  gap:80px;
   align-items:center;
 }
-
-.hero-copy{
-  max-width:520px;
-}
-
 .hero h1{
   font-family:Fraunces,serif;
-  font-size:clamp(38px,4.5vw,54px);
+  font-size:clamp(40px,4.5vw,56px);
   line-height:1.05;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
-
 .hero p{
-  font-size:16px;
   color:var(--muted);
-  margin-bottom:28px;
+  margin-bottom:32px;
+  max-width:52ch;
 }
-
 .btn{
   display:inline-block;
-  padding:14px 26px;
+  padding:14px 28px;
   background:var(--accent);
   color:white;
   border-radius:999px;
   font-weight:600;
-  transition:180ms ease;
+  transition:0.2s ease;
 }
 .btn:hover{transform:translateY(-2px);}
-
 .hero-image{
   border-radius:var(--radius);
   overflow:hidden;
   border:1px solid var(--line);
-  box-shadow:0 20px 40px rgba(0,0,0,.06);
+  box-shadow:0 24px 50px rgba(0,0,0,.06);
 }
 
-.section{
-  padding:90px 0;
-}
-
+.section{padding:100px 0;}
 .section h2{
   font-family:Fraunces,serif;
-  font-size:32px;
+  font-size:34px;
   margin-bottom:14px;
 }
-
 .section p.lead{
   color:var(--muted);
   max-width:60ch;
-  margin-bottom:36px;
+  margin-bottom:40px;
 }
 
-.features{
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:24px;
+  gap:28px;
 }
-
 .card{
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:24px;
+  padding:28px;
 }
-
-.card h3{
-  font-size:16px;
-  margin-bottom:8px;
-}
-
-.card p{
-  font-size:14px;
-  color:var(--muted);
-}
+.card h3{margin-bottom:10px;font-size:16px;}
+.card p{font-size:14px;color:var(--muted);}
 
 .product{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:64px;
+  gap:80px;
   align-items:start;
 }
-
 .product img{
   border-radius:var(--radius);
   border:1px solid var(--line);
 }
-
 .price{
   font-family:Fraunces,serif;
-  font-size:30px;
-  margin-bottom:10px;
+  font-size:32px;
+  margin-bottom:8px;
 }
-
 .meta{
   color:var(--muted);
-  margin-bottom:20px;
-}
-
-ul{
-  padding-left:18px;
   margin-bottom:24px;
 }
+ul{padding-left:18px;margin-bottom:28px;}
 li{margin:6px 0;}
 
-footer{
+.faq details{
   border-top:1px solid var(--line);
-  padding:40px 0;
-  margin-top:80px;
+  padding:18px 0;
+}
+.faq summary{
+  cursor:pointer;
+  font-weight:600;
+}
+.faq p{
+  margin-top:10px;
   color:var(--muted);
   font-size:14px;
 }
 
+footer{
+  border-top:1px solid var(--line);
+  padding:60px 0;
+  margin-top:100px;
+  color:var(--muted);
+  font-size:14px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
 @media(max-width:900px){
-  .hero,
-  .product{
-    grid-template-columns:1fr;
-    gap:40px;
-    padding:60px 0;
-  }
-  .features{
-    grid-template-columns:1fr;
-  }
+  .hero,.product{grid-template-columns:1fr;gap:50px;padding:70px 0;}
+  .grid-3{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -199,7 +187,12 @@ footer{
   <div class="wrap">
     <nav>
       <div class="brand">ZELYN</div>
-      <div class="nav-right">EU Queen 160×200×35</div>
+      <div class="nav-links">
+        <a href="#product">Product</a>
+        <a href="#story">Story</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -207,75 +200,115 @@ footer{
 <main class="wrap">
 
 <section class="hero">
-  <div class="hero-copy">
-    <h1>Deep-fit fitted sheets that stay smooth all night.</h1>
+  <div>
+    <h1>Deep-fit engineered for European mattresses.</h1>
     <p>
-      Crisp 300TC cotton percale engineered for European mattresses and topper combinations.
-      Minimalist. Durable. Designed for everyday comfort.
+      Crisp 300TC cotton percale designed for real EU mattress + topper combinations.
+      Breathable. Minimal. Built to stay smooth through the night.
     </p>
     <a href="#product" class="btn">Shop fitted sheet — €29</a>
   </div>
 
   <div class="hero-image">
-    <img 
-      src="assets/images/hero-160x200.webp"
-      alt="ZELYN white cotton percale fitted sheet on EU Queen mattress"
-      loading="eager">
+    <img src="assets/images/hero-160x200.webp" alt="ZELYN fitted sheet on EU Queen mattress" loading="eager">
   </div>
 </section>
 
 <section class="section">
-  <h2>Why customers switch to ZELYN</h2>
-  <p class="lead">
-    Built for modern European mattress setups. Deep-fit engineered for real homes.
-  </p>
-
-  <div class="features">
-    <div class="card">
-      <h3>300TC Percale</h3>
-      <p>Crisp hotel-like hand feel that softens naturally over time.</p>
-    </div>
+  <h2>Why ZELYN</h2>
+  <p class="lead">Designed around fit clarity, construction quality, and breathable everyday comfort.</p>
+  <div class="grid-3">
     <div class="card">
       <h3>35 cm Deep Fit</h3>
-      <p>Designed for mattress + topper combinations common across EU homes.</p>
+      <p>Built specifically for European mattress + topper setups.</p>
+    </div>
+    <div class="card">
+      <h3>300TC Percale</h3>
+      <p>Crisp, matte finish that softens naturally over time.</p>
     </div>
     <div class="card">
       <h3>360° Elastic</h3>
-      <p>Full-perimeter hold with reinforced corner construction.</p>
+      <p>Full-perimeter hold with reinforced corner stitching.</p>
     </div>
   </div>
 </section>
 
 <section id="product" class="section product">
   <div>
-    <img 
-      src="assets/images/hero-160x200.webp"
-      alt="ZELYN white fitted sheet close view"
-      loading="lazy">
+    <img src="assets/images/hero-160x200.webp" alt="ZELYN fitted sheet close view" loading="lazy">
   </div>
-
   <div>
     <div class="price">€29.00</div>
-    <div class="meta">Deep-fit engineered. Crisp percale. Secure elastic.</div>
+    <div class="meta">EU Queen 160 × 200 × 35 cm</div>
 
-    <strong>Specifications</strong>
+    <strong>Construction</strong>
     <ul>
-      <li>160 × 200 × 35 cm</li>
       <li>100% cotton percale</li>
       <li>300 thread count</li>
+      <li>True 1-up / 1-down weave</li>
       <li>½ inch full-perimeter elastic</li>
-      <li>Crafted in South India</li>
+      <li>Reinforced stress-point stitching</li>
     </ul>
 
     <a href="#" class="btn">Add to cart</a>
   </div>
 </section>
 
+<section id="story" class="section">
+  <h2>Our Story</h2>
+  <p class="lead">
+    ZELYN began in Karur, South India — a region known for export-grade home textiles.
+    We focus on one essential product done properly: a fitted sheet that truly fits European beds.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Care & Materials</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Breathable Cotton</h3>
+      <p>Natural cotton percale chosen for year-round airflow.</p>
+    </div>
+    <div class="card">
+      <h3>Care</h3>
+      <p>Machine wash 40°C. Tumble dry low. Softens with each wash.</p>
+    </div>
+    <div class="card">
+      <h3>Materials</h3>
+      <p>OEKO-TEX tested components for daily skin contact.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section faq">
+  <h2>FAQ</h2>
+  <details open>
+    <summary>Is this true EU Queen sizing?</summary>
+    <p>Yes. Sized at 160 × 200 × 35 cm, engineered for European beds.</p>
+  </details>
+  <details>
+    <summary>Will it fit mattress + topper combinations?</summary>
+    <p>Yes. The 35 cm pocket depth accommodates layered setups.</p>
+  </details>
+  <details>
+    <summary>What is your return policy?</summary>
+    <p>30-day returns. Unused items in original condition are eligible for refund.</p>
+  </details>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:support@zelynhome.com">support@zelynhome.com</a></p>
+  <p>Instagram: <a href="https://instagram.com/zelyn.home" target="_blank">@zelyn.home</a></p>
+</section>
+
 </main>
 
 <footer>
-  <div class="wrap">
-    © ZELYN — Designed for Europe. Crafted in South India.
+  <div class="wrap footer-grid">
+    <div>© ZELYN — Designed for Europe. Crafted in South India.</div>
+    <div><a href="#faq">FAQ</a></div>
+    <div><a href="#contact">Support</a></div>
   </div>
 </footer>
 
